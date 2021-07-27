@@ -7,7 +7,6 @@ import {
   Input,
   Formulario,
   FormurarioDiv,
-  Select,
   ButtonDiv,
   Button,
 } from "../CadastrarColaboradores/styles";
@@ -16,30 +15,52 @@ import Logo from "../../components/img/logo.svg";
 import api from '../../services/api'
 
 const CadastrarColaboradores = () => {
+  const [idColaborador, setIdColaborador] = useState(0) 
+  const [idEndereco, setIdEndereco] = useState(0) 
 
   const [colaborador, setColaborador] = useState({
     nome:'',
-    usuario:'',
+    cnh:'',
+    rg:'',
     cpf:'',
+    contaBancaria:0,
     email:'',
     dataNascimento:'',
-    endereco:{
+    isLeader:0,
+    pix:'',
+    idColaboradoresEnderecos:[
+      {
+        idColaboradoresEnderecos:{
+          idColaborador:idColaborador,
+          idEndereco:idEndereco
+        }
+      }
+    ],
+
+  });
+  const [endereco, setEndereco] = useState({
       rua:'',
       numero:'',
       complemento:'',
       bairro:'',
       cidade:'',
       estado:'',
-      cep:''
-    }
+      cep:'',
+      pais:''
 
   });
 
   async function handleSubmit(event) {
     event.preventDefault();
-    await api.post('/cliente',colaborador)
-    .then(()=>{alert('Colaborador cadastrado com sucesso')})
-    .catch((e)=>{alert('Erro de requisição '+ e)})
+    await api.post('/enderecos',endereco)
+    .then((response)=>{setIdEndereco(response.data.id)})
+    .catch((e)=>{alert('Endereço inválido '+ e)})
+    await api.post('/colaboradores',colaborador)
+    .then((response)=>{setIdColaborador(response.data.id)})
+    .catch((e)=>{alert('Colaborador inválido '+ e)})
+    await api.put(`/colaboradores/${idColaborador}/endereco/${idEndereco}`,colaborador)
+    .then((response)=>{alert('Cadastro ralizado com sucesso! ')})
+    .catch((e)=>{alert('Colaborador inválido '+ e)})
   }
 
   const handleChange = (event) =>{
@@ -51,12 +72,10 @@ const CadastrarColaboradores = () => {
 
   const handleChangeEndereco = (event) => {
     event.preventDefault();
-    const novoColaborador = {...colaborador}
-    novoColaborador.endereco[event.target.id] = event.target.value
-    setColaborador(novoColaborador)
+    const novoEndereco = {...endereco}
+    novoEndereco.endereco[event.target.id] = event.target.value
+    setEndereco(novoEndereco)
   }
-
-  console.log(colaborador);
 
   return (
     <PrincipalDiv>
@@ -71,60 +90,20 @@ const CadastrarColaboradores = () => {
       </HeaderDiv>
       <Formulario onSubmit={(event)=>handleSubmit(event)}>
         <FormurarioDiv>
-          {/* <Select name="estados-brasil">
-            <option value="">Cargo</option>
-            <option value="LID">Líder</option>
-            <option value="ADM">Administrador</option>
-            <option value="COL">Colaborador</option>
-          </Select> */}
           <Input onChange={(event)=> handleChange(event)} id='nome' value={colaborador.nome} type="text" placeholder="Nome"></Input>
-          <Input onChange={(event)=> handleChange(event)} id='usuario' value={colaborador.usuario} type="text" placeholder="Usuario"></Input>
+          <Input onChange={(event)=> handleChange(event)} id='cnh' value={colaborador.cnh} type="text" placeholder="CNH"></Input>
           <Input onChange={(event)=> handleChange(event)} id='cpf' value={colaborador.cpf} type="text" placeholder="CPF"></Input>
           <Input onChange={(event)=> handleChange(event)} id='email' value={colaborador.email} type="email" placeholder="Email"></Input>
           <Input onChange={(event)=> handleChange(event)} id='dataNascimento' value={colaborador.dataNascimento} type="text" placeholder="Data de nascimento"></Input>
-          {/* <Input type="text" placeholder="RG"></Input> */}
-          <Input onChange={(event)=> handleChangeEndereco(event)} id='rua' value={colaborador.endereco.rua} type="text" placeholder="Rua"></Input>
+          <Input onChange={(event)=> handleChangeEndereco(event)} id='rua' value={endereco.rua} type="text" placeholder="Rua"></Input>
         </FormurarioDiv>
         <FormurarioDiv>
-          <Input onChange={(event)=> handleChangeEndereco(event)} id='numero' value={colaborador.endereco.numero} type="number" placeholder="Número"></Input>
-          <Input onChange={(event)=> handleChangeEndereco(event)} id='complemento' value={colaborador.endereco.complemento} type="text" placeholder="Complemento"></Input>
-          <Input onChange={(event)=> handleChangeEndereco(event)} id='bairro' value={colaborador.endereco.bairro} type="text" placeholder="Bairro"></Input>
-          <Input onChange={(event)=> handleChangeEndereco(event)} id='cidade' value={colaborador.endereco.cidade} type="text" placeholder="Cidade"></Input>
-          {/* <Select name="estados-brasil">
-            <option value="">Estado</option>
-            <option value="AC">Acre</option>
-            <option value="AL">Alagoas</option>
-            <option value="AP">Amapá</option>
-            <option value="AM">Amazonas</option>
-            <option value="BA">Bahia</option>
-            <option value="CE">Ceará</option>
-            <option value="DF">Distrito Federal</option>
-            <option value="ES">Espírito Santo</option>
-            <option value="GO">Goiás</option>
-            <option value="MA">Maranhão</option>
-            <option value="MT">Mato Grosso</option>
-            <option value="MS">Mato Grosso do Sul</option>
-            <option value="MG">Minas Gerais</option>
-            <option value="PA">Pará</option>
-            <option value="PB">Paraíba</option>
-            <option value="PR">Paraná</option>
-            <option value="PE">Pernambuco</option>
-            <option value="PI">Piauí</option>
-            <option value="RJ">Rio de Janeiro</option>
-            <option value="RN">Rio Grande do Norte</option>
-            <option value="RS">Rio Grande do Sul</option>
-            <option value="RO">Rondônia</option>
-            <option value="RR">Roraima</option>
-            <option value="SC">Santa Catarina</option>
-            <option value="SP">São Paulo</option>
-            <option value="SE">Sergipe</option>
-            <option value="TO">Tocantins</option>
-          </Select> */}
-          <Input onChange={(event)=> handleChangeEndereco(event)} id='estado' value={colaborador.endereco.estado} type="text" placeholder="Estado"></Input>
-          <Input onChange={(event)=> handleChangeEndereco(event)} id='cep' value={colaborador.endereco.cep} type="number" placeholder="CEP"></Input>
-          {/* <Input type="number" placeholder="Telefone"></Input>
-          <Input type="text" placeholder="Conta bancária"></Input>
-          <Input type="text" placeholder="PIX"></Input> */}
+          <Input onChange={(event)=> handleChangeEndereco(event)} id='numero' value={endereco.numero} type="number" placeholder="Número"></Input>
+          <Input onChange={(event)=> handleChangeEndereco(event)} id='complemento' value={endereco.complemento} type="text" placeholder="Complemento"></Input>
+          <Input onChange={(event)=> handleChangeEndereco(event)} id='bairro' value={endereco.bairro} type="text" placeholder="Bairro"></Input>
+          <Input onChange={(event)=> handleChangeEndereco(event)} id='cidade' value={endereco.cidade} type="text" placeholder="Cidade"></Input>
+          <Input onChange={(event)=> handleChangeEndereco(event)} id='estado' value={endereco.estado} type="text" placeholder="Estado"></Input>
+          <Input onChange={(event)=> handleChangeEndereco(event)} id='cep' value={endereco.cep} type="number" placeholder="CEP"></Input>
         </FormurarioDiv>
         <ButtonDiv>
           <Button type='submit'>Cadastrar</Button>

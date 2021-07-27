@@ -19,22 +19,23 @@ const PesquisaColaborador = () => {
   console.log(colaborador)
 
   useEffect(() => {
-    api
-      .get("/cliente")
+    api.get("/colaboradores", {auth:{username:'t2m', password:'123456'}})
       .then((response) => setColaboradores(response.data))
       .catch((err) => {
         console.error("ops! ocorrei um erro" + err);
       });
   }, []);
 
-  const ColabLink = React.forwardRef ((props,ref) => (
-    <a ref={ref} {...props}>{props.children}</a>
-  ))
+  const handleSetColaborador = (p) => {
+    setColaborador(p)
+    console.log(p)
+  }
+
   const colab = colaboradores.map((p, i) => (
     <Link
       key={i}
       to="/colaborador"
-      onClick={() => setColaborador(p)}
+      onClick={() => handleSetColaborador(p)}
       style={{ width: "45%", height: "50px", margin: "8px 30px", textDecoration: "none" }}>
       <Card>
         <p>{p.nome}</p>
