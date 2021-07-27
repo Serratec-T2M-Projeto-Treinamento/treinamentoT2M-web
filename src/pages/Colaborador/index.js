@@ -1,11 +1,54 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { AuthContext } from "../../providers/auth";
 import { Link } from "react-router-dom";
 import Logo from "../../components/img/logo.svg";
-import { PrincipalDiv, CardColaboradorDiv, HeaderDiv, TituloDiv, Texto } from "./styles";
+import {
+  PrincipalDiv,
+  CardColaboradorDiv,
+  HeaderDiv,
+  TituloDiv,
+  Texto,
+} from "./styles";
+import api from "../../services/api";
 
 const Colaborador = () => {
-  const { colaborador } = React.useContext(AuthContext);
+  const { colaborador, endereco, setEndereco } = React.useContext(AuthContext);
+  useEffect(() => {
+    api
+      .get(
+        `/enderecos/${colaborador.setColaboradoresEnderecos[0].idColaboradoresEnderecos.idEndereco}`,
+        { auth: { username: "t2m", password: "123456" } }
+      )
+      .then((response) => setEndereco(response.data))
+      .catch((err) => {
+        console.error("ops! ocorrei um erro" + err);
+      });
+  }, []);
+
+  const handlePermissao = () => {
+    if(colaborador.permissao=2){
+      return(
+        <p>
+          <b>Permissão: </b>
+          Administrador
+        </p>
+        )
+    }else if(colaborador.permissao=1){
+      return(
+        <p>
+          <b>Permissão: </b>
+          Líder
+        </p>
+        )
+    }else{
+      return(
+        <p>
+          <b>Permissão: </b>
+          Colaborador
+        </p>
+      )}
+  };
+
   return (
     <PrincipalDiv>
       <HeaderDiv>
@@ -18,18 +61,71 @@ const Colaborador = () => {
         <div style={{ width: "225px", height: "10px" }}></div>
       </HeaderDiv>
       <CardColaboradorDiv>
-        <p><b>Nome: </b>{colaborador.nome}</p>
-        <p><b>Usuário: </b>{colaborador.usuario}</p>
-        <p><b>CPF: </b>{colaborador.cpf}</p>
-        <p><b>Email: </b>{colaborador.email}</p>
-        <p><b>Data de nascimento: </b>{colaborador.dataNascimento}</p>
-        <p><b>Rua: </b>{colaborador.endereco.rua}</p>
-        <p><b>Número: </b>{colaborador.endereco.numero}</p>
-        <p><b>Complemento: </b>{colaborador.endereco.complemento}</p>
-        <p><b>Bairro: </b>{colaborador.endereco.bairro}</p>
-        <p><b>Cidade: </b>{colaborador.endereco.cidade}</p>
-        <p><b>Estado: </b>{colaborador.endereco.estado}</p>
-        <p><b>CEP: </b>{colaborador.endereco.cep}</p>
+        <p>
+          <b>Nome: </b>
+          {colaborador.nome}
+        </p>
+        <p>
+          <b>CPF: </b>
+          {colaborador.cpf}
+        </p>
+        <p>
+          <b>CNH: </b>
+          {colaborador.cnh}
+        </p>
+        <p>
+          <b>RG: </b>
+          {colaborador.rg}
+        </p>
+        <p>
+          <b>Conta bancária: </b>
+          {colaborador.contaBancaria}
+        </p>
+        <p>
+          <b>PIX: </b>
+          {colaborador.pix}
+        </p>
+        <p>
+          <b>Email: </b>
+          {colaborador.email}
+        </p>
+        <p>
+          <b>Data de nascimento: </b>
+          {colaborador.dataNascimento}
+        </p>
+        <p>
+          <b>Rua: </b>
+          {endereco.rua}
+        </p>
+        <p>
+          <b>Número: </b>
+          {endereco.numero}
+        </p>
+        <p>
+          <b>Complemento: </b>
+          {endereco.complemento}
+        </p>
+        <p>
+          <b>Bairro: </b>
+          {endereco.bairro}
+        </p>
+        <p>
+          <b>Cidade: </b>
+          {endereco.cidade}
+        </p>
+        <p>
+          <b>Estado: </b>
+          {endereco.estado}
+        </p>
+        <p>
+          <b>País: </b>
+          {endereco.pais}
+        </p>
+        <p>
+          <b>CEP: </b>
+          {endereco.cep}
+        </p>
+        {handlePermissao()}
       </CardColaboradorDiv>
     </PrincipalDiv>
   );
