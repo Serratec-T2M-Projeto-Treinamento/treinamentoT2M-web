@@ -26,16 +26,12 @@ const PesquisaColaborador = () => {
       });
   }, []);
 
-  const handleSetColaborador = (p) => {
-    setColaborador(p)
-    console.log(p)
-  }
 
   const colab = colaboradores.map((p, i) => (
     <Link
       key={i}
       to="/colaborador"
-      onClick={() => handleSetColaborador(p)}
+      onClick={() => setColaborador(p)}
       style={{ width: "45%", height: "50px", margin: "8px 30px", textDecoration: "none" }}>
       <Card>
         <p>{p.nome}</p>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   PrincipalDiv,
   HeaderDiv,
@@ -18,6 +18,19 @@ import api from '../../services/api'
 const CadastrarColaboradores = () => {
   const [idColaborador, setIdColaborador] = useState(0)
   const [idEndereco, setIdEndereco] = useState(0)
+  const [posicoes, setPosicoes] = useState([]);
+
+  useEffect(() => {
+    api.get("/posicoes", {auth:{username:'t2m', password:'123456'}})
+      .then((response) => setPosicoes(response.data))
+      .catch((err) => {
+        console.error("ops! ocorrei um erro" + err);
+      });
+  }, []);
+
+  const posicoesSelect = posicoes.map((p, i) => (
+    <option key={i} value={p.idPosicoes}>{p.nome}</option>
+  ));
 
   const [colaborador, setColaborador] = useState({
     nome: '',
@@ -29,7 +42,7 @@ const CadastrarColaboradores = () => {
     dataNascimento: '',
     pix: '',
     posicao: {
-      idPosicoes: 0
+      idPosicoes: 1
     },
     permissao: 0,
     setColaboradoresEnderecos: [
@@ -86,6 +99,13 @@ const CadastrarColaboradores = () => {
     setColaborador(novoColaborador)
   }
 
+  const handleChangePosicao = (event) => {
+    event.preventDefault();
+    const novoColaborador = { ...colaborador }
+    novoColaborador[event.target.id].idPosicoes = parseInt(event.target.value)
+    setColaborador(novoColaborador)
+  }
+
   const handleChangeEndereco = (event) => {
     event.preventDefault();
     const novoEndereco = { ...endereco }
@@ -116,6 +136,9 @@ const CadastrarColaboradores = () => {
             <option value='0'>Colaborador</option>
             <option value='1'>Lider</option>
             <option value='2'>Administrador</option>
+          </Select>
+          <Select onChange={(event) => handleChangePosicao(event)} id='posicao'>
+            {posicoesSelect}
           </Select>
           <Input onChange={(event) => handleChange(event)} id='contaBancaria' value={colaborador.contaBancaria} type="number" placeholder="Conta Bancaria"></Input>
 
