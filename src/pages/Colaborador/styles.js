@@ -36,20 +36,24 @@ export const Texto = styled.h1`
 `;
 export const CardColaboradorDiv = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   width: 70%;
   height: 70%;
   border:solid;
+  align-items: center;
   justify-content: center;
   margin-top: 50px;
   border-radius: 15px;
   background-color: white;
-  font-size: 20px;
-  line-height: 0.3;
-  padding-left: 25%;
+  
+  
   box-sizing:border-box;
 `;
-export const Info = styled.p`
-  
+export const CardColaboradorDivInterna = styled.div`
+width: 45%;
+height: 90%;
+font-size: 25px;
+line-height: 1;
 `;
 
