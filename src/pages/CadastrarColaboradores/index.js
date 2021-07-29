@@ -16,12 +16,10 @@ import Logo from "../../components/img/logo.svg";
 import api from '../../services/api'
 
 const CadastrarColaboradores = () => {
-  const [idColaborador, setIdColaborador] = useState(0)
-  const [idEndereco, setIdEndereco] = useState(0)
   const [posicoes, setPosicoes] = useState([]);
 
   useEffect(() => {
-    api.get("/posicoes", {auth:{username:'t2m', password:'123456'}})
+    api.get("/posicoes", { auth: { username: 't2m', password: '123456' } })
       .then((response) => setPosicoes(response.data))
       .catch((err) => {
         console.error("ops! ocorrei um erro" + err);
@@ -34,25 +32,16 @@ const CadastrarColaboradores = () => {
 
   const [colaborador, setColaborador] = useState({
     nome: '',
-    cnh: '',
-    rg: '',
-    cpf: '',
-    contaBancaria: 0,
-    email: '',
     dataNascimento: '',
+    email: '',
     pix: '',
+    cpf: '',
+    rg: '',
+    cnh: '',
+    permissao: 0,
     posicao: {
       idPosicoes: 1
-    },
-    permissao: 0,
-    setColaboradoresEnderecos: [
-      {
-        idColaboradoresEnderecos: {
-          idColaborador: idColaborador,
-          idEndereco: idEndereco
-        }
-      }
-    ],
+    }
 
   });
   const [endereco, setEndereco] = useState({
@@ -64,28 +53,32 @@ const CadastrarColaboradores = () => {
     estado: '',
     cep: '',
     pais: ''
-
   });
 
   async function handleSubmit(event) {
     event.preventDefault();
+    const responseColaborador = await api.post('/colaboradores', colaborador)
+    const idColaborador = responseColaborador.data.idColaboradores
+    alert('Post colaborador realizado com sucesso!')
 
-    // await api.post('/enderecos', endereco)
-    //   .then((response) => { setIdEndereco(response.data.id) })
-    //   .catch((e) => { alert('Endereço inválido ' + e) })
+    const responseEndereco = await api.post('/enderecos', endereco)
+    const idEndereco = responseEndereco.data.idEnderecos
+    alert('Post endereco realizado com sucesso!')
 
-    // await api.post('/colaboradores', colaborador)
-    //   .then((response) => { setIdColaborador(response.data.id) })
-    //   .catch((e) => { alert('Colaborador inválido ' + e) })
+    const response = await api.put(`/colabsEndrs/colaborador/${idColaborador}/enderecoAInserir/${idEndereco}`)
+    console.log(response.data);
+    alert('Put realizado com sucesso!')
 
-    // await api.put(`/colaboradores/${idColaborador}/endereco/${idEndereco}`, colaborador)
-    //   .then(() => { alert('Cadastro ralizado com sucesso! ') })
-    //   .catch((e) => { alert('Colaborador inválido ' + e) })
-    console.log(colaborador)
-    console.log(endereco)
   }
 
   const handleChange = (event) => {
+    event.preventDefault();
+    const novoColaborador = { ...colaborador }
+    novoColaborador[event.target.id] = event.target.value
+    setColaborador(novoColaborador)
+  }
+
+  const handleChangeData = (event) => {
     event.preventDefault();
     const novoColaborador = { ...colaborador }
     novoColaborador[event.target.id] = event.target.value
@@ -131,7 +124,7 @@ const CadastrarColaboradores = () => {
           <Input onChange={(event) => handleChange(event)} id='cpf' value={colaborador.cpf} type="text" placeholder="CPF"></Input>
           <Input onChange={(event) => handleChange(event)} id='rg' value={colaborador.rg} type="text" placeholder="RG"></Input>
           <Input onChange={(event) => handleChange(event)} id='email' value={colaborador.email} type="email" placeholder="Email"></Input>
-          <Input onChange={(event) => handleChange(event)} id='dataNascimento' value={colaborador.dataNascimento} type="date" placeholder="Data de nascimento"></Input>
+          <Input onChange={(event) => handleChangeData(event)} id='dataNascimento' value={colaborador.dataNascimento} type="text" placeholder="Data de nascimento"></Input>
           <Select onChange={(event) => handleChangePermissao(event)} id='permissao'>
             <option value='0'>Colaborador</option>
             <option value='1'>Lider</option>
@@ -140,7 +133,6 @@ const CadastrarColaboradores = () => {
           <Select onChange={(event) => handleChangePosicao(event)} id='posicao'>
             {posicoesSelect}
           </Select>
-          <Input onChange={(event) => handleChange(event)} id='contaBancaria' value={colaborador.contaBancaria} type="number" placeholder="Conta Bancaria"></Input>
 
         </FormurarioDiv>
         <FormurarioDiv>
@@ -152,7 +144,7 @@ const CadastrarColaboradores = () => {
           <Input onChange={(event) => handleChangeEndereco(event)} id='cidade' value={endereco.cidade} type="text" placeholder="Cidade"></Input>
           <Input onChange={(event) => handleChangeEndereco(event)} id='estado' value={endereco.estado} type="text" placeholder="Estado"></Input>
           <Input onChange={(event) => handleChangeEndereco(event)} id='pais' value={endereco.pais} type="text" placeholder="Pais"></Input>
-          <Input onChange={(event) => handleChangeEndereco(event)} id='cep' value={endereco.cep} type="number" placeholder="CEP"></Input>
+          <Input onChange={(event) => handleChangeEndereco(event)} id='cep' value={endereco.cep} type="text" placeholder="CEP"></Input>
         </FormurarioDiv>
         <ButtonDiv>
           <Button type='submit'>Cadastrar</Button>
