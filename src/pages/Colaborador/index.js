@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { AuthContext } from "../../providers/auth";
 import { Link } from "react-router-dom";
 import Logo from "../../components/img/logo.svg";
@@ -9,35 +9,54 @@ import {
   HeaderDiv,
   TituloDiv,
   Texto,
+  ColaboradorTituloDiv,
 } from "./styles";
 import api from "../../services/api";
 
 const Colaborador = () => {
-  const { colaborador, endereco, setEndereco } = React.useContext(AuthContext);
+  const { colaborador } = React.useContext(AuthContext);
+  const [ endereco, setEndereco ] = useState({});
+  const [projeto, setProjeto] = useState({});
+  const [formacoes, setFormacoes] = useState({});
+  const [treinamentos, setTreinamentos] = useState({});
+  // const [certificacoes, setCertificacoes] = useState({});
 
   useEffect(() => {
-    api
-      .get(
-        `/enderecos/${colaborador.setColaboradoresEnderecos[0].idColaboradoresEnderecos.idEndereco}`,
-        { auth: { username: "t2m", password: "123456" } }
-      )
+    api.get(`/enderecos/${colaborador.setColaboradoresEnderecos[0].idColaboradoresEnderecos.idEndereco}`)
       .then((response) => setEndereco(response.data))
       .catch((err) => {
         console.error("ops! ocorrei um erro" + err);
       });
+    api.get(`/projetos/${colaborador.setColaboradoresProjetos[0].idColaboradoresProjetos.idProjeto}`)
+      .then((response) => setProjeto(response.data))
+      .catch((err) => {
+        console.error("ops! ocorrei um erro" + err);
+      });
+      api.get(`/formacoes/${colaborador.setColaboradoresFormacoes[0].idColaboradoresFormacoes.idFormacao}`)
+      .then((response) => setFormacoes(response.data))
+      .catch((err) => {
+        console.error("ops! ocorrei um erro" + err);
+      });
+      api.get(`/treinamentos/${colaborador.setColaboradoresTreinamentos[0].idColaboradoresTreinamentos.idTreinamento}`)
+      .then((response) => setTreinamentos(response.data))
+      .catch((err) => {
+        console.error("ops! ocorrei um erro" + err);
+      });
+      // api.get(`/certificacoes/${colaborador.setColaboradoresCertificacoes[0].idColaboradoresCertificacoes.idCertificacao}`)
+      // .then((response) => setCertificacoes(response.data))
+      // .catch((err) => {
+      //   console.error("ops! ocorrei um erro" + err);
+      // });
   }, []);
 
-  const handleDate = () => {
-    const data = new Date(colaborador.dataNascimento)
+  const handleDate = (props) => {
+    const data = new Date(props)
     const dia = (data.getDate() + 1).toString().padStart(2, '0')
     const mes = (data.getMonth() + 1).toString().padStart(2, '0')
     const ano = data.getFullYear()
     const dataFormatada = `${dia}/${mes}/${ano}`
     return (
-      <p>
-        <b>Data de nascimento: </b>
-        {dataFormatada}
-      </p>
+        dataFormatada
     )
   }
 
@@ -78,6 +97,9 @@ const Colaborador = () => {
         <div style={{ width: "225px", height: "10px" }}></div>
       </HeaderDiv>
       <CardColaboradorDiv>
+        <ColaboradorTituloDiv>
+        <h2> Dados Cadastrais </h2>
+        </ColaboradorTituloDiv>
         <CardColaboradorDivInterna>
           <p>
             <b>Nome: </b>
@@ -96,10 +118,6 @@ const Colaborador = () => {
             {colaborador.rg}
           </p>
           <p>
-            <b>Conta bancária: </b>
-            {colaborador.contaBancaria}
-          </p>
-          <p>
             <b>PIX: </b>
             {colaborador.pix}
           </p>
@@ -107,7 +125,10 @@ const Colaborador = () => {
             <b>Email: </b>
             {colaborador.email}
           </p>
-          {handleDate()}
+          <p>
+            <b>Data de nascimento: </b>
+          {handleDate(colaborador.dataNascimento)}
+          </p>
           {handlePermissao()}
           <p>
             <b>Posição: </b>
@@ -150,6 +171,123 @@ const Colaborador = () => {
         </CardColaboradorDivInterna>
 
       </CardColaboradorDiv>
+      <CardColaboradorDiv>
+      <ColaboradorTituloDiv>
+        <h2> Projetos </h2>
+        </ColaboradorTituloDiv>
+        <CardColaboradorDivInterna>
+          <p>
+            <b>Nome: </b>
+            {projeto.nome}
+          </p>
+          <p>
+            <b>Descrição: </b>
+            {projeto.descricao}
+          </p>
+          <p>
+            <b>Gerenciamento: </b>
+            {projeto.appGerenciamento}
+          </p>
+          <p>
+            <b>Segmento: </b>
+            {projeto.segmento}
+          </p>
+          <p>
+            <b>Data de entrega esperada: </b>
+            {handleDate(projeto.dataEntregaEsperada)}
+          </p>
+          
+        </CardColaboradorDivInterna>
+        <CardColaboradorDivInterna>
+          <p>
+            <b>Data de entrega: </b>
+            {handleDate(projeto.dataEntrega)}
+          </p>
+          <p>
+            <b>Equipe: </b>
+            {projeto.equipe}
+          </p>
+          <p>
+            <b>Função: </b>
+            {colaborador.setColaboradoresProjetos[0].funcao}
+          </p>
+          <p>
+            <b>Data início: </b>
+            {handleDate(colaborador.setColaboradoresProjetos[0].dataInicio)}
+          </p>
+          <p>
+            <b>Data saída: </b>
+            {handleDate(colaborador.setColaboradoresProjetos[0].dataSaida)}
+          </p>
+        </CardColaboradorDivInterna>
+      </CardColaboradorDiv>
+      <CardColaboradorDiv>
+      <ColaboradorTituloDiv>
+        <h2> Formações </h2>
+        </ColaboradorTituloDiv>
+        <CardColaboradorDivInterna>
+          <p>
+            <b>Nome: </b>
+            {formacoes.nome}
+          </p>
+          <p>
+            <b>Nível: </b>
+            {formacoes.nivel}
+          </p>
+          <p>
+            <b>Instituição: </b>
+            {formacoes.instituicao}
+          </p>
+        </CardColaboradorDivInterna>
+        <CardColaboradorDivInterna>
+          <p>
+            <b>Data entrada: </b>
+            {handleDate(colaborador.setColaboradoresFormacoes[0].dataEntrada)}
+          </p>
+          <p>
+            <b>Data conclusão: </b>
+            {handleDate(colaborador.setColaboradoresFormacoes[0].dataConclusao)}
+          </p> 
+        </CardColaboradorDivInterna>
+      </CardColaboradorDiv>
+      <CardColaboradorDiv>
+      <ColaboradorTituloDiv>
+        <h2> Treinamentos </h2>
+        </ColaboradorTituloDiv>
+        <CardColaboradorDivInterna>
+          <p>
+            <b>Nome: </b>
+            {treinamentos.nome}
+          </p>
+          <p>
+          <b>Instituição: </b>
+            {treinamentos.instituicao}
+          </p>
+        </CardColaboradorDivInterna>
+        <CardColaboradorDivInterna>
+          <p>
+            <b>Carga horária: </b>
+            {treinamentos.cargaHoraria} hora(s)
+          </p>
+          <p>
+            <b>Descrição: </b>
+            {treinamentos.descricao}
+          </p> 
+        </CardColaboradorDivInterna>
+      </CardColaboradorDiv>
+      {/* <CardColaboradorDiv>
+      <ColaboradorTituloDiv>
+        <h2> Certificações </h2>
+        </ColaboradorTituloDiv>
+        <CardColaboradorDivInterna>
+          <p>
+            <b>Data de obtenção: </b>
+             {handleDate(certificacoes.setColaboradoresCertificacoes[0].dataObtencao)}
+          </p>
+        </CardColaboradorDivInterna>
+        <CardColaboradorDivInterna>
+        </CardColaboradorDivInterna>
+      </CardColaboradorDiv> */}
     </PrincipalDiv>
   );
 };
