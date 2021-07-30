@@ -1,17 +1,19 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
   display: flex;
+  flex-direction: column;
   min-width: 400px;
+  border:red 1px solid;
+  box-sizing: border-box;
   align-items: center;
-  justify-content: center;
   margin: 0;
 `;
 export const Principal = styled.div`
   display: flex;
   flex-direction: column;
+  margin-top: 150px;
 `;
 export const Formulario = styled.form`
   display: flex;

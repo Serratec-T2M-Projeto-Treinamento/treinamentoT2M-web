@@ -98,8 +98,8 @@ export const Texto = styled.h2`
   }
   `;
   export const Cards = styled.div`
-  width: 89%;
-  height: 70%;
+  width: 90%;
+  height: 500px;
   margin-top:50px;
   background-color: #01a999;
   border-radius: 15px;

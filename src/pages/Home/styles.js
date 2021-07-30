@@ -1,4 +1,4 @@
-import styled from "styled-components";
+  import styled from "styled-components";
 
 export const Principal = styled.div`
   display: flex;
@@ -6,6 +6,7 @@ export const Principal = styled.div`
   width: 50%;
   min-width: 400px;
   align-items: center;
+  margin-top: 150px;
 `;
 export const Button = styled.button`
   border: none;

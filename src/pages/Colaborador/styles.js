@@ -6,6 +6,8 @@ export const PrincipalDiv = styled.div`
   width: 90%;
   height: 90%;
   align-items: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
 `;
 export const HeaderDiv = styled.div`
   display: flex;
@@ -49,6 +51,14 @@ export const CardColaboradorDiv = styled.div`
   
   
   box-sizing:border-box;
+`;
+export const ColaboradorTituloDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: 90%;
+  align-items: center;
+  margin-top: 10px;
 `;
 export const CardColaboradorDivInterna = styled.div`
 width: 45%;

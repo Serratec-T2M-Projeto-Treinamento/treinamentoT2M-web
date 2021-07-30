@@ -4,8 +4,9 @@ export const PrincipalDiv = styled.div`
   display: flex;
   flex-direction: column;
   width: 90%;
-  height: 90%;
+  height: 600px;
   align-items: center;
+  margin-top: 50px;
 `;
 export const HeaderDiv = styled.div`
   display: flex;
@@ -46,7 +47,7 @@ export const Formulario = styled.form`
   background-color: black;
   border-radius: 15px;
   padding: 20px 0;
-  margin-top: 30px;
+  margin-top: 40px;
 `;
 export const FormurarioDiv = styled.div`
   display: flex;
