@@ -9,6 +9,7 @@ export const Container = styled.div`
   box-sizing: border-box;
   align-items: center;
   margin: 0;
+  height: max-content;
 `;
 export const Principal = styled.div`
   display: flex;
