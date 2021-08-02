@@ -73,6 +73,19 @@ export const Input = styled.input`
     outline:none;
   }
 `;
+export const TituloEndereco = styled.div`
+  color:grey;
+  border: none;
+  border-radius: 30px;
+  width: 90%;
+  margin: 10px;
+  font-size: 20px;
+  padding:15px;
+  font-weight: 700;
+  background-color: white;
+  color: black;
+  text-align: center;
+`;
 
 export const Select = styled.select`
   color:grey;
@@ -104,3 +117,4 @@ export const Button = styled.button`
   background-color: #01a999;
   color: white;
 `;
+

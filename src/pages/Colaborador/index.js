@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { AuthContext } from "../../providers/auth";
 import { Link } from "react-router-dom";
 import Logo from "../../components/img/logo.svg";
@@ -10,8 +10,8 @@ import {
   TituloDiv,
   Texto,
   ColaboradorTituloDiv,
+  Titulo,
 } from "./styles";
-import api from "../../services/api";
 
 const Colaborador = () => {
   const { colaborador } = React.useContext(AuthContext);
@@ -88,6 +88,106 @@ const Colaborador = () => {
           </p>
         </CardColaboradorDivInterna>
   ))
+  const projetos = colaborador.setColabsProjs.map((p,i)=>(
+    <CardColaboradorDiv key={i}>
+    <CardColaboradorDivInterna>
+      <p>
+        <b>Nome: </b>
+        {p.projeto.nome}
+      </p>
+      <p>
+        <b>Descrição: </b>
+        {p.projeto.descricao}
+      </p>
+      <p>
+        <b>Gerenciamento: </b>
+        {p.projeto.appGerenciamento}
+      </p>
+      <p>
+        <b>Segmento: </b>
+        {p.projeto.segmento}
+      </p>
+    </CardColaboradorDivInterna>
+    <CardColaboradorDivInterna>
+      <p>
+        <b>Data de entrega esperada: </b>
+        {handleDate(p.projeto.dataEntregaEsperada)}
+      </p>
+      <p>
+        <b>Data de entrega: </b>
+        {handleDate(p.projeto.dataEntrega)}
+      </p>
+      <p>
+        <b>Equipe: </b>
+        {p.projeto.equipe}
+      </p>
+    </CardColaboradorDivInterna>
+  </CardColaboradorDiv>
+  )) 
+  const formacoes = colaborador.setColabsForms.map((p,i)=>(
+    <CardColaboradorDiv key={i}>
+    <CardColaboradorDivInterna>
+      <p>
+        <b>Nome: </b>
+        {p.formacao.nome}
+      </p>
+      <p>
+        <b>Nível: </b>
+        {p.formacao.nivel}
+      </p>
+      </CardColaboradorDivInterna>
+      <CardColaboradorDivInterna>
+      <p>
+        <b>Instituição: </b>
+        {p.formacao.instituicao}
+      </p>
+    </CardColaboradorDivInterna>
+  </CardColaboradorDiv>
+  ))
+  const treinamentos = colaborador.setColabsTrns.map((p,i)=>(
+    <CardColaboradorDiv key={i}>
+    <CardColaboradorDivInterna>
+      <p>
+        <b>Nome: </b>
+        {p.treinamento.nome}
+      </p>
+      <p>
+        <b>Instituição: </b>
+        {p.treinamento.instituicao}
+      </p>
+      </CardColaboradorDivInterna>
+      <CardColaboradorDivInterna>
+      <p>
+        <b>Carga horária: </b>
+        {p.treinamento.cargaHoraria} hora(s)
+      </p>
+      <p>
+        <b>Descrição: </b>
+        {p.treinamento.descricao}
+      </p>
+    </CardColaboradorDivInterna>
+  </CardColaboradorDiv>
+  ))
+  const certificacoes = colaborador.setColabsCerts.map((p,i)=>(
+    <CardColaboradorDiv key={i}>
+    <CardColaboradorDivInterna>
+      <p>
+        <b>Nome: </b>
+        {p.certificacao.nomeCertificado}
+      </p>
+      <p>
+        <b>Instituição: </b>
+        {p.certificacao.instituicaoCertificado}
+      </p>
+      </CardColaboradorDivInterna>
+      <CardColaboradorDivInterna>
+      <p>
+        <b>Validade: </b>
+        {p.certificacao.tempoValidade} ano(s)
+      </p>
+    </CardColaboradorDivInterna>
+  </CardColaboradorDiv>
+  ))
 
   return (
     <PrincipalDiv>
@@ -141,110 +241,16 @@ const Colaborador = () => {
         </CardColaboradorDivInterna>
         {enderecos}
       </CardColaboradorDiv>
-      {/* <CardColaboradorDiv>
-        <ColaboradorTituloDiv>
-          <h2> Projetos </h2>
-        </ColaboradorTituloDiv>
-        <CardColaboradorDivInterna>
-          <p>
-            <b>Nome: </b>
-            {projeto.nome}
-          </p>
-          <p>
-            <b>Descrição: </b>
-            {projeto.descricao}
-          </p>
-          <p>
-            <b>Gerenciamento: </b>
-            {projeto.appGerenciamento}
-          </p>
-          <p>
-            <b>Segmento: </b>
-            {projeto.segmento}
-          </p>
-          <p>
-            <b>Data de entrega esperada: </b>
-            {handleDate(projeto.dataEntregaEsperada)}
-          </p>
-
-        </CardColaboradorDivInterna>
-        <CardColaboradorDivInterna>
-          <p>
-            <b>Data de entrega: </b>
-            {handleDate(projeto.dataEntrega)}
-          </p>
-          <p>
-            <b>Equipe: </b>
-            {projeto.equipe}
-          </p>
-          <p>
-            <b>Função: </b>
-            {colaborador.setColaboradoresProjetos[0].funcao}
-          </p>
-          <p>
-            <b>Data início: </b>
-            {handleDate(colaborador.setColaboradoresProjetos[0].dataInicio)}
-          </p>
-          <p>
-            <b>Data saída: </b>
-            {handleDate(colaborador.setColaboradoresProjetos[0].dataSaida)}
-          </p>
-        </CardColaboradorDivInterna>
-      </CardColaboradorDiv> */}
-      {/* <CardColaboradorDiv>
-        <ColaboradorTituloDiv>
-          <h2> Formações </h2>
-        </ColaboradorTituloDiv>
-        <CardColaboradorDivInterna>
-          <p>
-            <b>Nome: </b>
-            {formacoes.nome}
-          </p>
-          <p>
-            <b>Nível: </b>
-            {formacoes.nivel}
-          </p>
-          <p>
-            <b>Instituição: </b>
-            {formacoes.instituicao}
-          </p>
-        </CardColaboradorDivInterna>
-        <CardColaboradorDivInterna>
-          <p>
-            <b>Data entrada: </b>
-            {handleDate(colaborador.setColaboradoresFormacoes[0].dataEntrada)}
-          </p>
-          <p>
-            <b>Data conclusão: </b>
-            {handleDate(colaborador.setColaboradoresFormacoes[0].dataConclusao)}
-          </p>
-        </CardColaboradorDivInterna>
-      </CardColaboradorDiv> */}
-      {/* <CardColaboradorDiv>
-        <ColaboradorTituloDiv>
-          <h2> Treinamentos </h2>
-        </ColaboradorTituloDiv>
-        <CardColaboradorDivInterna>
-          <p>
-            <b>Nome: </b>
-            {treinamentos.nome}
-          </p>
-          <p>
-            <b>Instituição: </b>
-            {treinamentos.instituicao}
-          </p>
-        </CardColaboradorDivInterna>
-        <CardColaboradorDivInterna>
-          <p>
-            <b>Carga horária: </b>
-            {treinamentos.cargaHoraria} hora(s)
-          </p>
-          <p>
-            <b>Descrição: </b>
-            {treinamentos.descricao}
-          </p>
-        </CardColaboradorDivInterna>
-      </CardColaboradorDiv> */}
+        <Titulo>Projetos:</Titulo>
+        {projetos}
+        <Titulo>Formações:</Titulo>
+        {formacoes}
+        <Titulo>Treinamentos:</Titulo>
+        {treinamentos}
+        <Titulo>Certificações:</Titulo>
+        {certificacoes}
+     
+    
     </PrincipalDiv>
   );
 };
