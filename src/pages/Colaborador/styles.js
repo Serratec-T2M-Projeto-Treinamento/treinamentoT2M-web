@@ -17,6 +17,7 @@ export const HeaderDiv = styled.div`
   min-height: fit-content;
   align-items: center;
   justify-content: center;
+  margin-bottom: 25px;
 `;
 export const TituloDiv = styled.div`
   width: 70%;
@@ -32,7 +33,13 @@ export const TituloDiv = styled.div`
 `;
 export const Texto = styled.h1`
   color: black;
-  font-size: 26px;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+`;
+export const Titulo = styled.h2`
+  color: black;
+  font-size: 40px;
   font-weight: bold;
   text-align: center;
 `;
@@ -45,12 +52,12 @@ export const CardColaboradorDiv = styled.div`
   border:solid;
   align-items: center;
   justify-content: center;
-  margin-top: 50px;
+  margin-top: 25px;
+  margin-bottom: 25px;
   border-radius: 15px;
   background-color: white;
-  
-  
   box-sizing:border-box;
+  padding:10px 0;
 `;
 export const ColaboradorTituloDiv = styled.div`
   display: flex;
