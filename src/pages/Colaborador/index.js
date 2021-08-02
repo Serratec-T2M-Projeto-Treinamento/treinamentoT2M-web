@@ -15,39 +15,6 @@ import api from "../../services/api";
 
 const Colaborador = () => {
   const { colaborador } = React.useContext(AuthContext);
-  const [ endereco, setEndereco ] = useState({});
-  const [projeto, setProjeto] = useState({});
-  const [formacoes, setFormacoes] = useState({});
-  const [treinamentos, setTreinamentos] = useState({});
-  // const [certificacoes, setCertificacoes] = useState({});
-
-  useEffect(() => {
-    api.get(`/enderecos/${colaborador.setColaboradoresEnderecos[0].idColaboradoresEnderecos.idEndereco}`)
-      .then((response) => setEndereco(response.data))
-      .catch((err) => {
-        console.error("ops! ocorrei um erro" + err);
-      });
-    api.get(`/projetos/${colaborador.setColaboradoresProjetos[0].idColaboradoresProjetos.idProjeto}`)
-      .then((response) => setProjeto(response.data))
-      .catch((err) => {
-        console.error("ops! ocorrei um erro" + err);
-      });
-      api.get(`/formacoes/${colaborador.setColaboradoresFormacoes[0].idColaboradoresFormacoes.idFormacao}`)
-      .then((response) => setFormacoes(response.data))
-      .catch((err) => {
-        console.error("ops! ocorrei um erro" + err);
-      });
-      api.get(`/treinamentos/${colaborador.setColaboradoresTreinamentos[0].idColaboradoresTreinamentos.idTreinamento}`)
-      .then((response) => setTreinamentos(response.data))
-      .catch((err) => {
-        console.error("ops! ocorrei um erro" + err);
-      });
-      // api.get(`/certificacoes/${colaborador.setColaboradoresCertificacoes[0].idColaboradoresCertificacoes.idCertificacao}`)
-      // .then((response) => setCertificacoes(response.data))
-      // .catch((err) => {
-      //   console.error("ops! ocorrei um erro" + err);
-      // });
-  }, []);
 
   const handleDate = (props) => {
     const data = new Date(props)
@@ -56,19 +23,19 @@ const Colaborador = () => {
     const ano = data.getFullYear()
     const dataFormatada = `${dia}/${mes}/${ano}`
     return (
-        dataFormatada
+      dataFormatada
     )
   }
 
-  const handlePermissao = () => {
-    if (colaborador.permissao === 2) {
+  const handlePermissao = (props) => {
+    if (props === 2) {
       return (
         <p>
           <b>Permissão: </b>
           Administrador
         </p>
       )
-    } else if (colaborador.permissao === 1) {
+    } else if (props === 1) {
       return (
         <p>
           <b>Permissão: </b>
@@ -85,6 +52,43 @@ const Colaborador = () => {
     }
   };
 
+  const enderecos = colaborador.setColabsEndrs.map((p,i)=>(
+    <CardColaboradorDivInterna key={i}>
+          <p>
+            <b>Rua: </b>
+            {p.endereco.rua}
+          </p>
+          <p>
+            <b>Número: </b>
+            {p.endereco.numero}
+          </p>
+          <p>
+            <b>Complemento: </b>
+            {p.endereco.complemento}
+          </p>
+          <p>
+            <b>Bairro: </b>
+            {p.endereco.bairro}
+          </p>
+          <p>
+            <b>Cidade: </b>
+            {p.endereco.cidade}
+          </p>
+          <p>
+            <b>Estado: </b>
+            {p.endereco.estado}
+          </p>
+          <p>
+            <b>País: </b>
+            {p.endereco.pais}
+          </p>
+          <p>
+            <b>CEP: </b>
+            {p.endereco.cep}
+          </p>
+        </CardColaboradorDivInterna>
+  ))
+
   return (
     <PrincipalDiv>
       <HeaderDiv>
@@ -98,7 +102,7 @@ const Colaborador = () => {
       </HeaderDiv>
       <CardColaboradorDiv>
         <ColaboradorTituloDiv>
-        <h2> Dados Cadastrais </h2>
+          <h2> Dados Cadastrais </h2>
         </ColaboradorTituloDiv>
         <CardColaboradorDivInterna>
           <p>
@@ -127,53 +131,19 @@ const Colaborador = () => {
           </p>
           <p>
             <b>Data de nascimento: </b>
-          {handleDate(colaborador.dataNascimento)}
+            {handleDate(colaborador.dataNascimento)}
           </p>
-          {handlePermissao()}
+          {handlePermissao(colaborador.permissao)}
           <p>
             <b>Posição: </b>
             {colaborador.posicao.nome}
           </p>
         </CardColaboradorDivInterna>
-        <CardColaboradorDivInterna>
-          <p>
-            <b>Rua: </b>
-            {endereco.rua}
-          </p>
-          <p>
-            <b>Número: </b>
-            {endereco.numero}
-          </p>
-          <p>
-            <b>Complemento: </b>
-            {endereco.complemento}
-          </p>
-          <p>
-            <b>Bairro: </b>
-            {endereco.bairro}
-          </p>
-          <p>
-            <b>Cidade: </b>
-            {endereco.cidade}
-          </p>
-          <p>
-            <b>Estado: </b>
-            {endereco.estado}
-          </p>
-          <p>
-            <b>País: </b>
-            {endereco.pais}
-          </p>
-          <p>
-            <b>CEP: </b>
-            {endereco.cep}
-          </p>
-        </CardColaboradorDivInterna>
-
+        {enderecos}
       </CardColaboradorDiv>
-      <CardColaboradorDiv>
-      <ColaboradorTituloDiv>
-        <h2> Projetos </h2>
+      {/* <CardColaboradorDiv>
+        <ColaboradorTituloDiv>
+          <h2> Projetos </h2>
         </ColaboradorTituloDiv>
         <CardColaboradorDivInterna>
           <p>
@@ -196,7 +166,7 @@ const Colaborador = () => {
             <b>Data de entrega esperada: </b>
             {handleDate(projeto.dataEntregaEsperada)}
           </p>
-          
+
         </CardColaboradorDivInterna>
         <CardColaboradorDivInterna>
           <p>
@@ -220,10 +190,10 @@ const Colaborador = () => {
             {handleDate(colaborador.setColaboradoresProjetos[0].dataSaida)}
           </p>
         </CardColaboradorDivInterna>
-      </CardColaboradorDiv>
-      <CardColaboradorDiv>
-      <ColaboradorTituloDiv>
-        <h2> Formações </h2>
+      </CardColaboradorDiv> */}
+      {/* <CardColaboradorDiv>
+        <ColaboradorTituloDiv>
+          <h2> Formações </h2>
         </ColaboradorTituloDiv>
         <CardColaboradorDivInterna>
           <p>
@@ -247,12 +217,12 @@ const Colaborador = () => {
           <p>
             <b>Data conclusão: </b>
             {handleDate(colaborador.setColaboradoresFormacoes[0].dataConclusao)}
-          </p> 
+          </p>
         </CardColaboradorDivInterna>
-      </CardColaboradorDiv>
-      <CardColaboradorDiv>
-      <ColaboradorTituloDiv>
-        <h2> Treinamentos </h2>
+      </CardColaboradorDiv> */}
+      {/* <CardColaboradorDiv>
+        <ColaboradorTituloDiv>
+          <h2> Treinamentos </h2>
         </ColaboradorTituloDiv>
         <CardColaboradorDivInterna>
           <p>
@@ -260,7 +230,7 @@ const Colaborador = () => {
             {treinamentos.nome}
           </p>
           <p>
-          <b>Instituição: </b>
+            <b>Instituição: </b>
             {treinamentos.instituicao}
           </p>
         </CardColaboradorDivInterna>
@@ -272,20 +242,7 @@ const Colaborador = () => {
           <p>
             <b>Descrição: </b>
             {treinamentos.descricao}
-          </p> 
-        </CardColaboradorDivInterna>
-      </CardColaboradorDiv>
-      {/* <CardColaboradorDiv>
-      <ColaboradorTituloDiv>
-        <h2> Certificações </h2>
-        </ColaboradorTituloDiv>
-        <CardColaboradorDivInterna>
-          <p>
-            <b>Data de obtenção: </b>
-             {handleDate(certificacoes.setColaboradoresCertificacoes[0].dataObtencao)}
           </p>
-        </CardColaboradorDivInterna>
-        <CardColaboradorDivInterna>
         </CardColaboradorDivInterna>
       </CardColaboradorDiv> */}
     </PrincipalDiv>
