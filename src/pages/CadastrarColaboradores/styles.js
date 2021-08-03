@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { Form, Field, ErrorMessage } from "formik";
+import MaskedInput from "react-text-mask";
 
 export const PrincipalDiv = styled.div`
   display: flex;
@@ -37,7 +39,7 @@ export const Texto = styled.h1`
   font-weight: bold;
   text-align: center;
 `;
-export const Formulario = styled.form`
+export const Formulario = styled(Form)`
   display: flex;
   flex-direction:row;
   flex-wrap: wrap;
@@ -60,7 +62,20 @@ export const FormurarioDiv = styled.div`
   min-height: fit-content;
   min-width: 400px;
 `;
-export const Input = styled.input`
+export const Input = styled(Field)`
+  color:grey;
+  border: none;
+  border-radius: 30px;
+  width: 90%;
+  margin: 10px;
+  font-size: 20px;
+  padding:15px;
+  font-weight: 700;
+  &:focus {
+    outline:none;
+  }
+`;
+export const InputMask = styled(MaskedInput)`
   color:grey;
   border: none;
   border-radius: 30px;
@@ -87,7 +102,7 @@ export const TituloEndereco = styled.div`
   text-align: center;
 `;
 
-export const Select = styled.select`
+export const Select = styled(Field)`
   color:grey;
   border: none;
   border-radius: 30px;
@@ -99,6 +114,11 @@ export const Select = styled.select`
   &:focus {
     outline:none;
   }
+`;
+export const Mensagem = styled(ErrorMessage)`
+  color: red;
+  font-weight: bold;
+  font-size: 16px;
 `;
 export const ButtonDiv = styled.div`
   width: 90%;

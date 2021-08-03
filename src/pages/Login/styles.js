@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Form , Field , ErrorMessage} from 'formik'
 
 export const Container = styled.div`
   width: 100%;
@@ -14,7 +15,7 @@ export const Principal = styled.div`
   flex-direction: column;
   margin-top: 150px;
 `;
-export const Formulario = styled.form`
+export const Formulario = styled(Form)`
   display: flex;
   flex-direction: column;
   width: 93%;
@@ -24,7 +25,7 @@ export const Formulario = styled.form`
   margin-top: 60px;
 
 `;
-export const Input = styled.input`
+export const Input = styled(Field)`
   border: none;
   border-radius: 30px;
   height: 30px;
@@ -53,4 +54,9 @@ export const Imagem = styled.div`
   width: auto;
   height: auto;
   padding-left: 80px;;
+`;
+
+export const Mensagem = styled(ErrorMessage)`
+  color: red;
+  text-align: center;
 `;
