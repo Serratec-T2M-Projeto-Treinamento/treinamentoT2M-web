@@ -53,15 +53,6 @@ export const Formulario = styled(Form)`
   padding: 20px 0;
   margin-top: 40px;
 `;
-export const FormurarioDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 50%;
-  min-height: fit-content;
-  min-width: 400px;
-`;
 export const Input = styled(Field)`
   color:grey;
   border: none;
@@ -85,19 +76,6 @@ export const InputMask = styled(MaskedInput)`
   &:focus {
     outline:none;
   }
-`;
-export const TituloEndereco = styled.div`
-  color:grey;
-  border: none;
-  border-radius: 30px;
-  width: 86%;
-  margin: 10px;
-  font-size: 20px;
-  padding:15px;
-  font-weight: 700;
-  background-color: white;
-  color: black;
-  text-align: center;
 `;
 export const InputDiv = styled.div`
   display: flex;

@@ -79,13 +79,13 @@ display: flex;
 align-items: center;
 justify-content: flex-end;
 width: 70%;
-margin:5px;
 `;
 export const Button = styled.button`
   border: none;
   border-radius: 30px;
   width: 20%;
   height: 45px;
+  margin: 10px;
   font-size: 18px;
   padding: 5px 15px;
   font-weight: 600;
@@ -109,20 +109,6 @@ export const Button = styled.button`
     border:white 2px solid;
   }
   `;
-export const ButtonLink = styled.button`
-border: none;
-border-radius: 30px;
-width: 100%;
-height: 45px;
-font-size: 18px;
-padding: 5px 15px;
-font-weight: 600;
-background-color: #222;
-color: white;
-&:hover {
-  border:white 2px solid;
-}
-`;
 export const CardDiv = styled.div`
   display: flex;
   align-items: center;
@@ -131,13 +117,9 @@ export const CardDiv = styled.div`
   width: 100%;
 `;
 export const LinkButton = styled(Link)`
-  width: 42.5%;
+  width: 42%;
+  margin-right: 7px;
 `;
-export const LinkButtonIns = styled(Link)`
-  width: 22%;
-  margin-right: 5px;
-`;
-
 
 
 
