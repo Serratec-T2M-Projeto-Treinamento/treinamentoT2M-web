@@ -15,6 +15,9 @@ const Home = () => {
         <Link to="/pesquisacolaborador" style={{ width: "100%" }}>
           <Button descricao="PesquisaColaborador">Colaboradores</Button>
         </Link>
+        <Link to="/pesquisatreinamento" style={{ width: "100%" }}>
+          <Button descricao="PesquisaTreinamentos">Treinamentos</Button>
+        </Link>
         <Link to="/" style={{ width: "100%" }}>
           <Button descricao="Voltar a página de login/deslogar">Sair</Button>
         </Link>
