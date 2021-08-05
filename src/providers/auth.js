@@ -7,6 +7,7 @@ export const AuthProvider = (props) => {
     const [usuario, setUsuario] = useState({});
     const [endereco, setEndereco] = useState({});
     const [formacao, setFormacao] = useState({});
+    const [posicao, setPosicao] = useState({});
     
     return (
         <AuthContext.Provider 
@@ -15,6 +16,7 @@ export const AuthProvider = (props) => {
             usuario,setUsuario:(usuario)=>setUsuario(usuario),
             endereco,setEndereco:(endereco)=>setEndereco(endereco),
             formacao,setFormacao:(formacao)=>setFormacao(formacao),
+            posicao,setPosicao:(posicao)=>setPosicao(posicao),
              }}>
             {props.children}
         </AuthContext.Provider>
