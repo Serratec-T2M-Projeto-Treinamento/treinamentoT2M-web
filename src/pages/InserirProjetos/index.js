@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Logo from "../../components/img/logo.svg";
 import api from "../../services/api";
 import { AuthContext } from "../../providers/auth";
@@ -22,6 +22,7 @@ import {
 } from "./styles";
 
 const InserirProjetos = () => {
+  const history = useHistory();
   const { colaborador } = React.useContext(AuthContext);
   const [projetos, setProjetos] = useState([]);
 
@@ -84,10 +85,9 @@ const InserirProjetos = () => {
           dataInicio: "",
         }}
         onSubmit={async (values) => {
-          await api.put(
-            `/colabsProjs/colaborador/${colaborador.idColaboradores}/projetoAInserir/${p.idProjetos}/funcao/${values.funcao}/dataInicio/${values.dataInicio}`
-          );
+          await api.put(`/colabsProjs/colaborador/${colaborador.idColaboradores}/projetoAInserir/${p.idProjetos}`,values);
           alert("Put realizado com sucesso!");
+          history.push("/colaborador")
         }}
       >
         <Formulario>
