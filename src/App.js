@@ -15,6 +15,7 @@ import AtualizarFormacao from './pages/AtualizarFormacao'
 import CadastrarProjetos from './pages/CadastrarProjetos'
 import InserirProjetos from './pages/InserirProjetos'
 import CadastrarTreinamentos from './pages/CadastrarTreinamentos'
+import InserirTreinamento from './pages/InserirTreinamento'
 import Colaborador from './pages/Colaborador';
 import { AuthProvider } from './providers/auth';
 import RoutesPrivate from './components/Routes/Private';
@@ -42,6 +43,7 @@ function App() {
             <RoutesPrivate path="/cadastrarprojetos" exact component={CadastrarProjetos} />
             <RoutesPrivate path="/inserirprojetos" exact component={InserirProjetos} />
             <RoutesPrivate path="/cadastrartreinamentos" exact component={CadastrarTreinamentos} />
+            <RoutesPrivate path="/inserirtreinamento" exact component={InserirTreinamento} />
           </Container>
         </Switch>
       </AuthProvider>

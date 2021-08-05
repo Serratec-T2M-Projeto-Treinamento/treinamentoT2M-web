@@ -72,7 +72,6 @@ const Colaborador = () => {
     setEndereco(p);
   };
   function handleAtualizarFormacao(p) {
-    console.log(p);
     setFormacao(p);
   };
   async function handleDeleteColab(){
@@ -81,7 +80,6 @@ const Colaborador = () => {
     history.push("/pesquisacolaborador")
   };
   async function handleRemoveProj(p){
-    console.log(p);
     await api.put(`/colabsProjs/colaborador/${colaborador.idColaboradores}/projetoARemover/${p.projeto.idProjetos}`);
     alert("Projeto removido com sucesso!");
     setRefresh(!refresh);
@@ -94,6 +92,16 @@ const Colaborador = () => {
   async function handleRemoveForm(p){
     await api.put(`/colabsForms/${colaborador.idColaboradores}/formacaoARemover/${p.formacao.idFormacoes}`);
     alert("Formação removida com sucesso!");
+    setRefresh(!refresh);
+  };
+  async function handleRemoveTrein(p){
+    await api.put(`/colabsTrns/colaborador/${colaborador.idColaboradores}/treinamentoARemover/${p.treinamento.idTreinamentos}`);
+    alert("Treinamento removido com sucesso!");
+    setRefresh(!refresh);
+  };
+  async function handleRemoveCert(p){
+    await api.put(`/colabsCerts/colaborador/${colaborador.idColaboradores}/certificacaoARemover/${p.certificacao.idCertificacoes}`);
+    alert("Certificação removida com sucesso!");
     setRefresh(!refresh);
   };
   const enderecos = colaborador.setColabsEndrs.map((p, i) => (
@@ -242,10 +250,7 @@ const Colaborador = () => {
         </CardColaboradorDivInterna>
       </CardColaboradorDiv>
       <BotoesDiv>
-        <LinkButtonIns to="inserirprojetos">
-          <ButtonLink>Atualizar</ButtonLink>
-        </LinkButtonIns>
-        <Button>Remover</Button>
+        <Button onClick={() => handleRemoveTrein(p)}>Remover</Button>
       </BotoesDiv>
     </CardDiv>
   ));
@@ -270,10 +275,7 @@ const Colaborador = () => {
         </CardColaboradorDivInterna>
       </CardColaboradorDiv>
       <BotoesDiv>
-        <LinkButtonIns to="inserirprojetos">
-          <ButtonLink>Atualizar</ButtonLink>
-        </LinkButtonIns>
-        <Button>Remover</Button>
+        <Button onClick={() => handleRemoveCert(p)}>Remover</Button>
       </BotoesDiv>
     </CardDiv>
   ));
@@ -342,9 +344,9 @@ const Colaborador = () => {
       <Titulo>Endereço:</Titulo>
       {enderecos}
       <BotoesDiv>
-        <LinkButton to="/cadastrarenderecos">
+        <LinkButtonIns to="/cadastrarenderecos">
           <BotaoIns>Inserir endereço</BotaoIns>
-        </LinkButton>
+        </LinkButtonIns>
       </BotoesDiv>
       <Titulo>Projetos:</Titulo>
       {projetos}
@@ -359,23 +361,23 @@ const Colaborador = () => {
       <Titulo>Formações:</Titulo>
       {formacoes}
       <BotoesDiv>
-        <LinkButton to="inserirformacao">
+        <LinkButtonIns to="inserirformacao">
           <BotaoIns>Inserir formação</BotaoIns>
-        </LinkButton>
+        </LinkButtonIns>
       </BotoesDiv>
       <Titulo>Treinamentos:</Titulo>
       {treinamentos}
       <BotoesDiv>
-        <LinkButton to="cadastrartreinamentos">
+        <LinkButtonIns to="inserirtreinamento">
           <BotaoIns>Inserir treinamento</BotaoIns>
-        </LinkButton>
+        </LinkButtonIns>
       </BotoesDiv>
       <Titulo>Certificações:</Titulo>
       {certificacoes}
       <BotoesDiv>
-        <LinkButton to="inserircertificacao">
+        <LinkButtonIns to="inserircertificacao">
           <BotaoIns>Inserir certificação</BotaoIns>
-        </LinkButton>
+        </LinkButtonIns>
       </BotoesDiv>
     </PrincipalDiv>
   );

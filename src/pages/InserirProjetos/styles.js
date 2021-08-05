@@ -79,12 +79,12 @@ export const BotoesDiv = styled.div`
 display: flex;
 align-items: center;
 justify-content: flex-end;
-width: 70%;
+width: 42.5%;
 `;
 export const Button = styled.button`
   border: none;
   border-radius: 30px;
-  width: 20%;
+  width: 100%;
   height: 45px;
   margin: 10px;
   font-size: 18px;
@@ -120,19 +120,32 @@ export const CardDiv = styled.div`
 export const LinkButton = styled(Link)`
   width: 42%;
   margin-right: 7px;
-  border:red 1px solid;
 `;
 export const Formulario = styled(Form)`
-
+  display: flex;
+  width: 70%;
+  box-sizing: border-box;
 `;
 export const Input = styled(Field)`
-  
+  border-radius: 30px;
+  box-sizing: border-box;
+  width: 80%;
+  height: 100%;
+  font-size: 20px;
+  font-weight: bold;
+  padding-left: 15px;
+  border:none;
+  &:focus {
+    outline:none;
+  }
 `;
 export const Mensagem = styled(ErrorMessage)`
   
 `;
 export const Label = styled.label`
-
+  width: 20%;
+  font-size: 20px;
+  font-weight: bold;
 `;
 export const InputDiv = styled.div`
   display: flex;

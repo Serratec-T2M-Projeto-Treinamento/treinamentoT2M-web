@@ -15,7 +15,7 @@ import {
   Button,
   CardDiv,
   Formulario,
-  Input,
+  Select,
   InputDiv,
   Mensagem,
   Label,
@@ -24,59 +24,62 @@ import {
 const InserirTreinamentos = () => {
   const history = useHistory();
   const { colaborador } = React.useContext(AuthContext);
-  const [certificacoes, setCertificacoes] = useState([]);
+  const [treinamentos, setTreinamentos] = useState([]);
 
   useEffect(() => {
     api
-      .get("/certificacoes")
-      .then((response) => setCertificacoes(response.data))
+      .get("/treinamentos")
+      .then((response) => setTreinamentos(response.data))
       .catch((err) => {
         console.error("ops! ocorrei um erro" + err);
       });
   }, []);
 
-  const certificacoesMap = certificacoes.map((p, i) => (
+  const treinamentosMap = treinamentos.map((p, i) => (
     <CardDiv key={i}>
       <CardColaboradorDiv>
         <CardColaboradorDivInterna>
           <p>
             <b>Nome: </b>
-            {p.nomeCertificado}
+            {p.nome}
           </p>
           <p>
             <b>Instituição: </b>
-            {p.instituicaoCertificado}
+            {p.instituicao}
           </p>
         </CardColaboradorDivInterna>
         <CardColaboradorDivInterna>
           <p>
-            <b>Validade: </b>
-            {p.tempoValidade}
+            <b>Carga horária: </b>
+            {p.cargaHoraria}
+          </p>
+          <p>
+            <b>Descrição: </b>
+            {p.descricao}
           </p>
         </CardColaboradorDivInterna>
       </CardColaboradorDiv>
       <Formik
         initialValues={{
-          dataObtencao: "",
+          status: "Em andamento",
         }}
         onSubmit={async (values) => {
-            await api.put(`/colabsCerts/colaborador/${colaborador.idColaboradores}/certificacaoAInserir/${p.idCertificacoes}`,values);
-            alert("Atualização realizada com sucesso!");
+            await api.put(`/colabsTrns/colaborador/${colaborador.idColaboradores}/treinamentoAInserir/${p.idTreinamentos}`,values);
+            alert("Put realizado com sucesso!");
             history.push("/colaborador")
         }}
       >
         <Formulario>
-          <Mensagem component="span" name="dataObtencao" />
+          <Mensagem component="span" name="status" />
           <InputDiv>
-            <Label for="dataObtencao">Data de obtenção</Label>
-            <Input
-              name="dataObtencao"
-              type="date"
-              placeholder="Data de obtenção"
-            ></Input>
+            <Label for="status">Status</Label>
+            <Select component="select" name="status">
+            <option value="Em andamento">Em andamento</option>
+            <option value="Concluído">Concluído</option>     
+            </Select>
           </InputDiv>
           <BotoesDiv>
-          <Button type="submit">Inserir certificação</Button>
+          <Button type="submit">Inserir treinamento</Button>
         </BotoesDiv>
         </Formulario>   
       </Formik>
@@ -89,11 +92,11 @@ const InserirTreinamentos = () => {
           <img src={Logo} alt="Logo" style={{ width: "100%" }} />
         </Link>
         <TituloDiv>
-          <Texto>Certificações</Texto>
+          <Texto>Treinamentos</Texto>
         </TituloDiv>
         <div style={{ width: "225px", height: "10px" }}></div>
       </HeaderDiv>
-      <CardDiv>{certificacoesMap}</CardDiv>
+      <CardDiv>{treinamentosMap}</CardDiv>
     </PrincipalDiv>
   );
 };
