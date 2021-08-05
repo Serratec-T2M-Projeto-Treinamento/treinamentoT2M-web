@@ -80,8 +80,9 @@ const InserirProjetos = () => {
       </CardColaboradorDiv>
       <Formik
         initialValues={{
-          funcao: "",
-          dataInicio: "",
+          nomeCertificacao: "",
+          instituicaoCertificacao: "",
+          tempoValidade:"",
         }}
         onSubmit={async (values) => {
           await api.put(
@@ -91,22 +92,30 @@ const InserirProjetos = () => {
         }}
       >
         <Formulario>
-          <Mensagem component="span" name="funcao" />
+          <Mensagem component="span" name="nomeCertificacao" />
           <InputDiv>
-            <Label for="funcao">Função</Label>
-            <Input name="funcao" type="text" placeholder="Função"></Input>
+            <Label for="nomeCertificacao">Nome da certificação</Label>
+            <Input name="nomeCertificacao" type="text" placeholder="Nome da certificação"></Input>
           </InputDiv>
-          <Mensagem component="span" name="dataInicio" />
+          <Mensagem component="span" name="instituicaoCertificacao" />
           <InputDiv>
-            <Label for="dataInicio">Data de início</Label>
+            <Label for="instituicaoCertificacao">Instituição da certificação</Label>
             <Input
-              name="dataInicio"
+              name="instituicaoCertificacao"
               type="date"
-              placeholder="Data de início"
+              placeholder="Instituição de certificação"
+            ></Input>
+          </InputDiv>
+          <InputDiv>
+            <Label for="tempoValidade">Tempo de validade</Label>
+            <Input
+              name="tempoValidade"
+              type="date"
+              placeholder="tempoValidade"
             ></Input>
           </InputDiv>
           <BotoesDiv>
-          <Button type="submit">Inserir projeto</Button>
+          <Button type="submit">Inserir certificação</Button>
         </BotoesDiv>
         </Formulario>   
       </Formik>
@@ -119,7 +128,7 @@ const InserirProjetos = () => {
           <img src={Logo} alt="Logo" style={{ width: "100%" }} />
         </Link>
         <TituloDiv>
-          <Texto>Projetos</Texto>
+          <Texto>Certificações</Texto>
         </TituloDiv>
         <div style={{ width: "225px", height: "10px" }}></div>
       </HeaderDiv>

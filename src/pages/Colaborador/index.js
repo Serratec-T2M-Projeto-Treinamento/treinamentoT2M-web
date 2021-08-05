@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { AuthContext } from "../../providers/auth";
 import { Link } from "react-router-dom";
 import Logo from "../../components/img/logo.svg";
+import api from "../../services/api";
 import {
   PrincipalDiv,
   CardColaboradorDiv,
@@ -21,7 +22,18 @@ import {
 } from "./styles";
 
 const Colaborador = () => {
-  const { colaborador } = React.useContext(AuthContext);
+  const { colaborador, setColaborador } = React.useContext(AuthContext);
+  const { setEndereco } = React.useContext(AuthContext);
+
+  const [refresh, setRefresh] = useState(false);
+
+  useEffect(() => {    
+    api.get(`/colaboradores/${colaborador.idColaboradores}`)
+    .then((response) => setColaborador(response.data))
+    .catch((err) => {
+      console.error("ops! ocorrei um erro" + err);
+    });
+  }, [refresh]);
 
   const handleDate = (props) => {
     const data = new Date(props);
@@ -57,6 +69,23 @@ const Colaborador = () => {
     }
   };
 
+  function handleAtualizarEndereco(p) {
+    setEndereco(p);
+  };
+
+  async function handleDeleteColab(){
+    await api.delete(`/colaboradores/${colaborador.idColaboradores}`);
+    alert("Delete colaborador realizado com sucesso!");
+  };
+  async function handleRemoveProj(p){
+    await api.put(`/colabsProjs/colaborador/${colaborador.idColaboradores}/projetoARemover/${p.idProjetos}`);
+    alert("Projeto removido com sucesso!");
+  };
+  async function handleRemoveEnd(p){
+    await api.put(`/colabsEndrs/colaborador/${colaborador.idColaboradores}/enderecoARemover/${p.endereco.idEnderecos}`);
+    alert("Endereço removido com sucesso!");
+    setRefresh(!refresh);
+  };
   const enderecos = colaborador.setColabsEndrs.map((p, i) => (
     <CardDiv key={i}>
       <CardColaboradorDiv>
@@ -98,10 +127,13 @@ const Colaborador = () => {
         </CardColaboradorDivInterna>
       </CardColaboradorDiv>
       <BotoesDiv>
-        <LinkButtonIns to="inserirprojetos">
+        <LinkButtonIns
+          to="atualizarendereco"
+          onClick={() => handleAtualizarEndereco(p)}
+        >
           <ButtonLink>Atualizar</ButtonLink>
         </LinkButtonIns>
-        <Button>Deletar</Button>
+        <Button onClick={() => handleRemoveEnd(p)}>Remover</Button>
       </BotoesDiv>
     </CardDiv>
   ));
@@ -142,10 +174,7 @@ const Colaborador = () => {
         </CardColaboradorDivInterna>
       </CardColaboradorDiv>
       <BotoesDiv>
-        <LinkButtonIns to="inserirprojetos">
-          <ButtonLink>Inserir projeto</ButtonLink>
-        </LinkButtonIns>
-        <Button>Remover projeto</Button>
+        <Button onClick={() => handleRemoveProj(p)}>Remover projeto</Button>
       </BotoesDiv>
     </CardDiv>
   ));
@@ -170,10 +199,10 @@ const Colaborador = () => {
         </CardColaboradorDivInterna>
       </CardColaboradorDiv>
       <BotoesDiv>
-        <LinkButtonIns to="inserirprojetos">
+        <LinkButtonIns to="atualizarformacao">
           <ButtonLink>Atualizar</ButtonLink>
         </LinkButtonIns>
-        <Button>Deletar</Button>
+        <Button>Remover</Button>
       </BotoesDiv>
     </CardDiv>
   ));
@@ -205,7 +234,7 @@ const Colaborador = () => {
         <LinkButtonIns to="inserirprojetos">
           <ButtonLink>Atualizar</ButtonLink>
         </LinkButtonIns>
-        <Button>Deletar</Button>
+        <Button>Remover</Button>
       </BotoesDiv>
     </CardDiv>
   ));
@@ -233,7 +262,7 @@ const Colaborador = () => {
         <LinkButtonIns to="inserirprojetos">
           <ButtonLink>Atualizar</ButtonLink>
         </LinkButtonIns>
-        <Button>Deletar</Button>
+        <Button>Remover</Button>
       </BotoesDiv>
     </CardDiv>
   ));
@@ -293,10 +322,10 @@ const Colaborador = () => {
           </CardColaboradorDivInterna>
         </CardColaboradorDiv>
         <BotoesDiv>
-          <LinkButtonIns to="inserirprojetos">
+          <LinkButtonIns to="atualizarcolaborador">
             <ButtonLink>Atualizar</ButtonLink>
           </LinkButtonIns>
-          <Button>Deletar</Button>
+          <Button onClick={() => handleDeleteColab()}>Remover</Button>
         </BotoesDiv>
       </CardDiv>
       <Titulo>Endereço:</Titulo>
@@ -309,14 +338,17 @@ const Colaborador = () => {
       <Titulo>Projetos:</Titulo>
       {projetos}
       <BotoesDiv>
-        <LinkButton to="cadastrarprojetos">
+        <LinkButtonIns to="inserirprojetos">
+          <BotaoIns>Inserir projeto</BotaoIns>
+        </LinkButtonIns>
+        {/* <LinkButtonIns to="cadastrarprojetos">
           <BotaoIns>Criar projeto</BotaoIns>
-        </LinkButton>
+        </LinkButtonIns> */}
       </BotoesDiv>
       <Titulo>Formações:</Titulo>
       {formacoes}
       <BotoesDiv>
-        <LinkButton to="cadastrarformacoes">
+        <LinkButton to="inserirformacao">
           <BotaoIns>Inserir formação</BotaoIns>
         </LinkButton>
       </BotoesDiv>
@@ -330,7 +362,7 @@ const Colaborador = () => {
       <Titulo>Certificações:</Titulo>
       {certificacoes}
       <BotoesDiv>
-        <LinkButton to="cadastrarcertificacoes">
+        <LinkButton to="inserircertificacao">
           <BotaoIns>Inserir certificação</BotaoIns>
         </LinkButton>
       </BotoesDiv>

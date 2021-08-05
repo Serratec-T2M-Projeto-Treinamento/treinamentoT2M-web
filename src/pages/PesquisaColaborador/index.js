@@ -15,8 +15,7 @@ import { AuthContext } from "../../providers/auth";
 
 const PesquisaColaborador = () => {
   const [colaboradores, setColaboradores] = useState([]);
-  const { colaborador, setColaborador } = React.useContext(AuthContext);
-  console.log(colaborador)
+  const { setColaborador } = React.useContext(AuthContext);
 
   useEffect(() => {
     api.get("/colaboradores", {auth:{username:'t2m', password:'123456'}})

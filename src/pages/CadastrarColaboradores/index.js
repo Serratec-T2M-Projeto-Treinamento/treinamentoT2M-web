@@ -16,7 +16,7 @@ import {
   Label,
   InputDiv,
 } from "../CadastrarColaboradores/styles";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Logo from "../../components/img/logo.svg";
 import api from "../../services/api";
 import { AuthContext } from "../../providers/auth";
@@ -24,6 +24,7 @@ import { Formik } from "formik";
 import * as yup from "yup";
 
 const CadastrarColaboradores = () => {
+  const history = useHistory();
   const [posicoes, setPosicoes] = useState([]);
   const { usuario } = React.useContext(AuthContext);
 
@@ -64,10 +65,6 @@ const CadastrarColaboradores = () => {
     pix: yup.string().max(40, ({ max }) => `Maximo de ${max} caracteres`),
     cpf: yup.string().required("CPF é obrigatório"),
     rg: yup.string().required("RG é obrigatório"),
-    cnh: yup
-      .string()
-      .max(1, ({ max }) => `Maximo de ${max} caracteres`)
-      .required("Categoria CHN é obrigatória"),
     rua: yup
       .string()
       .max(100, ({ max }) => `Maximo de ${max} caracteres`)
@@ -87,10 +84,7 @@ const CadastrarColaboradores = () => {
       .string()
       .max(50, ({ max }) => `Maximo de ${max} caracteres`)
       .required("Cidade é obrigatório"),
-    estado: yup
-      .string()
-      .max(2, ({ max }) => `Maximo de ${max} caracteres`)
-      .required("Estado é obrigatório"),
+    estado: yup.string().required("Estado é obrigatório"),
     cep: yup.string().required("CEP é obrigatório"),
     pais: yup
       .string()
@@ -153,6 +147,8 @@ const CadastrarColaboradores = () => {
             cep: values.cep,
             pais: values.pais,
           };
+          console.log(colaborador);
+          console.log(endereco);
           const responseColaborador = await api.post(
             "/colaboradores",
             colaborador
@@ -169,6 +165,7 @@ const CadastrarColaboradores = () => {
           );
           console.log(response.data);
           alert("Put realizado com sucesso!");
+          history.push("/pesquisacolaborador")
         }}
         validationSchema={validations}
       >
@@ -182,7 +179,7 @@ const CadastrarColaboradores = () => {
             <Mensagem component="span" name="cnh" />
             <InputDiv>
               <Label for="cnh">CNH</Label>
-              <Select as="select" name="cnh">
+              <Select component="select" name="cnh">
                 <option value="">Sem CNH</option>
                 <option value="A">A</option>
                 <option value="B">B</option>
@@ -238,7 +235,7 @@ const CadastrarColaboradores = () => {
             </InputDiv>
             <InputDiv>
               <Label for="permissao">Permissão</Label>
-              <Select as="select" name="permissao">
+              <Select component="select" name="permissao">
                 <option value={0}>Colaborador</option>
                 <option value={1}>Lider</option>
                 {handlePermissao(usuario.isAdmin)}
@@ -246,7 +243,7 @@ const CadastrarColaboradores = () => {
             </InputDiv>
             <InputDiv>
               <Label for="posicoes">Posições</Label>
-              <Select as="select" name="idPosicoes">
+              <Select component="select" name="idPosicoes">
                 {posicoesSelect}
               </Select>
             </InputDiv>
@@ -292,7 +289,7 @@ const CadastrarColaboradores = () => {
             <Mensagem component="span" name="estado" />
             <InputDiv>
               <Label for="estado">Estado</Label>
-              <Select as="select" name="estado">
+              <Select component="select" name="estado">
                 <option value="">Selecione um estado</option>
                 <option value="AC">Acre</option>
                 <option value="AL">Alagoas</option>

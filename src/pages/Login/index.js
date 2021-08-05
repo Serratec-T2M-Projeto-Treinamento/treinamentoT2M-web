@@ -27,14 +27,13 @@ const Login = () => {
           const response = await api.post("/usuarios/login", login);
           const token = response.data.isAtivo
           setUsuario(response.data)
-          console.log(response);
           if (token) {
             return (
               history.push('/home')
             )
           }
         } catch (error) {
-          console.error(error);
+          alert('Usuário ou senha incorretos!')
         }
       }} validationSchema={validations}>
             <Formulario>
