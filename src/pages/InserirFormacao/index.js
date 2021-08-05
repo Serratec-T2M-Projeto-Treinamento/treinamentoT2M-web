@@ -48,33 +48,17 @@ const InserirProjetos = () => {
         <CardColaboradorDivInterna>
           <p>
             <b>Nome: </b>
-            {p.nome}
+            {p.nomeFormacao}
           </p>
           <p>
-            <b>Descrição: </b>
-            {p.descricao}
-          </p>
-          <p>
-            <b>Gerenciamento: </b>
-            {p.appGerenciamento}
-          </p>
-          <p>
-            <b>Segmento: </b>
-            {p.segmento}
+            <b>Nível: </b>
+            {p.nivelFormacao}
           </p>
         </CardColaboradorDivInterna>
         <CardColaboradorDivInterna>
           <p>
-            <b>Data de entrega esperada: </b>
-            {handleDate(p.dataEntregaEsperada)}
-          </p>
-          <p>
-            <b>Data de entrega: </b>
-            {handleDate(p.dataEntrega)}
-          </p>
-          <p>
-            <b>Equipe: </b>
-            {p.equipe}
+            <b>Instituição: </b>
+            {p.instituicaoFormacao}
           </p>
         </CardColaboradorDivInterna>
       </CardColaboradorDiv>
@@ -106,7 +90,7 @@ const InserirProjetos = () => {
             ></Input>
           </InputDiv>
           <BotoesDiv>
-          <Button type="submit">Inserir projeto</Button>
+          <Button type="submit">Inserir formação</Button>
         </BotoesDiv>
         </Formulario>   
       </Formik>

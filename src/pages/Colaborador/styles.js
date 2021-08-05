@@ -84,7 +84,7 @@ margin:5px;
 export const Button = styled.button`
   border: none;
   border-radius: 30px;
-  width: 20%;
+  width: 22%;
   height: 45px;
   font-size: 18px;
   padding: 5px 15px;
@@ -135,7 +135,7 @@ export const LinkButton = styled(Link)`
 `;
 export const LinkButtonIns = styled(Link)`
   width: 22%;
-  margin-right: 5px;
+  margin-left: 5px;
 `;
 
 

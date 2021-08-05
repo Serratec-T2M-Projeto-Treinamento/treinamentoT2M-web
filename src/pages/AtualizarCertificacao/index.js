@@ -1,3 +1,4 @@
+
 import React from "react";
 import {
   PrincipalDiv,
@@ -22,20 +23,15 @@ import { Formik } from "formik";
 import * as yup from "yup";
 
 
-const CadastrarEnderecos = () => {
-  const { colaborador } = React.useContext(AuthContext);
-
+const AtualizarEndereco = () => {
+  const { endereco } = React.useContext(AuthContext);
+console.log(endereco)
   const cepMask = [/\d/,/\d/,/\d/,/\d/,/\d/,"-",/\d/,/\d/,/\d/]
 
   const validations = yup.object().shape({
-    rua: yup.string().max(100,({max})=>`Maximo de ${max} caracteres`).required('Rua é obrigatório'),
-    numero: yup.string().max(10,({max})=>`Maximo de ${max} caracteres`).required('Numero é obrigatório'),
-    complemento: yup.string().max(15,({max})=>`Maximo de ${max} caracteres`),
-    bairro: yup.string().max(50,({max})=>`Maximo de ${max} caracteres`).required('Bairro é obrigatório'),
-    cidade: yup.string().max(50,({max})=>`Maximo de ${max} caracteres`).required('Cidade é obrigatório'),
-    estado: yup.string().max(2,({max})=>`Maximo de ${max} caracteres`).required('Estado é obrigatório'),
-    cep: yup.string().required('CEP é obrigatório'),
-    pais: yup.string().max(15,({max})=>`Maximo de ${max} caracteres`).required('Pais é obrigatório')
+    nomeCertificacao: yup.string().max(100,({max})=>`Maximo de ${max} caracteres`).required('Nome é obrigatório'),
+    instituicaoCertificacao: yup.string().max(10,({max})=>`Maximo de ${max} caracteres`).required('Numero é obrigatório'),
+    tempoValidade: yup.string().max(15,({max})=>`Maximo de ${max} caracteres`),
   })
 
   return (
@@ -45,52 +41,40 @@ const CadastrarEnderecos = () => {
           <img src={Logo} alt="Logo" style={{ width: "100%" }} />
         </Link>
         <TituloDiv>
-          <Texto>Cadastro de endereços</Texto>
+          <Texto>Atualização da certificação</Texto>
         </TituloDiv>
         <div style={{ width: "225px", height: "10px" }}></div>
       </HeaderDiv>
       <Formik
         initialValues={{
-          rua: "",
-          numero: "",
-          complemento: "",
-          bairro: "",
-          cidade: "",
-          estado: "",
-          cep: "",
-          pais: ""
+            nomeCertificacao: "",
+            instituicaoCertificacao: "",
+            tempoValidade:"",
         }}
         onSubmit={async (values) => {
-         
-          const responseEndereco = await api.post("/enderecos", values);
-          const idEndereco = responseEndereco.data.idEnderecos;
-          alert("Post endereco realizado com sucesso!");
-
-          const response = await api.put(
-            `/colabsEndrs/colaborador/${colaborador.idColaboradores}/enderecoAInserir/${idEndereco}`
-          );
-          console.log(response.data);
-          alert("Put realizado com sucesso!");
+            console.log(values)
+          await api.put(`/enderecos/${endereco.endereco.idEnderecos}`, values);
+          alert("Put endereco realizado com sucesso!");
         }}
         validationSchema={validations}
       >
         <Formulario>
-          <Mensagem component="span" name="rua" />
+          <Mensagem component="span" name="nomeCertificacao" />
             <InputDiv>
-            <Label for="rua">Rua</Label>
+            <Label for="nomeCertificacao">Nome da certificacao</Label>
             <Input
-              name="rua"
+              name="nomeCertificacao"
               type="text"
-              placeholder="Rua"
+              placeholder="Nome da certificacao"
             ></Input>
             </InputDiv>
-            <Mensagem component="span" name="numero" />
+            <Mensagem component="span" name="instituicaoCertificacao" />
             <InputDiv>
-            <Label for="numero">Número</Label>
+            <Label for="instituicaoCertificacao">Instituição de certificação</Label>
             <Input
-              name="numero"
+              name="instituicaoCertificacao"
               type="number"
-              placeholder="Número"
+              placeholder="Instituição de certificação"
             ></Input>
             </InputDiv>
             <Mensagem component="span" name="complemento"/>
@@ -123,7 +107,7 @@ const CadastrarEnderecos = () => {
             <Mensagem component="span" name="estado" />
             <InputDiv>
             <Label for="estado">Estado</Label>
-            <Select component="select" name="estado">
+            <Select as="select" name="estado">
                 <option value="">Selecione um estado</option>
                 <option value="AC">Acre</option>
                 <option value="AL">Alagoas</option>
@@ -179,7 +163,7 @@ const CadastrarEnderecos = () => {
             ></Input>
             </InputDiv>
           <ButtonDiv>
-            <Button type="submit">Cadastrar</Button>
+            <Button type="submit">Atualizar</Button>
           </ButtonDiv>
         </Formulario>
       </Formik>
@@ -187,4 +171,4 @@ const CadastrarEnderecos = () => {
   );
 };
 
-export default CadastrarEnderecos;
+export default AtualizarEndereco;

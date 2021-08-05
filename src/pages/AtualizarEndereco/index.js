@@ -14,7 +14,7 @@ import {
   InputDiv,
   Select,
 } from "./styles";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Logo from "../../components/img/logo.svg";
 import api from "../../services/api";
 import { AuthContext } from "../../providers/auth";
@@ -22,9 +22,10 @@ import { Formik } from "formik";
 import * as yup from "yup";
 
 
-const CadastrarEnderecos = () => {
-  const { colaborador } = React.useContext(AuthContext);
-
+const AtualizarEndereco = () => {
+  const history = useHistory();
+  const { endereco } = React.useContext(AuthContext);
+console.log(endereco)
   const cepMask = [/\d/,/\d/,/\d/,/\d/,/\d/,"-",/\d/,/\d/,/\d/]
 
   const validations = yup.object().shape({
@@ -45,32 +46,26 @@ const CadastrarEnderecos = () => {
           <img src={Logo} alt="Logo" style={{ width: "100%" }} />
         </Link>
         <TituloDiv>
-          <Texto>Cadastro de endereços</Texto>
+          <Texto>Atualização do endereço</Texto>
         </TituloDiv>
         <div style={{ width: "225px", height: "10px" }}></div>
       </HeaderDiv>
       <Formik
         initialValues={{
-          rua: "",
-          numero: "",
-          complemento: "",
-          bairro: "",
-          cidade: "",
-          estado: "",
-          cep: "",
-          pais: ""
+          rua: endereco.endereco.rua,
+          numero: endereco.endereco.numero,
+          complemento: endereco.endereco.complemento,
+          bairro: endereco.endereco.bairro,
+          cidade: endereco.endereco.cidade,
+          estado: endereco.endereco.estado,
+          cep: endereco.endereco.cep,
+          pais: endereco.endereco.pais
         }}
         onSubmit={async (values) => {
-         
-          const responseEndereco = await api.post("/enderecos", values);
-          const idEndereco = responseEndereco.data.idEnderecos;
-          alert("Post endereco realizado com sucesso!");
-
-          const response = await api.put(
-            `/colabsEndrs/colaborador/${colaborador.idColaboradores}/enderecoAInserir/${idEndereco}`
-          );
-          console.log(response.data);
-          alert("Put realizado com sucesso!");
+            console.log(values)
+          await api.put(`/enderecos/${endereco.endereco.idEnderecos}`, values);
+          alert("Put endereco realizado com sucesso!");
+          history.push("/colaborador")
         }}
         validationSchema={validations}
       >
@@ -123,7 +118,7 @@ const CadastrarEnderecos = () => {
             <Mensagem component="span" name="estado" />
             <InputDiv>
             <Label for="estado">Estado</Label>
-            <Select component="select" name="estado">
+            <Select as="select" name="estado">
                 <option value="">Selecione um estado</option>
                 <option value="AC">Acre</option>
                 <option value="AL">Alagoas</option>
@@ -179,7 +174,7 @@ const CadastrarEnderecos = () => {
             ></Input>
             </InputDiv>
           <ButtonDiv>
-            <Button type="submit">Cadastrar</Button>
+            <Button type="submit">Atualizar</Button>
           </ButtonDiv>
         </Formulario>
       </Formik>
@@ -187,4 +182,4 @@ const CadastrarEnderecos = () => {
   );
 };
 
-export default CadastrarEnderecos;
+export default AtualizarEndereco;
