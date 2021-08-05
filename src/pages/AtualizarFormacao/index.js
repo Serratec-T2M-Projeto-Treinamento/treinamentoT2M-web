@@ -14,7 +14,7 @@ import {
   InputDiv,
   Select,
 } from "./styles";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Logo from "../../components/img/logo.svg";
 import api from "../../services/api";
 import { AuthContext } from "../../providers/auth";
@@ -22,15 +22,14 @@ import { Formik } from "formik";
 import * as yup from "yup";
 
 
-const AtualizarEndereco = () => {
-  const { endereco } = React.useContext(AuthContext);
-console.log(endereco)
-  const cepMask = [/\d/,/\d/,/\d/,/\d/,/\d/,"-",/\d/,/\d/,/\d/]
+const AtualizarFormacao = () => {
+  const history = useHistory();
+  const { formacao } = React.useContext(AuthContext);
 
   const validations = yup.object().shape({
-    nomeFormacao: yup.string().max(25,({max})=>`Maximo de ${max} caracteres`).required('Nome é obrigatório'),
-    nivelFormacao: yup.string().max(255,({max})=>`Maximo de ${max} caracteres`),
-    instituicaoFormacao: yup.string().max(255,({max})=>`Maximo de ${max} caracteres`),
+    nome: yup.string().max(100,({max})=>`Maximo de ${max} caracteres`).required('Rua é obrigatório'),
+    nivel: yup.string().max(30,({max})=>`Maximo de ${max} caracteres`).required('Numero é obrigatório'),
+    instituicao: yup.string().max(15,({max})=>`Maximo de ${max} caracteres`),
   })
 
   return (
@@ -40,20 +39,20 @@ console.log(endereco)
           <img src={Logo} alt="Logo" style={{ width: "100%" }} />
         </Link>
         <TituloDiv>
-          <Texto>Atualizar formação</Texto>
+          <Texto>Atualização do endereço</Texto>
         </TituloDiv>
         <div style={{ width: "225px", height: "10px" }}></div>
       </HeaderDiv>
       <Formik
         initialValues={{
-          nome: endereco.endereco.nome,
-          nivel: endereco.endereco.nivel,
-          instituicao: endereco.endereco.instituicao,
+          nome: formacao.formacao.nome,
+          nivel: formacao.formacao.nivel,
+          instituicao: formacao.formacao.instituicao,
         }}
         onSubmit={async (values) => {
-            console.log(values)
-          await api.put(`/enderecos/${endereco.endereco.idEnderecos}`, values);
-          alert("Put endereco realizado com sucesso!");
+          await api.put(`/formacoes/${formacao.formacao.idFormacoes}`, values);
+          alert("Put formação realizado com sucesso!");
+          history.push("/colaborador")
         }}
         validationSchema={validations}
       >
@@ -67,12 +66,12 @@ console.log(endereco)
               placeholder="Nome"
             ></Input>
             </InputDiv>
-            <Mensagem component="span" name="numero" />
+            <Mensagem component="span" name="nivel" />
             <InputDiv>
             <Label for="nivel">Nível</Label>
             <Input
               name="nivel"
-              type="number"
+              type="text"
               placeholder="Nível"
             ></Input>
             </InputDiv>
@@ -94,4 +93,4 @@ console.log(endereco)
   );
 };
 
-export default AtualizarEndereco;
+export default AtualizarFormacao;

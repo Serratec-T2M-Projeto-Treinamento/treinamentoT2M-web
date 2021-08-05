@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { AuthContext } from "../../providers/auth";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Logo from "../../components/img/logo.svg";
 import api from "../../services/api";
 import {
@@ -22,8 +22,8 @@ import {
 } from "./styles";
 
 const Colaborador = () => {
-  const { colaborador, setColaborador } = React.useContext(AuthContext);
-  const { setEndereco } = React.useContext(AuthContext);
+  const history = useHistory();
+  const { colaborador, setColaborador, setEndereco, setFormacao } = React.useContext(AuthContext);
 
   const [refresh, setRefresh] = useState(false);
 
@@ -68,22 +68,32 @@ const Colaborador = () => {
       );
     }
   };
-
   function handleAtualizarEndereco(p) {
     setEndereco(p);
   };
-
+  function handleAtualizarFormacao(p) {
+    console.log(p);
+    setFormacao(p);
+  };
   async function handleDeleteColab(){
     await api.delete(`/colaboradores/${colaborador.idColaboradores}`);
     alert("Delete colaborador realizado com sucesso!");
+    history.push("/pesquisacolaborador")
   };
   async function handleRemoveProj(p){
-    await api.put(`/colabsProjs/colaborador/${colaborador.idColaboradores}/projetoARemover/${p.idProjetos}`);
+    console.log(p);
+    await api.put(`/colabsProjs/colaborador/${colaborador.idColaboradores}/projetoARemover/${p.projeto.idProjetos}`);
     alert("Projeto removido com sucesso!");
+    setRefresh(!refresh);
   };
   async function handleRemoveEnd(p){
     await api.put(`/colabsEndrs/colaborador/${colaborador.idColaboradores}/enderecoARemover/${p.endereco.idEnderecos}`);
     alert("Endereço removido com sucesso!");
+    setRefresh(!refresh);
+  };
+  async function handleRemoveForm(p){
+    await api.put(`/colabsForms/${colaborador.idColaboradores}/formacaoARemover/${p.formacao.idFormacoes}`);
+    alert("Formação removida com sucesso!");
     setRefresh(!refresh);
   };
   const enderecos = colaborador.setColabsEndrs.map((p, i) => (
@@ -199,10 +209,11 @@ const Colaborador = () => {
         </CardColaboradorDivInterna>
       </CardColaboradorDiv>
       <BotoesDiv>
-        <LinkButtonIns to="atualizarformacao">
+        <LinkButtonIns to="atualizarformacao" 
+        onClick={() => handleAtualizarFormacao(p)}>
           <ButtonLink>Atualizar</ButtonLink>
         </LinkButtonIns>
-        <Button>Remover</Button>
+        <Button onClick={() => handleRemoveForm(p)}>Remover</Button>
       </BotoesDiv>
     </CardDiv>
   ));

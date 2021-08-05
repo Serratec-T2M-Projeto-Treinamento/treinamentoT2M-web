@@ -16,7 +16,7 @@ import {
   Label,
   InputDiv,
 } from "../CadastrarColaboradores/styles";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Logo from "../../components/img/logo.svg";
 import api from "../../services/api";
 import { AuthContext } from "../../providers/auth";
@@ -24,6 +24,7 @@ import { Formik } from "formik";
 import * as yup from "yup";
 
 const AtualizarColaborador = () => {
+  const history = useHistory();
   const [posicoes, setPosicoes] = useState([]);
   const { colaborador } = React.useContext(AuthContext);
   const { usuario } = React.useContext(AuthContext);
@@ -94,7 +95,7 @@ const AtualizarColaborador = () => {
           idPosicoes: colaborador.posicao.idPosicoes,
         }}
         onSubmit={async (values) => {
-          const colaborador = {
+          const colab = {
             nome: values.nome,
             dataNascimento: values.dataNascimento,
             email: values.email,
@@ -107,8 +108,9 @@ const AtualizarColaborador = () => {
               idPosicoes: values.idPosicoes,
             },
           };
-          await api.post(`/colaboradores/${colaborador.idColaboradores}`,values);
-          alert("Post colaborador realizado com sucesso!");
+          await api.put(`/colaboradores/${colaborador.idColaboradores}`,colab);
+          alert("Put colaborador realizado com sucesso!");
+          history.push("/colaborador")
         }}
         validationSchema={validations}
       >
