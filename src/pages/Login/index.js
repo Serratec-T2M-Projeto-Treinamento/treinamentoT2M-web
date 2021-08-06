@@ -1,15 +1,23 @@
-import React from "react";
+import React,{useState} from "react";
 import Logo from "../../components/img/logo.svg";
 import { useHistory } from "react-router-dom";
 import api from "../../services/api";
 import { AuthContext } from "../../providers/auth";
-import { Principal, Button, Imagem, Input, Formulario, Mensagem } from "./styles";
 import { Formik } from "formik";
 import * as yup from "yup";
+import { DivPrincipal } from "../../components/DivPrincipal/styles";
+import { BigLogo } from "../../components/BigLogo/styles";
+import { Formulario } from "../../components/Formulario/styles";
+import Input from "../../components/Input";
+import { Button } from "../../components/Button/styles";
+import Alerta from "../../components/Alerta";
+
+
 
 const Login = () => {
   const history = useHistory();
   const { setUsuario } = React.useContext(AuthContext);
+  const [senhaErrada, setSenhaErrada] = useState(false);
 
   const validations = yup.object().shape({
     usuario: yup.string().required('Insira um usuário valido'),
@@ -17,14 +25,12 @@ const Login = () => {
   })
 
   return (
-    <Principal>
-      <Imagem>
-        <img src={Logo} alt="Logo" />
-      </Imagem>
+    <DivPrincipal>
+      <Alerta isOpen={senhaErrada} func={setSenhaErrada} />
+        <BigLogo src={Logo} alt="Logo" />
       <Formik initialValues={{ usuario: "", senha: "" }} onSubmit={async (values) => {
-        const login = { usuario: values.usuario, senha: values.senha }
         try {
-          const response = await api.post("/usuarios/login", login);
+          const response = await api.post("/usuarios/login", values);
           const token = response.data.isAtivo
           setUsuario(response.data)
           if (token) {
@@ -32,29 +38,17 @@ const Login = () => {
               history.push('/home')
             )
           }
-        } catch (error) {
-          alert('Usuário ou senha incorretos!')
+        } catch {
+          setSenhaErrada(true);
         }
       }} validationSchema={validations}>
             <Formulario>
-              <Input
-                type="text"
-                placeholder="Usuário"
-                name='usuario'
-              ></Input>
-              <Mensagem className="Form-Error" component="span" name="usuario" />
-              <Input
-                type="password"
-                placeholder="Senha"
-                name='senha'
-              ></Input>
-              <Mensagem className="Form-Error" component="span" name="senha" />
-              <Button type="submit" descricao="Home" style={{ width: "95%" }}>
-                Confirmar
-              </Button>
+              <Input name='usuario' type='text' label='Usuário' placeholder='usuário' />
+              <Input name='senha' type='password' label='Senha' placeholder='senha' />
+              <Button type="submit"> Confirmar </Button>
             </Formulario>
       </Formik>
-    </Principal>
+    </DivPrincipal>
   );
 };
 
