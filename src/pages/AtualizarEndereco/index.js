@@ -118,7 +118,7 @@ console.log(endereco)
             <Mensagem component="span" name="estado" />
             <InputDiv>
             <Label for="estado">Estado</Label>
-            <Select as="select" name="estado">
+            <Select component="select" name="estado">
                 <option value="">Selecione um estado</option>
                 <option value="AC">Acre</option>
                 <option value="AL">Alagoas</option>

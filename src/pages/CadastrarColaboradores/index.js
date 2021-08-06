@@ -147,25 +147,20 @@ const CadastrarColaboradores = () => {
             cep: values.cep,
             pais: values.pais,
           };
-          console.log(colaborador);
-          console.log(endereco);
-          const responseColaborador = await api.post(
-            "/colaboradores",
-            colaborador
-          );
-          const idColaborador = responseColaborador.data.idColaboradores;
-          alert("Post colaborador realizado com sucesso!");
-
-          const responseEndereco = await api.post("/enderecos", endereco);
-          const idEndereco = responseEndereco.data.idEnderecos;
-          alert("Post endereco realizado com sucesso!");
-
-          const response = await api.put(
-            `/colabsEndrs/colaborador/${idColaborador}/enderecoAInserir/${idEndereco}`
-          );
-          console.log(response.data);
-          alert("Put realizado com sucesso!");
-          history.push("/pesquisacolaborador")
+            try{
+            const responseColaborador = await api.post("/colaboradores",colaborador);
+            const idColaborador = responseColaborador.data.idColaboradores;
+            const responseEndereco = await api.post("/enderecos", endereco);
+            const idEndereco = responseEndereco.data.idEnderecos;
+  
+            const response = await api.put(
+              `/colabsEndrs/colaborador/${idColaborador}/enderecoAInserir/${idEndereco}`
+            );
+            alert("Cadastro realizado com sucesso!");
+            history.push("/pesquisacolaborador");
+          } catch {
+            alert('Os Campos CPF, RG, email e Pix devem ter valores únicos, algum colaborador cadastrado já deve possuir algum desses valores !!!')
+          }
         }}
         validationSchema={validations}
       >

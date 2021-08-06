@@ -14,11 +14,6 @@ import {
   BotoesDiv,
   Button,
   CardDiv,
-  Formulario,
-  Input,
-  InputDiv,
-  Mensagem,
-  Label,
 } from "./styles";
 
 const PesquisaTreinamento = () => {
@@ -34,6 +29,7 @@ const PesquisaTreinamento = () => {
         console.error("ops! ocorreu um erro" + err);
       });
   }, []);
+
   const handleClick = (p) => {
     setPosicao(p)
     history.push('/competencias')
