@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import Logo from "../../components/img/logo.svg";
+import api from "../../services/api";
 import { AuthContext } from "../../providers/auth";
+import { Formik } from "formik";
 import {
   PrincipalDiv,
   CardColaboradorDiv,
@@ -9,40 +11,42 @@ import {
   HeaderDiv,
   TituloDiv,
   Texto,
-  CardDiv,
   BotoesDiv,
-  Button
+  Button,
+  CardDiv,
 } from "./styles";
 
-const Conhecimentos = () => {
+const Treinamentos = () => {
   const history = useHistory();
-  const { competencia, setConhecimento } = React.useContext(AuthContext);
+  const { conhecimento } = React.useContext(AuthContext);
 
-  const handleClick = (p) => {
-    console.log(p);
-    setConhecimento(p);
-    history.push('/treinamentos')
-  };
-
-  const posicaoMap = competencia.competencia.setCompsCons.map((p, i) => (
+  const treinamentos = conhecimento.conhecimento.setConsTrns.map((p, i) => (
     <CardDiv key={i}>
       <CardColaboradorDiv>
         <CardColaboradorDivInterna>
           <p>
             <b>Nome: </b>
-            {p.conhecimento.nome}
+            {p.treinamento.nome}
+          </p>
+          <p>
+            <b>Instituição: </b>
+            {p.treinamento.instituicao}
           </p>
         </CardColaboradorDivInterna>
         <CardColaboradorDivInterna>
           <p>
-            <b>Descrição: </b>
-            {p.conhecimento.descricao}
+            <b>Carga Horaria: </b>
+            {p.treinamento.cargaHoraria}h
+          </p>
+          <p>
+            <b>Descricao: </b>
+            {p.treinamento.descricao}
           </p>
         </CardColaboradorDivInterna>
       </CardColaboradorDiv>
-      <BotoesDiv>
-        <Button onClick={() => handleClick(p)}>Possiveis Treinamentos</Button>
-      </BotoesDiv>
+      {/* <BotoesDiv>
+        <Button onClick={() => handleRequisitos(p)}>Requisitos para ocupação</Button>
+      </BotoesDiv> */}
     </CardDiv>
   ));
   return (
@@ -52,13 +56,13 @@ const Conhecimentos = () => {
           <img src={Logo} alt="Logo" style={{ width: "100%" }} />
         </Link>
         <TituloDiv>
-          <Texto>{competencia.competencia.nome}: Conhecimentos </Texto>
+          <Texto>Treinamentos</Texto>
         </TituloDiv>
         <div style={{ width: "225px", height: "10px" }}></div>
       </HeaderDiv>
-      <CardDiv>{posicaoMap}</CardDiv>
+      <CardDiv>{treinamentos}</CardDiv>
     </PrincipalDiv>
   );
 };
 
-export default Conhecimentos;
+export default Treinamentos;

@@ -4,6 +4,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import PesquisaColaborador from './pages/PesquisaColaborador'
 import PesquisaTreinamento from './pages/PesquisaTreinamento'
+import Treinamentos from './pages/Treinamentos';
 import CadastrarColaboradores from './pages/CadastrarColaboradores';
 import AtualizarColaborador from './pages/AtualizarColaborador'
 import CadastrarCertificacoes from './pages/CadastrarCertificacoes'
@@ -33,7 +34,8 @@ function App() {
             <Route path="/" exact component={Login} />
             <RoutesPrivate path="/home" exact component={Home} />
             <RoutesPrivate path="/pesquisacolaborador" exact component={PesquisaColaborador} />
-            <RoutesPrivate path="/pesquisatreinamento" exact component={PesquisaTreinamento} />            
+            <RoutesPrivate path="/pesquisatreinamento" exact component={PesquisaTreinamento} />
+            <RoutesPrivate path="/treinamentos" exact component={Treinamentos} />            
             <RoutesPrivate path="/colaborador" exact component={Colaborador} />
             <RoutesPrivate path="/competencias" exact component={Competencias} />
             <RoutesPrivate path="/conhecimentos" exact component={Conhecimentos} />

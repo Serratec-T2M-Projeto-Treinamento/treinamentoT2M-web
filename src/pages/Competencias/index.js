@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import Logo from "../../components/img/logo.svg";
-import api from "../../services/api";
 import { AuthContext } from "../../providers/auth";
-import { Formik } from "formik";
 import {
   PrincipalDiv,
   CardColaboradorDiv,
@@ -14,28 +12,15 @@ import {
   BotoesDiv,
   Button,
   CardDiv,
-  Formulario,
-  Input,
-  InputDiv,
-  Mensagem,
-  Label,
 } from "./styles";
 
 const Competencias = () => {
   const history = useHistory();
-  const { posicao,setPosicao } = React.useContext(AuthContext);
+  const { posicao, setCompetencia } = React.useContext(AuthContext);
 
-  const [refresh, setRefresh] = useState(false);
-
-  useEffect(() => {    
-    api.get(`/posicoes/${posicao.idPosicoes}`)
-    .then((response) => setPosicao(response.data))
-    .catch((err) => {
-      console.error("ops! ocorreu um erro" + err);
-    });
-  }, [refresh]);
-
-  const handleClick = () => {
+  const handleClick = (p) => {
+    setCompetencia(p)
+    console.log(p);
     history.push('/conhecimentos')
   };
 
@@ -56,7 +41,7 @@ const Competencias = () => {
         </CardColaboradorDivInterna>
       </CardColaboradorDiv>
       <BotoesDiv>
-        <Button onClick={() => handleClick()}>Conhecimentos</Button>
+        <Button onClick={() => handleClick(p)}>Conhecimentos</Button>
       </BotoesDiv>
     </CardDiv>
   ));
@@ -67,7 +52,7 @@ const Competencias = () => {
           <img src={Logo} alt="Logo" style={{ width: "100%" }} />
         </Link>
         <TituloDiv>
-          <Texto>Competências: {posicao.nome}</Texto>
+          <Texto>{posicao.nome}: Competências</Texto>
         </TituloDiv>
         <div style={{ width: "225px", height: "10px" }}></div>
       </HeaderDiv>
