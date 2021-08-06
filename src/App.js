@@ -1,5 +1,4 @@
 import Login from './pages/Login';
-import { Container } from './pages/Login/styles';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import PesquisaColaborador from './pages/PesquisaColaborador'
@@ -23,7 +22,7 @@ import Competencias from './pages/Competencias'
 import Conhecimentos from './pages/Conhecimentos'
 import { AuthProvider } from './providers/auth';
 import RoutesPrivate from './components/Routes/Private';
-
+import { Container } from './components/Container/styles';
 
 function App() {
   return (

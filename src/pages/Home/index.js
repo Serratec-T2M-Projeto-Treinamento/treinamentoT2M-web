@@ -2,30 +2,21 @@ import React from "react";
 import Logo from "../../components/img/logo.svg";
 import { Link } from "react-router-dom";
 import { Button, Principal, Imagem, Botoes } from "../Home/styles";
+import { DivPrincipal } from '../../components/DivPrincipal/styles';
+import { BigLogo } from '../../components/BigLogo/styles'
+import { LinkButton } from '../../components/LinkButton/styles';
+import { DivBotoesHome } from "../../components/DivBotoesHome/styles";
 
 const Home = () => {
   return (
-    <Principal>
-      <div>
-        <Imagem>
-          <img src={Logo} alt="Logo" />
-        </Imagem>
-      </div>
-      <Botoes>
-        <Link to="/pesquisacolaborador" style={{ width: "100%" }}>
-          <Button descricao="PesquisaColaborador">Colaboradores</Button>
-        </Link>
-        <Link to="/pesquisatreinamento" style={{ width: "100%" }}>
-          <Button descricao="PesquisaTreinamentos">Treinamentos</Button>
-        </Link>
-        <Link to="/" style={{ width: "100%" }}>
-          <Button descricao="Voltar a página de login/deslogar">Sair</Button>
-        </Link>
-        {/* <Link to="/home" style={{ width: "100%" }}>
-          <Button descricao="Home">Treinamentos</Button>
-        </Link> */}
-      </Botoes>
-    </Principal>
+    <DivPrincipal>
+          <BigLogo src={Logo} alt="Logo" />
+      <DivBotoesHome>
+        <LinkButton to="/pesquisacolaborador">Colaboradores</LinkButton>
+        <LinkButton to="/pesquisatreinamento">Treinamentos</LinkButton>
+        <LinkButton to="/">Sair</LinkButton>
+      </DivBotoesHome>
+    </DivPrincipal>
   );
 };
 
