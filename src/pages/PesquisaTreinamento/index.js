@@ -15,6 +15,7 @@ import {
   Button,
   CardDiv,
 } from "./styles";
+import { LinkButton } from "../../components/LinkButton/styles";
 
 const PesquisaTreinamento = () => {
   const history = useHistory();
@@ -65,7 +66,7 @@ const PesquisaTreinamento = () => {
         <TituloDiv>
           <Texto>Posições</Texto>
         </TituloDiv>
-        <div style={{ width: "225px", height: "10px" }}></div>
+        <LinkButton to='/cadastrarposicoes'>Cadastrar posição</LinkButton>
       </HeaderDiv>
       <CardDiv>{posicoesMap}</CardDiv>
     </PrincipalDiv>

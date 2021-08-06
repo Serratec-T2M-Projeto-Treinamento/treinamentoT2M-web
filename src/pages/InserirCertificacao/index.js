@@ -31,7 +31,7 @@ const InserirTreinamentos = () => {
       .get("/certificacoes")
       .then((response) => setCertificacoes(response.data))
       .catch((err) => {
-        console.error("ops! ocorrei um erro" + err);
+        console.error("ops! ocorreu um erro" + err);
       });
   }, []);
 

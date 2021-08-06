@@ -1,7 +1,5 @@
 import React from "react";
 import Logo from "../../components/img/logo.svg";
-import { Link } from "react-router-dom";
-import { Button, Principal, Imagem, Botoes } from "../Home/styles";
 import { DivPrincipal } from '../../components/DivPrincipal/styles';
 import { BigLogo } from '../../components/BigLogo/styles'
 import { LinkButton } from '../../components/LinkButton/styles';
