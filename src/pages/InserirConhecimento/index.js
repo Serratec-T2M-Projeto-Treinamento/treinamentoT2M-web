@@ -3,6 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import Logo from "../../components/img/logo.svg";
 import api from "../../services/api";
 import { AuthContext } from "../../providers/auth";
+import { Formik } from "formik";
 import {
   PrincipalDiv,
   CardColaboradorDiv,
@@ -16,34 +17,49 @@ import {
 } from "./styles";
 import { LinkButton } from "../../components/LinkButton/styles";
 
-const Competencias = () => {
+const InserirConhecimento = () => {
   const history = useHistory();
-  const { posicao, setCompetencia } = React.useContext(AuthContext);
+  const { competencia, setCompetencia } = React.useContext(AuthContext);
+  const [conhecimentos, setConhecimentos] = useState([]);
 
-  const handleClick = (p) => {
-    setCompetencia(p)
+  useEffect(() => {
+    api
+      .get("/competencias")
+      .then((response) => setConhecimentos(response.data))
+      .catch((err) => {
+        console.error("ops! ocorreu um erro" + err);
+      });
+  }, []);
+
+  async function handleClick(p) {
+    console.log(competencia);
     console.log(p);
+    await api.put(`/compsCons/competencia/${competencia.competencia.idCompetencias}/conhecimentoAInserir/${p.idConhecimentos}`)
+    alert('Conhecimento inserido com sucesso!')
+    const responseCompetencia = await api.get(`/competencia/${competencia.competencia.idCompetencias}`);
+    setCompetencia(competencia.responseCompetencia.data)
+    console.log(responseCompetencia);
     history.push('/conhecimentos')
   };
 
-  const posicaoMap = posicao.setPosComps.map((p, i) => (
+  const competenciaMap = competencia.setCompsCons.map((p, i) => (
     <CardDiv key={i}>
       <CardColaboradorDiv>
         <CardColaboradorDivInterna>
           <p>
             <b>Nome: </b>
-            {p.competencia.nome}
+            {p.nome}
           </p>
         </CardColaboradorDivInterna>
         <CardColaboradorDivInterna>
         <p>
             <b>Descrição: </b>
-            {p.competencia.descricao}
+            {p.descricao}
           </p>
         </CardColaboradorDivInterna>
       </CardColaboradorDiv>
       <BotoesDiv>
-        <Button onClick={() => handleClick(p)}>Conhecimentos</Button>
+        <Button onClick={() => handleClick(p)}>Inserir conhecimento</Button>
       </BotoesDiv>
     </CardDiv>
   ));
@@ -54,14 +70,12 @@ const Competencias = () => {
           <img src={Logo} alt="Logo" style={{ width: "100%" }} />
         </Link>
         <TituloDiv>
-          <Texto>{posicao.nome}: Competências</Texto>
+          <Texto>Conhecimentos</Texto>
         </TituloDiv>
-        <LinkButton to='/inserircompetencia'>Inserir competência</LinkButton>
-        <LinkButton to='/cadastrarcompetencias'>Cadastrar competências</LinkButton>
       </HeaderDiv>
-      <CardDiv>{posicaoMap}</CardDiv>
+      <CardDiv>{competenciaMap}</CardDiv>
     </PrincipalDiv>
   );
 };
 
-export default Competencias;
+export default InserirConhecimento;

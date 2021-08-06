@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import Logo from "../../components/img/logo.svg";
+import { LinkButton } from "../../components/LinkButton/styles";
 import { AuthContext } from "../../providers/auth";
 import {
   PrincipalDiv,
@@ -54,7 +55,8 @@ const Conhecimentos = () => {
         <TituloDiv>
           <Texto>{competencia.competencia.nome}: Conhecimentos </Texto>
         </TituloDiv>
-        <div style={{ width: "225px", height: "10px" }}></div>
+        <LinkButton to='/cadastrarconhecimentos'>Cadastrar conhecimentos</LinkButton>
+        <LinkButton to='/inserirconhecimento'>Inserir conhecimentos</LinkButton>
       </HeaderDiv>
       <CardDiv>{posicaoMap}</CardDiv>
     </PrincipalDiv>
