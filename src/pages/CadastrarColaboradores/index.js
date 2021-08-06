@@ -28,13 +28,9 @@ const CadastrarColaboradores = () => {
   const [posicoes, setPosicoes] = useState([]);
   const { usuario } = React.useContext(AuthContext);
 
-  useEffect(() => {
-    api
-      .get("/posicoes")
-      .then((response) => setPosicoes(response.data))
-      .catch((err) => {
-        console.error("ops! ocorrei um erro" + err);
-      });
+  useEffect(async() => {
+    const responsePosicoes = await api.get("/posicoes");
+    setPosicoes(responsePosicoes.data);
   }, []);
 
   const posicoesSelect = posicoes.map((p, i) => (
@@ -48,12 +44,12 @@ const CadastrarColaboradores = () => {
       return <option value={2}>Administrador</option>;
     }
   }
-  const cpfMask = [/\d/,/\d/,/\d/,".",/\d/,/\d/,/\d/,".",/\d/,/\d/,/\d/,"-",/\d/,/\d/,];
-  const rgMask = [/\d/,/\d/,".",/\d/,/\d/,/\d/,".",/\d/,/\d/,/\d/,"-",/\d/,];
+  const cpfMask = [/\d/, /\d/, /\d/, ".", /\d/, /\d/, /\d/, ".", /\d/, /\d/, /\d/, "-", /\d/, /\d/,];
+  const rgMask = [/\d/, /\d/, ".", /\d/, /\d/, /\d/, ".", /\d/, /\d/, /\d/, "-", /\d/,];
   const cepMask = [/\d/, /\d/, /\d/, /\d/, /\d/, "-", /\d/, /\d/, /\d/];
 
   const validations = yup.object().shape({
-    nome: yup.string().min(5, ({min}) => `Mínimo de ${min} caracteres`).required("Nome é obrigatório"),
+    nome: yup.string().min(5, ({ min }) => `Mínimo de ${min} caracteres`).required("Nome é obrigatório"),
     dataNascimento: yup
       .date("Inserir uma data valida")
       .required("Data de nascimento é obrigatória"),
@@ -147,12 +143,12 @@ const CadastrarColaboradores = () => {
             cep: values.cep,
             pais: values.pais,
           };
-            try{
-            const responseColaborador = await api.post("/colaboradores",colaborador);
+          try {
+            const responseColaborador = await api.post("/colaboradores", colaborador);
             const idColaborador = responseColaborador.data.idColaboradores;
             const responseEndereco = await api.post("/enderecos", endereco);
             const idEndereco = responseEndereco.data.idEnderecos;
-  
+
             const response = await api.put(
               `/colabsEndrs/colaborador/${idColaborador}/enderecoAInserir/${idEndereco}`
             );
