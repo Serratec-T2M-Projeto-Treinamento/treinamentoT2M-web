@@ -1,11 +1,4 @@
 import React from "react";
-import {
-  PrincipalDiv,
-  HeaderDiv,
-  TituloDiv,
-  Texto,
-  Formulario,
-} from "./styles";
 import { Link, useHistory } from "react-router-dom";
 import Logo from "../../components/img/logo.svg";
 import api from "../../services/api";
@@ -13,6 +6,11 @@ import { Formik } from "formik";
 import * as yup from "yup";
 import Input from "../../components/Input";
 import { Button } from "../../components/Button/styles";
+import { DivPrincipal } from "../../components/DivPrincipal/styles";
+import { DivHeader } from "../../components/DivHeader/styles"
+import { DivTitulo } from "../../components/DivTitulo/styles";
+import { Titulos } from "../../components/Titulos/styles";
+import { BigForm } from "../../components/BigForm/styles";
 
 
 const CadastrarPosicoes = () => {
@@ -24,16 +22,16 @@ const CadastrarPosicoes = () => {
   })
 
   return (
-    <PrincipalDiv>
-      <HeaderDiv>
+    <DivPrincipal>
+      <DivHeader>
         <Link to="/home" style={{ width: "225px" }}>
           <img src={Logo} alt="Logo" style={{ width: "100%" }} />
         </Link>
-        <TituloDiv>
-          <Texto>Casdastrar conhecimento</Texto>
-        </TituloDiv>
+        <DivTitulo>
+          <Titulos>Casdastrar conhecimento</Titulos>
+        </DivTitulo>
         <div style={{ width: "225px", height: "10px" }}></div>
-      </HeaderDiv>
+      </DivHeader>
       <Formik
         initialValues={{
           nome: "",
@@ -46,13 +44,13 @@ const CadastrarPosicoes = () => {
         }}
         validationSchema={validations}
       >
-        <Formulario>
+        <BigForm>
             <Input name='nome' type='text' label='Nome' placeholder='nome' />
             <Input name='descricao' type='text' label='Descrição' placeholder='descrição' />
             <Button type="submit">Cadastrar conhecimento</Button>
-        </Formulario>
+        </BigForm>
       </Formik>
-    </PrincipalDiv>
+    </DivPrincipal>
   );
 };
 

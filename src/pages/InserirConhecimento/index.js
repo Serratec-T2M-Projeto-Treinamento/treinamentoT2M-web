@@ -5,17 +5,17 @@ import api from "../../services/api";
 import { AuthContext } from "../../providers/auth";
 import { Formik } from "formik";
 import {
-  PrincipalDiv,
   CardColaboradorDiv,
   CardColaboradorDivInterna,
-  HeaderDiv,
-  TituloDiv,
-  Texto,
   BotoesDiv,
   Button,
   CardDiv,
 } from "./styles";
 import { LinkButton } from "../../components/LinkButton/styles";
+import { DivPrincipal } from "../../components/DivPrincipal/styles";
+import { DivHeader } from "../../components/DivHeader/styles"
+import { DivTitulo } from "../../components/DivTitulo/styles";
+import { Titulos } from "../../components/Titulos/styles";
 
 const InserirConhecimento = () => {
   const history = useHistory();
@@ -64,17 +64,17 @@ const InserirConhecimento = () => {
     </CardDiv>
   ));
   return (
-    <PrincipalDiv>
-      <HeaderDiv>
+    <DivPrincipal>
+      <DivHeader>
         <Link to="/home" style={{ width: "225px" }}>
           <img src={Logo} alt="Logo" style={{ width: "100%" }} />
         </Link>
-        <TituloDiv>
-          <Texto>Conhecimentos</Texto>
-        </TituloDiv>
-      </HeaderDiv>
+        <DivTitulo>
+          <Titulos>Conhecimentos</Titulos>
+        </DivTitulo>
+      </DivHeader>
       <CardDiv>{competenciaMap}</CardDiv>
-    </PrincipalDiv>
+    </DivPrincipal>
   );
 };
 

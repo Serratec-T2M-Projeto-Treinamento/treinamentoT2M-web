@@ -4,17 +4,17 @@ import Logo from "../../components/img/logo.svg";
 import api from "../../services/api";
 import { AuthContext } from "../../providers/auth";
 import {
-  PrincipalDiv,
   CardColaboradorDiv,
   CardColaboradorDivInterna,
-  HeaderDiv,
-  TituloDiv,
-  Texto,
   BotoesDiv,
   Button,
   CardDiv,
 } from "./styles";
 import { LinkButton } from "../../components/LinkButton/styles";
+import { DivPrincipal } from "../../components/DivPrincipal/styles";
+import { DivHeader } from "../../components/DivHeader/styles"
+import { DivTitulo } from "../../components/DivTitulo/styles";
+import { Titulos } from "../../components/Titulos/styles";
 
 const Competencias = () => {
   const history = useHistory();
@@ -62,19 +62,19 @@ const Competencias = () => {
     </CardDiv>
   ));
   return (
-    <PrincipalDiv>
-      <HeaderDiv>
+    <DivPrincipal>
+      <DivHeader>
         <Link to="/home" style={{ width: "225px" }}>
           <img src={Logo} alt="Logo" style={{ width: "100%" }} />
         </Link>
-        <TituloDiv>
-          <Texto>{posicao.nome}: Competências</Texto>
-        </TituloDiv>
+        <DivTitulo>
+          <Titulos>{posicao.nome}: Competências</Titulos>
+        </DivTitulo>
         <LinkButton to='/inserircompetencia'>Inserir competência</LinkButton>
         <LinkButton to='/cadastrarcompetencias'>Cadastrar competências</LinkButton>
-      </HeaderDiv>
+      </DivHeader>
       <CardDiv>{posicaoMap}</CardDiv>
-    </PrincipalDiv>
+    </DivPrincipal>
   );
 };
 

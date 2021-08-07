@@ -4,12 +4,8 @@ import { Link, useHistory } from "react-router-dom";
 import Logo from "../../components/img/logo.svg";
 import api from "../../services/api";
 import {
-  PrincipalDiv,
   CardColaboradorDiv,
   CardColaboradorDivInterna,
-  HeaderDiv,
-  TituloDiv,
-  Texto,
   ColaboradorTituloDiv,
   Titulo,
   BotoesDiv,
@@ -20,6 +16,10 @@ import {
   LinkButton,
   LinkButtonIns,
 } from "./styles";
+import { DivPrincipal } from "../../components/DivPrincipal/styles";
+import { DivHeader } from "../../components/DivHeader/styles"
+import { DivTitulo } from "../../components/DivTitulo/styles";
+import { Titulos } from "../../components/Titulos/styles";
 
 const Colaborador = () => {
   const history = useHistory();
@@ -281,16 +281,16 @@ const Colaborador = () => {
   ));
 
   return (
-    <PrincipalDiv>
-      <HeaderDiv>
+    <DivPrincipal>
+      <DivHeader>
         <Link to="/home" style={{ width: "225px" }}>
           <img src={Logo} alt="Logo" style={{ width: "100%" }} />
         </Link>
-        <TituloDiv>
-          <Texto>Informações do Colaborador(a)</Texto>
-        </TituloDiv>
+        <DivTitulo>
+          <Titulos>Informações do Colaborador(a)</Titulos>
+        </DivTitulo>
         <div style={{ width: "225px", height: "10px" }}></div>
-      </HeaderDiv>
+      </DivHeader>
       <CardDiv>
         <CardColaboradorDiv>
           <ColaboradorTituloDiv>
@@ -379,7 +379,7 @@ const Colaborador = () => {
           <BotaoIns>Inserir certificação</BotaoIns>
         </LinkButtonIns>
       </BotoesDiv>
-    </PrincipalDiv>
+    </DivPrincipal>
   );
 };
 

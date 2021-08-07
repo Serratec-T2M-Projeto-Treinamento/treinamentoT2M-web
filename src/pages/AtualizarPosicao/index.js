@@ -1,18 +1,9 @@
 import React, { useState, useEffect } from "react";
 import {
-    PrincipalDiv,
-    HeaderDiv,
-    TituloDiv,
-    Texto,
     Input,
-    Formulario,
-    FormurarioDiv,
     ButtonDiv,
     Button,
-    Select,
-    TituloEndereco,
     Mensagem,
-    InputMask,
     Label,
     InputDiv,
 } from "../CadastrarColaboradores/styles";
@@ -22,6 +13,11 @@ import api from "../../services/api";
 import { AuthContext } from "../../providers/auth";
 import { Formik } from "formik";
 import * as yup from "yup";
+import { DivPrincipal } from "../../components/DivPrincipal/styles";
+import { DivHeader } from "../../components/DivHeader/styles"
+import { DivTitulo } from "../../components/DivTitulo/styles";
+import { Titulos } from "../../components/Titulos/styles";
+import { BigForm } from "../../components/BigForm/styles";
 
 const AtualizarPosicao = () => {
     const history = useHistory();
@@ -33,16 +29,16 @@ const AtualizarPosicao = () => {
     });
 
     return (
-        <PrincipalDiv>
-            <HeaderDiv>
+        <DivPrincipal>
+            <DivHeader>
                 <Link to="/home" style={{ width: "225px" }}>
                     <img src={Logo} alt="Logo" style={{ width: "100%" }} />
                 </Link>
-                <TituloDiv>
-                    <Texto>Atualizar Posição</Texto>
-                </TituloDiv>
+                <DivTitulo>
+                    <Titulos>Atualizar Posição</Titulos>
+                </DivTitulo>
                 <div style={{ width: "225px", height: "10px" }}></div>
-            </HeaderDiv>
+            </DivHeader>
             <Formik
                 initialValues={{
                     nome: posicao.nome,
@@ -56,7 +52,7 @@ const AtualizarPosicao = () => {
                 }}
                 validationSchema={validations}
             >
-                <Formulario>
+                <BigForm>
                     <Mensagem component="span" name="nome" />
                     <InputDiv>
                         <Label for="nome">Nome</Label>
@@ -70,9 +66,9 @@ const AtualizarPosicao = () => {
                     <ButtonDiv>
                         <Button type="submit">Atualizar</Button>
                     </ButtonDiv>
-                </Formulario>
+                </BigForm>
             </Formik>
-        </PrincipalDiv>
+        </DivPrincipal>
     );
 };
 
