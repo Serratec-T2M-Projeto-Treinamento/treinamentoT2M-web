@@ -3,7 +3,6 @@ import { Link, useHistory } from "react-router-dom";
 import Logo from "../../components/img/logo.svg";
 import api from "../../services/api";
 import { AuthContext } from "../../providers/auth";
-import { Formik } from "formik";
 import {
   CardColaboradorDiv,
   CardColaboradorDivInterna,
@@ -11,20 +10,19 @@ import {
   Button,
   CardDiv,
 } from "./styles";
-import { LinkButton } from "../../components/LinkButton/styles";
 import { DivPrincipal } from "../../components/DivPrincipal/styles";
 import { DivHeader } from "../../components/DivHeader/styles"
 import { DivTitulo } from "../../components/DivTitulo/styles";
 import { Titulos } from "../../components/Titulos/styles";
 
-const InserirConhecimento = () => {
+const InserirConhecimentos = () => {
   const history = useHistory();
   const { competencia, setCompetencia } = React.useContext(AuthContext);
   const [conhecimentos, setConhecimentos] = useState([]);
 
   useEffect(() => {
     api
-      .get("/competencias")
+      .get("/conhecimentos")
       .then((response) => setConhecimentos(response.data))
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
@@ -32,17 +30,15 @@ const InserirConhecimento = () => {
   }, []);
 
   async function handleClick(p) {
-    console.log(competencia);
-    console.log(p);
-    await api.put(`/compsCons/competencia/${competencia.competencia.idCompetencias}/conhecimentoAInserir/${p.idConhecimentos}`)
+    await api.put(`/compsCons/competencia/${competencia.idCompetencias}/conhecimentoAInserir/${p.idConhecimentos}`)
     alert('Conhecimento inserido com sucesso!')
-    const responseCompetencia = await api.get(`/competencia/${competencia.competencia.idCompetencias}`);
-    setCompetencia(competencia.responseCompetencia.data)
-    console.log(responseCompetencia);
+    const responseCompetencia = await api.get(`/competencias/${competencia.idCompetencias}`);
+    setCompetencia(responseCompetencia.data)
+    console.log(competencia);
     history.push('/conhecimentos')
   };
 
-  const competenciaMap = competencia.setCompsCons.map((p, i) => (
+  const conhecimentosMap = conhecimentos.map((p, i) => (
     <CardDiv key={i}>
       <CardColaboradorDiv>
         <CardColaboradorDivInterna>
@@ -73,9 +69,9 @@ const InserirConhecimento = () => {
           <Titulos>Conhecimentos</Titulos>
         </DivTitulo>
       </DivHeader>
-      <CardDiv>{competenciaMap}</CardDiv>
+      <CardDiv>{conhecimentosMap}</CardDiv>
     </DivPrincipal>
   );
 };
 
-export default InserirConhecimento;
+export default InserirConhecimentos;

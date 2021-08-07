@@ -11,7 +11,6 @@ import {
   Button,
   CardDiv,
 } from "./styles";
-import { LinkButton } from "../../components/LinkButton/styles";
 import { DivPrincipal } from "../../components/DivPrincipal/styles";
 import { DivHeader } from "../../components/DivHeader/styles"
 import { DivTitulo } from "../../components/DivTitulo/styles";
@@ -32,7 +31,6 @@ const InserirConpetencia = () => {
   }, []);
 
   async function handleClick(p) {
-    console.log(posicao);
     console.log(p);
     await api.put(`/posComps/posicao/${posicao.idPosicoes}/competenciaAInserir/${p.idCompetencias}`)
     alert('Competência inserida com sucesso!')

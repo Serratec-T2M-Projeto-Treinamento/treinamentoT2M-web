@@ -4,10 +4,8 @@ import {
   ButtonDiv,
   Button,
   Mensagem,
-  InputMask,
   Label,
   InputDiv,
-  Select,
 } from "./styles";
 import { Link, useHistory } from "react-router-dom";
 import Logo from "../../components/img/logo.svg";

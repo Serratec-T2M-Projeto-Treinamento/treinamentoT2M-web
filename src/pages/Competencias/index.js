@@ -19,25 +19,24 @@ import { Titulos } from "../../components/Titulos/styles";
 const Competencias = () => {
   const history = useHistory();
   const { posicao, setPosicao, setCompetencia } = React.useContext(AuthContext);
-  // const [refresh, setRefresh] = useState(false);
+  const [refresh, setRefresh] = useState(false);
   console.log(posicao);
 
   const handleConhecimentos = (p) => {
-    setCompetencia(p)
+    setCompetencia(p.competencia)
     history.push('/conhecimentos')
   };
 
   async function handleRemoverCompetencia(p) {
     await api.put(`/posComps/posicao/${posicao.idPosicoes}/competenciaARemover/${p.competencia.idCompetencias}`);
     alert("Competencia removida com sucesso!");
-    history.push('/pesquisatreinamento')
-    // setRefresh(!refresh);
+    setRefresh(!refresh);
   };
 
-  // useEffect(async () => {
-  //   const responsePosicao = await api.get("/posicoes")
-  //   setPosicao(responsePosicao.data)
-  // }, [refresh]);
+  useEffect(async () => {
+    const responsePosicao = await api.get(`/posicoes/${posicao.idPosicoes}`)
+    setPosicao(responsePosicao.data)
+  }, [refresh]);
 
   const posicaoMap = posicao.setPosComps.map((p, i) => (
     <CardDiv key={i}>
