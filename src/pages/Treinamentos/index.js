@@ -19,7 +19,7 @@ import {
 const Treinamentos = () => {
   const history = useHistory();
   const { conhecimento } = React.useContext(AuthContext);
-
+  console.log(conhecimento);
   const treinamentos = conhecimento.conhecimento.setConsTrns.map((p, i) => (
     <CardDiv key={i}>
       <CardColaboradorDiv>

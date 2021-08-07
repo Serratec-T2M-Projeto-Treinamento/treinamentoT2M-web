@@ -18,9 +18,9 @@ import {
 const Conhecimentos = () => {
   const history = useHistory();
   const { competencia, setConhecimento } = React.useContext(AuthContext);
+  console.log(competencia);
 
   const handleClick = (p) => {
-    console.log(p);
     setConhecimento(p);
     history.push('/treinamentos')
   };
@@ -55,8 +55,8 @@ const Conhecimentos = () => {
         <TituloDiv>
           <Texto>{competencia.competencia.nome}: Conhecimentos </Texto>
         </TituloDiv>
-        <LinkButton to='/cadastrarconhecimentos'>Cadastrar conhecimentos</LinkButton>
-        <LinkButton to='/inserirconhecimento'>Inserir conhecimentos</LinkButton>
+        {/* <LinkButton to='/cadastrarconhecimentos'>Cadastrar conhecimentos</LinkButton>
+        <LinkButton to='/inserirconhecimento'>Inserir conhecimentos</LinkButton> */}
       </HeaderDiv>
       <CardDiv>{posicaoMap}</CardDiv>
     </PrincipalDiv>

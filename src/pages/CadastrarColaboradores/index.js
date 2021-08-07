@@ -49,43 +49,20 @@ const CadastrarColaboradores = () => {
   const cepMask = [/\d/, /\d/, /\d/, /\d/, /\d/, "-", /\d/, /\d/, /\d/];
 
   const validations = yup.object().shape({
-    nome: yup.string().min(5, ({ min }) => `Mínimo de ${min} caracteres`).required("Nome é obrigatório"),
-    dataNascimento: yup
-      .date("Inserir uma data valida")
-      .required("Data de nascimento é obrigatória"),
-    email: yup
-      .string()
-      .email("Inserir um email valido")
-      .max(30, ({ max }) => `Maximo de ${max} caracteres`)
-      .required("Email é obrigatório"),
+    nome: yup.string().min(5, ({ min }) => `Mínimo de ${min} caracteres`).max(50, ({max})=>`Maximo de ${max} caracteres`).required("Nome é obrigatório"),
+    dataNascimento: yup.date("Inserir uma data valida").required("Data de nascimento é obrigatória"),
+    email: yup.string().email("Inserir um email valido").max(30, ({ max }) => `Maximo de ${max} caracteres`).required("Email é obrigatório"),
     pix: yup.string().max(40, ({ max }) => `Maximo de ${max} caracteres`),
-    cpf: yup.string().required("CPF é obrigatório"),
-    rg: yup.string().required("RG é obrigatório"),
-    rua: yup
-      .string()
-      .max(100, ({ max }) => `Maximo de ${max} caracteres`)
-      .required("Rua é obrigatório"),
-    numero: yup
-      .string()
-      .max(10, ({ max }) => `Maximo de ${max} caracteres`)
-      .required("Numero é obrigatório"),
-    complemento: yup
-      .string()
-      .max(15, ({ max }) => `Maximo de ${max} caracteres`),
-    bairro: yup
-      .string()
-      .max(50, ({ max }) => `Maximo de ${max} caracteres`)
-      .required("Bairro é obrigatório"),
-    cidade: yup
-      .string()
-      .max(50, ({ max }) => `Maximo de ${max} caracteres`)
-      .required("Cidade é obrigatório"),
+    cpf: yup.string().min(14,({min})=>`Minimo de ${min} caracteres`).required("CPF é obrigatório"),
+    rg: yup.string().min(12,({min})=>`Minimo de ${min} caracteres`).required("RG é obrigatório"),
+    rua: yup.string().max(100, ({ max }) => `Maximo de ${max} caracteres`).required("Rua é obrigatório"),
+    numero: yup.string().max(10, ({ max }) => `Maximo de ${max} caracteres`).required("Numero é obrigatório"),
+    complemento: yup.string().max(15, ({ max }) => `Maximo de ${max} caracteres`),
+    bairro: yup.string().max(50, ({ max }) => `Maximo de ${max} caracteres`).required("Bairro é obrigatório"),
+    cidade: yup.string().max(50, ({ max }) => `Maximo de ${max} caracteres`).required("Cidade é obrigatório"),
     estado: yup.string().required("Estado é obrigatório"),
-    cep: yup.string().required("CEP é obrigatório"),
-    pais: yup
-      .string()
-      .max(15, ({ max }) => `Maximo de ${max} caracteres`)
-      .required("Pais é obrigatório"),
+    cep: yup.string().min(12,({min})=>`Minimo de ${min} caracteres`).required("CEP é obrigatório"),
+    pais: yup.string().max(15, ({ max }) => `Maximo de ${max} caracteres`).required("Pais é obrigatório"),
   });
 
   return (

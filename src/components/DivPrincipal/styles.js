@@ -7,7 +7,4 @@ export const DivPrincipal = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    border: blue 1px solid;
-    box-sizing: border-box;
 `;

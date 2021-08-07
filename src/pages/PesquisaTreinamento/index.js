@@ -21,19 +21,40 @@ const PesquisaTreinamento = () => {
   const history = useHistory();
   const { setPosicao } = React.useContext(AuthContext);
   const [posicoes, setPosicoes] = useState([]);
+  const [refresh, setRefresh] = useState(false);
 
   useEffect(() => {
     api
       .get("/posicoes")
-      .then((response) => setPosicoes(response.data))
+      .then((response) => {setPosicoes(response.data); console.log(response.data)})
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
       });
   }, []);
 
-  const handleClick = (p) => {
+  useEffect(() => {
+    api
+      .get("/posicoes")
+      .then((response) => {setPosicoes(response.data); console.log(response.data)})
+      .catch((err) => {
+        console.error("ops! ocorreu um erro" + err);
+      });
+  }, [refresh]);
+
+  const handleCompetencia = (p) => {
     setPosicao(p)
     history.push('/competencias')
+  };
+
+  const handleAtualizarPosicao = (p) => {
+    setPosicao(p)
+    history.push('/atualizarposicao')
+  };
+
+  async function handleRemoverPosicao(p) {
+    await api.delete(`/posicoes/${p.idPosicoes}`);
+    alert("Posição removida com sucesso!");
+    setRefresh(!refresh);
   };
 
   const posicoesMap = posicoes.map((p, i) => (
@@ -53,7 +74,9 @@ const PesquisaTreinamento = () => {
         </CardColaboradorDivInterna>
       </CardColaboradorDiv>
       <BotoesDiv>
-        <Button onClick={() => handleClick(p)}>Requisitos para ocupação</Button>
+        <Button onClick={() => handleCompetencia(p)}>Requisitos para ocupação</Button>
+        <Button onClick={() => handleAtualizarPosicao(p)}>Atualizar</Button>
+        <Button onClick={() => handleRemoverPosicao(p)}>Remover</Button>
       </BotoesDiv>
     </CardDiv>
   ));

@@ -10,6 +10,7 @@ import CadastrarCertificacoes from './pages/CadastrarCertificacoes'
 import InserirCertificacao from './pages/InserirCertificacao'
 import CadastrarEnderecos from './pages/CadastrarEnderecos'
 import AtualizarEndereco from './pages/AtualizarEndereco'
+import AtualizarPosicao from './pages/AtualizarPosicao'
 import CadastrarFormacoes from './pages/CadastrarFormacoes'
 import InserirFormacao from './pages/InserirFormacao'
 import AtualizarFormacao from './pages/AtualizarFormacao'
@@ -29,7 +30,6 @@ import { AuthProvider } from './providers/auth';
 import RoutesPrivate from './components/Routes/Private';
 import { Container } from './components/Container/styles';
 
-
 function App() {
   return (
     <BrowserRouter>
@@ -48,6 +48,7 @@ function App() {
             <RoutesPrivate path="/conhecimentos" exact component={Conhecimentos} />
             <RoutesPrivate path="/cadastrarcolaboradores" exact component={CadastrarColaboradores} />
             <RoutesPrivate path="/atualizarcolaborador" exact component={AtualizarColaborador} />
+            <RoutesPrivate path="/atualizarposicao" exact component={AtualizarPosicao} />
             <RoutesPrivate path="/cadastrarcertificacoes" exact component={CadastrarCertificacoes} />
             <RoutesPrivate path="/cadastrarposicoes" exact component={CadastrarPosicoes} />
             <RoutesPrivate path="/inserircertificacao" exact component={InserirCertificacao} />

@@ -8,7 +8,7 @@ export const Principal = styled.div`
   align-items: center;
 `;
 export const Input = styled.input`
-  color:grey;
+  color:transparent;
   border-radius: 30px;
   width: 50%;
   height: 30px;
