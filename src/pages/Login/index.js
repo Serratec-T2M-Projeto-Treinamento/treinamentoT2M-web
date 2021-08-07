@@ -13,7 +13,6 @@ import { Button } from "../../components/Button/styles";
 import Alerta from "../../components/Alerta";
 import Loading from '../../components/Loading'
 
-
 const Login = () => {
   const history = useHistory();
   const { setUsuario } = React.useContext(AuthContext);

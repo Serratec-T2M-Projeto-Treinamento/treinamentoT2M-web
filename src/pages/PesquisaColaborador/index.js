@@ -46,7 +46,7 @@ const PesquisaColaborador = () => {
         </Link>
         <Input
           type="text"
-          placeholder="Pesquisar Colaborador"
+          placeholder=""
         ></Input>
         <Botoes>
           <Link to="/cadastrarcolaboradores" style={{ width: "100%", marginBottom: "18%" }}>

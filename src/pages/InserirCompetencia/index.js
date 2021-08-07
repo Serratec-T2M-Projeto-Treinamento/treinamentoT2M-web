@@ -17,7 +17,7 @@ import {
 } from "./styles";
 import { LinkButton } from "../../components/LinkButton/styles";
 
-const InserirConhecimento = () => {
+const InserirConpetencia = () => {
   const history = useHistory();
   const { posicao, setPosicao } = React.useContext(AuthContext);
   const [competencias, setCompetencias] = useState([]);
@@ -77,4 +77,4 @@ const InserirConhecimento = () => {
   );
 };
 
-export default InserirConhecimento;
+export default InserirConpetencia;

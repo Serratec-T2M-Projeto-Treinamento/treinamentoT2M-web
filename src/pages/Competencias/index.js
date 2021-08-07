@@ -18,13 +18,26 @@ import { LinkButton } from "../../components/LinkButton/styles";
 
 const Competencias = () => {
   const history = useHistory();
-  const { posicao, setCompetencia } = React.useContext(AuthContext);
+  const { posicao, setPosicao, setCompetencia } = React.useContext(AuthContext);
+  // const [refresh, setRefresh] = useState(false);
+  console.log(posicao);
 
-  const handleClick = (p) => {
+  const handleConhecimentos = (p) => {
     setCompetencia(p)
-    console.log(p);
     history.push('/conhecimentos')
   };
+
+  async function handleRemoverCompetencia(p) {
+    await api.put(`/posComps/posicao/${posicao.idPosicoes}/competenciaARemover/${p.competencia.idCompetencias}`);
+    alert("Competencia removida com sucesso!");
+    history.push('/pesquisatreinamento')
+    // setRefresh(!refresh);
+  };
+
+  // useEffect(async () => {
+  //   const responsePosicao = await api.get("/posicoes")
+  //   setPosicao(responsePosicao.data)
+  // }, [refresh]);
 
   const posicaoMap = posicao.setPosComps.map((p, i) => (
     <CardDiv key={i}>
@@ -43,7 +56,8 @@ const Competencias = () => {
         </CardColaboradorDivInterna>
       </CardColaboradorDiv>
       <BotoesDiv>
-        <Button onClick={() => handleClick(p)}>Conhecimentos</Button>
+        <Button onClick={() => handleConhecimentos(p)}>Conhecimentos</Button>
+        <Button onClick={() => handleRemoverCompetencia(p)}>Remover</Button>
       </BotoesDiv>
     </CardDiv>
   ));

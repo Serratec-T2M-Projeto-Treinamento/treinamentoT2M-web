@@ -330,7 +330,7 @@ const Colaborador = () => {
             {handlePermissao(colaborador.permissao)}
             <p>
               <b>Posição: </b>
-              {colaborador.posicao.nome}
+              {colaborador?.posicao?.nome}
             </p>
           </CardColaboradorDivInterna>
         </CardColaboradorDiv>
