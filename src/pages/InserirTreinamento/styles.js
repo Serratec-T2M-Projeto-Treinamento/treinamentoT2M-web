@@ -126,7 +126,7 @@ export const Formulario = styled(Form)`
   width: 70%;
   box-sizing: border-box;
 `;
-export const Select = styled(Field)`
+export const Input = styled(Field)`
   border-radius: 30px;
   box-sizing: border-box;
   width: 80%;
