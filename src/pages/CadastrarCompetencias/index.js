@@ -2,7 +2,6 @@ import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import Logo from "../../components/img/logo.svg";
 import api from "../../services/api";
-import { AuthContext } from "../../providers/auth";
 import { Formik } from "formik";
 import * as yup from "yup";
 import Input from "../../components/Input";

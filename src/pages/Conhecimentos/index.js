@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React,{ useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import Logo from "../../components/img/logo.svg";
 import { LinkButton } from "../../components/LinkButton/styles";
@@ -18,22 +18,27 @@ import { Titulos } from "../../components/Titulos/styles";
 
 const Conhecimentos = () => {
   const history = useHistory();
-  const { competencia, setConhecimento } = React.useContext(AuthContext);
+  const { competencia, setCompetencia, setConhecimento } = React.useContext(AuthContext);
+  const [refresh, setRefresh] = useState(false);
   console.log(competencia);
 
   const handleClick = (p) => {
-    setConhecimento(p);
+    setConhecimento(p.conhecimento);
     history.push('/treinamentos')
   };
 
   async function handleRemoverConhecimento(p) {
-    await api.put(`/compsCons/competencia/${p.competencia.idCompetencias}/conhecimentoARemover/${p.competencia.idCompetencias}`);
-    alert("Competencia removida com sucesso!");
-    history.push('/pesquisatreinamento')
-    // setRefresh(!refresh);
+    await api.put(`/compsCons/competencia/${competencia.idCompetencias}/conhecimentoARemover/${p.conhecimento.idConhecimentos}`);
+    alert("Conhecimento removido com sucesso!");
+    setRefresh(!refresh)
   };
 
-  const posicaoMap = competencia.competencia.setCompsCons.map((p, i) => (
+  useEffect(async () => {
+    const responseCompetencia = await api.get(`/competencias/${competencia.idCompetencias}`)
+    setCompetencia(responseCompetencia.data)
+  }, [refresh]);
+
+  const competenciasMap = competencia.setCompsCons.map((p, i) => (
     <CardDiv key={i}>
       <CardColaboradorDiv>
         <CardColaboradorDivInterna>
@@ -62,12 +67,12 @@ const Conhecimentos = () => {
           <img src={Logo} alt="Logo" style={{ width: "100%" }} />
         </Link>
         <DivTitulo>
-          <Titulos>{competencia.competencia.nome}: Conhecimentos </Titulos>
+          <Titulos>{competencia.nome}: Conhecimentos </Titulos>
         </DivTitulo>
         <LinkButton to='/cadastrarconhecimentos'>Cadastrar conhecimentos</LinkButton>
         <LinkButton to='/inserirconhecimento'>Inserir conhecimentos</LinkButton>
       </DivHeader>
-      <CardDiv>{posicaoMap}</CardDiv>
+      <CardDiv>{competenciasMap}</CardDiv>
     </DivPrincipal>
   );
 };
