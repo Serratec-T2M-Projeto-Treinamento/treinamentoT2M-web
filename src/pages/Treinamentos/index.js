@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import Logo from "../../components/img/logo.svg";
-import api from "../../services/api";
 import { AuthContext } from "../../providers/auth";
-import { Formik } from "formik";
 import {
   CardColaboradorDiv,
   CardColaboradorDivInterna,
@@ -16,14 +14,26 @@ import { DivPrincipal } from "../../components/DivPrincipal/styles";
 import { DivHeader } from "../../components/DivHeader/styles"
 import { DivTitulo } from "../../components/DivTitulo/styles";
 import { Titulos } from "../../components/Titulos/styles";
+import api from "../../services/api";
 
 const Treinamentos = () => {
   const history = useHistory();
-  const { conhecimento } = React.useContext(AuthContext);
+  const { conhecimento, setConhecimento } = React.useContext(AuthContext);
+  const [refresh, setRefresh] = useState(false);
   console.log(conhecimento);
 
+  async function handleRemoverTreinamento(p) {
+    await api.put(`/consTrns/conhecimento/${conhecimento.idConhecimentos}/treinamentomentoARemover/${p.treinamento.idTreinamentos}`);
+    alert("Conhecimento removido com sucesso!");
+    setRefresh(!refresh)
+  };
 
-  const treinamentos = conhecimento.conhecimento.setConsTrns.map((p, i) => (
+  useEffect(async () => {
+    const responseConhecimento = await api.get(`/conhecimentos/${conhecimento.idConhecimentos}`)
+    setConhecimento(responseConhecimento.data)
+  }, [refresh]);
+
+  const treinamentos = conhecimento.setConsTrns.map((p, i) => (
     <CardDiv key={i}>
       <CardColaboradorDiv>
         <CardColaboradorDivInterna>
@@ -48,7 +58,7 @@ const Treinamentos = () => {
         </CardColaboradorDivInterna>
       </CardColaboradorDiv>
       <BotoesDiv>
-        <Button>Inserir treinamento</Button>
+        <Button onClick={()=>handleRemoverTreinamento} >Remover</Button>
       </BotoesDiv>
       {/* <BotoesDiv>
         <Button onClick={() => handleRequisitos(p)}>Requisitos para ocupação</Button>

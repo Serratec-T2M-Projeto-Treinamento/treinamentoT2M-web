@@ -31,15 +31,6 @@ const PesquisaTreinamento = () => {
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
       });
-  }, []);
-
-  useEffect(() => {
-    api
-      .get("/posicoes")
-      .then((response) => {setPosicoes(response.data); console.log(response.data)})
-      .catch((err) => {
-        console.error("ops! ocorreu um erro" + err);
-      });
   }, [refresh]);
 
   const handleCompetencia = (p) => {
