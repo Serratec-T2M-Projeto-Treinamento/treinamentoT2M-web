@@ -24,8 +24,9 @@ const Alerta = (p) => {
                         fontSize:'max(1vw,0.6rem)',
                         fontWeight:'bold',
                         position: 'absolute',
+                        width: '50%',
                         top: '35%',
-                        left: '10%',
+                        left: '24.5%',
                         right: '10%',
                         bottom: '35%',
                         border: '1px solid #ccc',
@@ -38,7 +39,7 @@ const Alerta = (p) => {
                     }
                 }}
             >
-                <h1>Usuario ou senha incorretos !!!</h1>
+                <h1>Usuario ou senha incorretos</h1>
                 <Button onClick={() => p.func(false)}>OK</Button>
             </Modal>
         </div>

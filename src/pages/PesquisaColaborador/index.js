@@ -3,7 +3,6 @@ import Logo from "../../components/img/logo.svg";
 import { Link } from "react-router-dom";
 import {
   Button,
-  Principal,
   Imagem,
   Botoes,
   Input,
@@ -12,6 +11,8 @@ import {
 } from "../PesquisaColaborador/styles";
 import api from "../../services/api";
 import { AuthContext } from "../../providers/auth";
+import { DivPrincipal } from "../../components/DivPrincipal/styles";
+
 
 const PesquisaColaborador = () => {
   const [colaboradores, setColaboradores] = useState([]);
@@ -39,14 +40,14 @@ const PesquisaColaborador = () => {
   ));
 
   return (
-    <Principal>
+    <DivPrincipal>
       <Imagem>
         <Link to="/home" style={{ width: "20%" }}>
           <img src={Logo} alt="Logo" style={{ width: "100%" }} />
         </Link>
         <Input
           type="text"
-          placeholder=""
+          placeholder="Pesquise um colaborador"
         ></Input>
         <Botoes>
           <Link to="/cadastrarcolaboradores" style={{ width: "100%", marginBottom: "18%" }}>
@@ -59,7 +60,7 @@ const PesquisaColaborador = () => {
       <Cards>
         {colab}
       </Cards>
-    </Principal>
+    </DivPrincipal>
   );
 };
 

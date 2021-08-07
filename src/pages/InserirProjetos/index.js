@@ -5,21 +5,21 @@ import api from "../../services/api";
 import { AuthContext } from "../../providers/auth";
 import { Formik } from "formik";
 import {
-  PrincipalDiv,
   CardColaboradorDiv,
   CardColaboradorDivInterna,
-  HeaderDiv,
-  TituloDiv,
-  Texto,
   BotoesDiv,
   Button,
   CardDiv,
-  Formulario,
   Input,
   InputDiv,
   Mensagem,
   Label,
 } from "./styles";
+import { DivPrincipal } from "../../components/DivPrincipal/styles";
+import { DivHeader } from "../../components/DivHeader/styles"
+import { DivTitulo } from "../../components/DivTitulo/styles";
+import { Titulos } from "../../components/Titulos/styles";
+import { BigForm } from "../../components/BigForm/styles";
 
 const InserirProjetos = () => {
   const history = useHistory();
@@ -90,7 +90,7 @@ const InserirProjetos = () => {
           history.push("/colaborador")
         }}
       >
-        <Formulario>
+        <BigForm>
           <Mensagem component="span" name="funcao" />
           <InputDiv>
             <Label for="funcao">Função</Label>
@@ -108,23 +108,23 @@ const InserirProjetos = () => {
           <BotoesDiv>
           <Button type="submit">Inserir projeto</Button>
         </BotoesDiv>
-        </Formulario>   
+        </BigForm>   
       </Formik>
     </CardDiv>
   ));
   return (
-    <PrincipalDiv>
-      <HeaderDiv>
+    <DivPrincipal>
+      <DivHeader>
         <Link to="/home" style={{ width: "225px" }}>
           <img src={Logo} alt="Logo" style={{ width: "100%" }} />
         </Link>
-        <TituloDiv>
-          <Texto>Projetos</Texto>
-        </TituloDiv>
+        <DivTitulo>
+          <Titulos>Projetos</Titulos>
+        </DivTitulo>
         <div style={{ width: "225px", height: "10px" }}></div>
-      </HeaderDiv>
+      </DivHeader>
       <CardDiv>{projetosMap}</CardDiv>
-    </PrincipalDiv>
+    </DivPrincipal>
   );
 };
 

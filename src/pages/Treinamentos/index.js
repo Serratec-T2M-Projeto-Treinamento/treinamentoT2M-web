@@ -5,21 +5,24 @@ import api from "../../services/api";
 import { AuthContext } from "../../providers/auth";
 import { Formik } from "formik";
 import {
-  PrincipalDiv,
   CardColaboradorDiv,
   CardColaboradorDivInterna,
-  HeaderDiv,
-  TituloDiv,
-  Texto,
   BotoesDiv,
   Button,
   CardDiv,
 } from "./styles";
+import { LinkButton } from "../../components/LinkButton/styles";
+import { DivPrincipal } from "../../components/DivPrincipal/styles";
+import { DivHeader } from "../../components/DivHeader/styles"
+import { DivTitulo } from "../../components/DivTitulo/styles";
+import { Titulos } from "../../components/Titulos/styles";
 
 const Treinamentos = () => {
   const history = useHistory();
   const { conhecimento } = React.useContext(AuthContext);
   console.log(conhecimento);
+
+
   const treinamentos = conhecimento.conhecimento.setConsTrns.map((p, i) => (
     <CardDiv key={i}>
       <CardColaboradorDiv>
@@ -44,24 +47,28 @@ const Treinamentos = () => {
           </p>
         </CardColaboradorDivInterna>
       </CardColaboradorDiv>
+      <BotoesDiv>
+        <Button>Inserir treinamento</Button>
+      </BotoesDiv>
       {/* <BotoesDiv>
         <Button onClick={() => handleRequisitos(p)}>Requisitos para ocupação</Button>
       </BotoesDiv> */}
     </CardDiv>
   ));
   return (
-    <PrincipalDiv>
-      <HeaderDiv>
+    <DivPrincipal>
+      <DivHeader>
         <Link to="/home" style={{ width: "225px" }}>
           <img src={Logo} alt="Logo" style={{ width: "100%" }} />
         </Link>
-        <TituloDiv>
-          <Texto>Treinamentos</Texto>
-        </TituloDiv>
-        <div style={{ width: "225px", height: "10px" }}></div>
-      </HeaderDiv>
+        <DivTitulo>
+          <Titulos>Treinamentos</Titulos>
+        </DivTitulo>
+        <LinkButton to='/cadastrartreinamentos'>Cadastrar treinamentos</LinkButton>
+        <LinkButton to='/inserirtreinamento'>Inserir treinamento</LinkButton>
+      </DivHeader>
       <CardDiv>{treinamentos}</CardDiv>
-    </PrincipalDiv>
+    </DivPrincipal>
   );
 };
 

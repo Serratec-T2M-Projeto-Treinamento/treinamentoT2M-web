@@ -1,16 +1,9 @@
 import React, { useState, useEffect } from "react";
 import {
-  PrincipalDiv,
-  HeaderDiv,
-  TituloDiv,
-  Texto,
   Input,
-  Formulario,
-  FormurarioDiv,
   ButtonDiv,
   Button,
   Select,
-  TituloEndereco,
   Mensagem,
   InputMask,
   Label,
@@ -22,6 +15,11 @@ import api from "../../services/api";
 import { AuthContext } from "../../providers/auth";
 import { Formik } from "formik";
 import * as yup from "yup";
+import { DivPrincipal } from "../../components/DivPrincipal/styles";
+import { DivHeader } from "../../components/DivHeader/styles"
+import { DivTitulo } from "../../components/DivTitulo/styles";
+import { Titulos } from "../../components/Titulos/styles";
+import { BigForm } from "../../components/BigForm/styles";
 
 const AtualizarColaborador = () => {
   const history = useHistory();
@@ -72,16 +70,16 @@ const AtualizarColaborador = () => {
   });
 
   return (
-    <PrincipalDiv>
-      <HeaderDiv>
+    <DivPrincipal>
+      <DivHeader>
         <Link to="/home" style={{ width: "225px" }}>
           <img src={Logo} alt="Logo" style={{ width: "100%" }} />
         </Link>
-        <TituloDiv>
-          <Texto>Atualizar Colabolador</Texto>
-        </TituloDiv>
+        <DivTitulo>
+          <Titulos>Atualizar Colabolador</Titulos>
+        </DivTitulo>
         <div style={{ width: "225px", height: "10px" }}></div>
-      </HeaderDiv>
+      </DivHeader>
       <Formik
         initialValues={{
           nome: colaborador.nome,
@@ -114,7 +112,7 @@ const AtualizarColaborador = () => {
         }}
         validationSchema={validations}
       >
-        <Formulario>
+        <BigForm>
             <Mensagem component="span" name="nome" />
             <InputDiv>
               <Label for="nome">Nome</Label>
@@ -199,9 +197,9 @@ const AtualizarColaborador = () => {
           <ButtonDiv>
             <Button type="submit">Atualizar</Button>
           </ButtonDiv>
-        </Formulario>
+        </BigForm>
       </Formik>
-    </PrincipalDiv>
+    </DivPrincipal>
   );
 };
 
