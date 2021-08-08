@@ -6,11 +6,12 @@
 </br>
 
 ## Índice
-- [Projeto](#projeto)
+- [Projeto](#-projeto)
 - [Backlog Priorizado](#backlog-priorizado)
 - [Desenvolvimento](#desenvolvimento)
 - [Tecnologia Utilizada](#-tecnologia-utilizada)
-
+- [Contribuidores](#contribuidores)
+<br>
 
 ## 🖊️Projeto
 **Desenvolvimento de aplicação Web e Mobile que cumpra os seguintes requisitos:**
@@ -51,6 +52,7 @@
 - [**Yarn**](https://yarnpkg.com/)    [(*Documentação*)](https://yarnpkg.com/getting-started) 
 
 <br>
+<h1 align="center">Contribuidores</h1><br>
 
 ## Desenvolvedores
 <table>
@@ -75,7 +77,7 @@
       <a href="https://github.com/ianalt">
         <img src="https://unavatar.vercel.app/github/ianalt" width="70px;" alt="Avatar Ian Alt"/><br>
         <sub>
-          <b>    Ian Alt    </b>
+          <b>&nbsp;&nbsp;&nbsp;&nbsp;    Ian Alt    &nbsp;&nbsp;&nbsp;&nbsp;</b>
         </sub>
       </a><br>
     </td>
