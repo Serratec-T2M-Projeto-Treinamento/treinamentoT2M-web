@@ -7,9 +7,9 @@
 </br>
 
 ## Índice
-- [Projeto](#projeto)
+- [Projeto](#-projeto)
 - [Backlog Priorizado](#backlog-priorizado)
-- [Desenvolvimento Web](#desenvolvimento-web)
+- [Desenvolvimento Web](#-desenvolvimento-web)
 - [Versão Mobile](#versão-mobile)
 - [Back End](#back-end)
 - [Screenshots](#screenshots)
