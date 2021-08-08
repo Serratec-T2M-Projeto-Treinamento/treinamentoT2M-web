@@ -2,8 +2,15 @@
 <p align="center">
 <img height="100px" src="https://github.com/marcosbarker/serratec.residencia/blob/main/assets/logoSerratec.png" alt="logo serratec"/><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img height="100px" src="https://github.com/marcosbarker/serratec.residencia/blob/main/assets/logot2m1.png" alt="logo t2m"/>
 </p>
-<h1>T2M TREINAMENTO WEB</h1>
+<h1 align="center">T2M TREINAMENTO WEB</h1>
 </br>
+
+## Índice
+- [Projeto](#projeto)
+- [Backlog Priorizado](#-backlog-priorizado)
+- [Desenvolvimento](#desenvolvimento)
+- [Tecnologia Utilizada](#tecnologia-utilizada)
+
 
 ## 🖊️Projeto
 **Desenvolvimento de aplicação Web e Mobile que cumpra os seguintes requisitos:**
@@ -24,6 +31,7 @@
 ✔️ Eu como administrador desejo inserir uma Lista de treinamentos para cada posição.<br>
 ✔️ Eu como líder desejo usar um mecanismo de busca de funcionários com filtros.<br>
 <br>
+<h2 align="center">Contribuidores</h2>
 
 ## Desenvolvimento
 - Projeto desenvolvido em ReactJS.
@@ -67,7 +75,7 @@
       <a href="https://github.com/ianalt">
         <img src="https://unavatar.vercel.app/github/ianalt" width="70px;" alt="Avatar Ian Alt"/><br>
         <sub>
-          <b>&nbsp;&nbsp;Ian Alt&nbsp;&nbsp;</b>
+          <b>    Ian Alt    </b>
         </sub>
       </a><br>
     </td>
@@ -112,7 +120,6 @@
       </a><br>
     </td>
 </table>
-<br>
 
 ## Monitores
 <table>
