@@ -114,32 +114,6 @@
 </table>
 <br>
 
-## Product Owner
-<table>
-  <tr>
-    <td align="center">
-      <a href="https://www.linkedin.com/in/erik-menas-584b541b4/">
-        <img src="https://www.linkedin.com/in/erik-menas-584b541b4/detail/photo/" width="70px;" alt="Avatar Erik Menas"/><br>
-        <sub>
-          <b>Erik Menas</b>
-        </sub>
-      </a>
-    </td>
-</table>
-
-## Tester
-<table>
-  <tr>
-    <td align="center">
-      <a href="https://www.linkedin.com/in/victor-vieira-0081a720a/">
-        <img src="https://media-exp1.licdn.com/dms/image/C4D03AQEdSLkcVxoVMA/profile-displayphoto-shrink_800_800/0/1621457958970?e=1634169600&v=beta&t=3A9vOOY3FIGWNpdUYoQCc9x9CiIi7VEBBvMphXGAQ9k" width="70px;" alt="Avatar Erik Menas"/><br>
-        <sub>
-          <b>Victor Vieira</b>
-        </sub>
-      </a>
-    </td>
-</table>
-
 ## Monitores
 <table>
   <tr>
@@ -168,5 +142,31 @@
       </a><br>
     </td>
   </table>
+
+## Product Owner
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://www.linkedin.com/in/erik-menas-584b541b4/">
+        <img src="https://media-exp1.licdn.com/dms/image/C5603AQG9UTGBqdg0Lg/profile-displayphoto-shrink_800_800/0/1598134993134?e=1634169600&v=beta&t=MAMU0Z0lCpqmZO9gGu9IhOhgjjb1idW7qCxvPf7X1K0" width="70px;" alt="Avatar Erik Menas"/><br>
+        <sub>
+          <b>Erik Menas</b>
+        </sub>
+      </a>
+    </td>
+</table>
+
+## Tester
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://www.linkedin.com/in/victor-vieira-0081a720a/">
+        <img src="https://media-exp1.licdn.com/dms/image/C4D03AQEdSLkcVxoVMA/profile-displayphoto-shrink_800_800/0/1621457958970?e=1634169600&v=beta&t=3A9vOOY3FIGWNpdUYoQCc9x9CiIi7VEBBvMphXGAQ9k" width="70px;" alt="Avatar Erik Menas"/><br>
+        <sub>
+          <b>Victor Vieira</b>
+        </sub>
+      </a>
+    </td>
+</table>
 
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;⬆️[**Back to top**](#back-to-top)⬆️
