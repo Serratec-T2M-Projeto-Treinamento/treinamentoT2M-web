@@ -2,11 +2,12 @@
 <p align="center">
 <img height="100px" src="https://github.com/marcosbarker/serratec.residencia/blob/main/assets/logoSerratec.png" alt="logo serratec"/><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img height="100px" src="https://github.com/marcosbarker/serratec.residencia/blob/main/assets/logot2m1.png" alt="logo t2m"/>
 </p>
-<h1 align="center">T2M TREINAMENTO WEB</h1>
+<h1 align="center">T2M TREINAMENTO WEB</h1><br>
+<h3>Product Owner: Erik Frederik Gabrich Menas</h3>
 </br>
 
 ## 🖊️Projeto
-Desenvolvimento de aplicação Web e Mobile que cumpra os seguintes requisitos:
+**Desenvolvimento de aplicação Web e Mobile que cumpra os seguintes requisitos:**
 - Sistema de login para administradores e líderes de projetos.
 - Líderes devem ser capazes de cadastrar novos líderes e colaboradores.
 - Administradores devem ser capazes de cadastrar, além dos citados acima, novos administradores.
@@ -17,12 +18,18 @@ Desenvolvimento de aplicação Web e Mobile que cumpra os seguintes requisitos:
 
 ## ⚡Backlog Priorizado 
 ✔️ Eu como administrador desejo cadastrar colaboradores.<br> 
-✔️ Eu como administrador desejo cadastrar outros administradores e líderes e no sistema.<br>  
+✔️ Eu como administrador desejo cadastrar outros administradores e líderes e no sistema.<br>
 ✔️ Eu como líder desejo fazer o login.<br>
 ✔️ Eu como líder desejo cadastrar colaboradores.<br>
 ✔️ Eu como administrador desejo definir requisitos para ocupação de cada posição.<br>
 ✔️ Eu como administrador desejo inserir uma Lista de treinamentos para cada posição.<br>
 ✔️ Eu como líder desejo usar um mecanismo de busca de funcionários com filtros.<br>
+<br>
+
+## Desenvolvimento
+- Projeto desenvolvido em ReactJS.
+- Deploy feito no Vercel.
+- Prazo em que foi desenvolvido 19/07/2021 até 06/08/2021
 
 ## <img  height="45px" align="center" src="https://github.com/marcosbarker/serratec.residencia/blob/main/assets/stockrocketgif.gif"> Tecnologia Utilizada
 - [**Axios**](https://www.npmjs.com/package/react-axios)    [(*Documentação*)](https://www.npmjs.com/package/react-axios)
@@ -31,13 +38,44 @@ Desenvolvimento de aplicação Web e Mobile que cumpra os seguintes requisitos:
 - [**Node**](https://nodejs.org/en/)    [(*Documentação*)](https://nodejs.org/en/docs/)
 - [**npm**](https://www.npmjs.com/)    [(*Documentação*)](https://docs.npmjs.com/)
 - [**ReactJS**](https://reactjs.org/)    [(*Documentação*)](https://reactjs.org/tutorial/tutorial.html)    [(*Documentação MDN*)](https://developer.mozilla.org/pt-BR/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/React_getting_started)
+- [**Styled Components**](https://styled-components.com/)    [(*Documentação*)](https://styled-components.com/docs)
 - [**Vercel**](https://vercel.com)    [(*Documentação*)](https://vercel.com/docs)
 - [**Visual Studio Code**](https://code.visualstudio.com/)    [*(Documentação)*](https://code.visualstudio.com/docs)
 - [**Yarn**](https://yarnpkg.com/)    [(*Documentação*)](https://yarnpkg.com/getting-started) 
 
 <br>
 
-## Contribuidores
+## Monitores
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/AbJoia">
+        <img src="https://unavatar.vercel.app/github/AbJoia" width="70px;" alt="Avatar Abner Joia"/><br>
+        <sub>
+          <b>Abner Joia</b>
+        </sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/bernardpiccoli">
+        <img src="https://unavatar.vercel.app/github/bernardpiccoli" width="70px;" alt="Avatar Bernard Piccoli"/><br>
+        <sub>
+          <b>Bernard Piccoli</b>
+        </sub>
+      </a><br>
+    </td>
+    <td align="center">
+      <a href="https://github.com/caina-machado">
+        <img src="https://unavatar.vercel.app/github/caina-machado" width="70px;" alt="Avatar Cainã Machado"/><br>
+        <sub>
+          <b>Cainã Machado</b>
+        </sub>
+      </a><br>
+    </td>
+  </table>
+<br>
+
+## Desenvolvedores
 <table>
   <tr>
     <td align="center">
@@ -105,7 +143,5 @@ Desenvolvimento de aplicação Web e Mobile que cumpra os seguintes requisitos:
       </a><br>
     </td>
 </table>
-
-
-
-
+<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;⬆️[**Back to top**](#back-to-top)⬆️
