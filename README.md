@@ -132,7 +132,7 @@
   <tr>
     <td align="center">
       <a href="https://www.linkedin.com/in/victor-vieira-0081a720a/">
-        <img src="https://www.linkedin.com/in/victor-vieira-0081a720a/detail/photo/" width="70px;" alt="Avatar Erik Menas"/><br>
+        <img src="https://media-exp1.licdn.com/dms/image/C4D03AQEdSLkcVxoVMA/profile-displayphoto-shrink_800_800/0/1621457958970?e=1634169600&v=beta&t=3A9vOOY3FIGWNpdUYoQCc9x9CiIi7VEBBvMphXGAQ9k" width="70px;" alt="Avatar Erik Menas"/><br>
         <sub>
           <b>Victor Vieira</b>
         </sub>
