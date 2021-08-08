@@ -1,4 +1,5 @@
-<h5 align="center"><b><i>Projeto dos alunos da R-TIC/Software 2021.1 com a t2m</i></b></h5><a name="back-to-top">
+<a name="back-to-top">
+<h5 align="center"><b><i>Projeto dos alunos da R-TIC/Software 2021.1 com a t2m</i></b></h5>
 <p align="center">
 <img height="100px" src="https://github.com/marcosbarker/serratec.residencia/blob/main/assets/logoSerratec.png" alt="logo serratec"/><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img height="100px" src="https://github.com/marcosbarker/serratec.residencia/blob/main/assets/logot2m1.png" alt="logo t2m"/>
 </p>
@@ -7,13 +8,13 @@
 
 ## Índice
 - [Projeto](#-projeto)
-- [Backlog Priorizado](#backlog-priorizado)
-- [Desenvolvimento Web](#desenvolvimento-web)
-- [Versão Mobile](#versão-mobile)
-- [Back End](#back-end)
-- [Screenshots](#screenshots)
-- [Tecnologia Utilizada](#tecnologia-utilizada)
-- [Contribuidores](#contribuidores)
+- [Backlog Priorizado](#-backlog-priorizado)
+- [Desenvolvimento Web](#-desenvolvimento-web)
+- [Versão Mobile](#-versão-mobile)
+- [Back End](#-back-end)
+- [Screenshots](#-screenshots)
+- [Tecnologia Utilizada](#-tecnologia-utilizada)
+- [Contribuidores](#-contribuidores)
 <br>
 
 ## 🖊️Projeto
@@ -44,16 +45,19 @@
 - Deploy feito no Vercel.
 - Site 
   - [T2M Treinamento](https://t2mtreinamentos.herokuapp.com/)
+<br>
 
 ## 📱Versão Mobile
 - [Repositório](https://github.com/serratec/20211t2mTreinamentoMobile)
 
 ## 🍃Back End
 - [Repositório](https://github.com/serratec/2021.1t2mTreinamento)
+<br>
 
 ## 📷Screenshots
+<br>
 
-## <img  height="45px" align="center" src="https://github.com/marcosbarker/serratec.residencia/blob/main/assets/stockrocketgif.gif"> Tecnologia Utilizada
+## 🚀Tecnologia Utilizada
 - [**Axios**](https://www.npmjs.com/package/react-axios)    [(*Documentação*)](https://www.npmjs.com/package/react-axios)
 - [**JavaScript**](https://www.javascript.com/)    [(*Documentação MDN*)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 - [**Material Table**](https://material-table.com/#/)    [(*Documentação*)](https://material-table.com/#/docs/all-props)
