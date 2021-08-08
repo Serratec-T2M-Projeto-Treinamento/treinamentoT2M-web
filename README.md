@@ -1,5 +1,5 @@
-<p align="center"><a name="back-to-top">
-<h5 align="center"><b><i>Projeto dos alunos da R-TIC/Software 2021.1 com a t2m</i></b></h5>
+<h5 align="center"><b><i>Projeto dos alunos da R-TIC/Software 2021.1 com a t2m</i></b></h5><a name="back-to-top">
+<p align="center">
 <img height="100px" src="https://github.com/marcosbarker/serratec.residencia/blob/main/assets/logoSerratec.png" alt="logo serratec"/><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img height="100px" src="https://github.com/marcosbarker/serratec.residencia/blob/main/assets/logot2m1.png" alt="logo t2m"/>
 </p>
 <h1 align="center">T2M TREINAMENTO WEB</h1>
@@ -25,7 +25,7 @@
   <tr>
     <td align="center">
       <a href="https://github.com/Anna-Luiza">
-        <img src="https://unavatar.vercel.app/github/Anna-Luiza" width="100px;" alt="Avatar Anna Luiza Barillo"/><br>
+        <img src="https://unavatar.vercel.app/github/Anna-Luiza" width="70px;" alt="Avatar Anna Luiza Barillo"/><br>
         <sub>
           <b>Anna Luiza Barillo</b>
         </sub>
@@ -33,7 +33,7 @@
     </td>
     <td align="center">
       <a href="https://github.com/Diogo-Mendes-Martins">
-        <img src="https://unavatar.vercel.app/github/Diogo-Mendes-Martins" width="100px;" alt="Avatar Diogo Mendes Martins"/><br>
+        <img src="https://unavatar.vercel.app/github/Diogo-Mendes-Martins" width="70px;" alt="Avatar Diogo Mendes Martins"/><br>
         <sub>
           <b>Diogo Mendes Martins</b>
         </sub>
@@ -41,7 +41,7 @@
     </td>
     <td align="center">
       <a href="https://github.com/ianalt">
-        <img src="https://unavatar.vercel.app/github/ianalt" width="100px;" alt="Avatar Ian Alt"/><br>
+        <img src="https://unavatar.vercel.app/github/ianalt" width="70px;" alt="Avatar Ian Alt"/><br>
         <sub>
           <b>Ian Alt</b>
         </sub>
@@ -49,7 +49,7 @@
     </td>
     <td align="center">
       <a href="https://github.com/isis-la">
-        <img src="https://unavatar.vercel.app/github/isis-la" width="100px;" alt="Avatar Isis Soares"/><br>
+        <img src="https://unavatar.vercel.app/github/isis-la" width="70px;" alt="Avatar Isis Soares"/><br>
         <sub>
           <b>Isis Soares</b>
         </sub>
@@ -57,7 +57,7 @@
     </td>
     <td align="center">
       <a href="https://github.com/joaogarantesf">
-        <img src="https://unavatar.vercel.app/github/joaogarantesf" width="100px;" alt="Avatar João Guilherme Arantes Freitas"/><br>
+        <img src="https://unavatar.vercel.app/github/joaogarantesf" width="70px;" alt="Avatar João Guilherme Arantes Freitas"/><br>
         <sub>
           <b>João Guilherme Arantes Freitas</b>
         </sub>
@@ -65,7 +65,7 @@
     </td>
     <td align="center">
       <a href="https://github.com/JpBade">
-        <img src="https://unavatar.vercel.app/github/JpBade" width="100px;" alt="Avatar João Paulo Bade"/><br>
+        <img src="https://unavatar.vercel.app/github/JpBade" width="70px;" alt="Avatar João Paulo Bade"/><br>
         <sub>
           <b>João Paulo Bade</b>
         </sub>
@@ -73,7 +73,7 @@
     </td>
     <td align="center">
       <a href="https://github.com/marcosbarker">
-        <img src="https://unavatar.vercel.app/github/marcosbarker" width="100px;" alt="Avatar Marcos Paulo Marques Corrêa Gomes"/><br>
+        <img src="https://unavatar.vercel.app/github/marcosbarker" width="70px;" alt="Avatar Marcos Paulo Marques Corrêa Gomes"/><br>
         <sub>
           <b>Marcos Paulo Marques Corrêa Gomes</b>
         </sub>
@@ -81,7 +81,7 @@
     </td>
     <td align="center">
       <a href="https://github.com/ThiagoLino311">
-        <img src="https://unavatar.vercel.app/github/ThiagoLino311" width="100px;" alt="Avatar Thiago Lino"/><br>
+        <img src="https://unavatar.vercel.app/github/ThiagoLino311" width="70px;" alt="Avatar Thiago Lino"/><br>
         <sub>
           <b>Thiago Lino</b>
         </sub>
