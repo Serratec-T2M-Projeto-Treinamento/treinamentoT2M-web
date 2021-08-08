@@ -58,9 +58,9 @@ export const FormurarioDiv = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 50%;
   min-height: fit-content;
-  min-width: 400px;
+  width: 50%;
+  min-width: 320px;
 `;
 export const Input = styled(Field)`
   color:grey;
@@ -92,8 +92,8 @@ export const TituloEndereco = styled.div`
   border-radius: 30px;
   width: 86%;
   margin: 10px;
-  font-size: 20px;
-  padding:15px;
+  font-size: 1rem;
+  padding:1rem;
   font-weight: 700;
   background-color: white;
   color: black;

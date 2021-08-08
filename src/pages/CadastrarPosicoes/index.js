@@ -29,7 +29,7 @@ const CadastrarPosicoes = () => {
           <img src={Logo} alt="Logo" style={{ width: "100%" }} />
         </Link>
         <DivTitulo>
-          <Titulos>Casdastrar posições</Titulos>
+          <Titulos>Cadastrar posições</Titulos>
         </DivTitulo>
         <div style={{ width: "225px", height: "10px" }}></div>
       </DivHeader>

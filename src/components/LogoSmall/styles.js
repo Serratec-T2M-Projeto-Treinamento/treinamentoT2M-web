@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-export const BigLogo = styled.img`
+export const LogoSmall = styled.img`
 width: 250px;
-padding-left: 5vh;
 `;
