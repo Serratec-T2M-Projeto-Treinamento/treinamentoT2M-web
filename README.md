@@ -95,9 +95,9 @@
     </td>
     <td align="center">
       <a href="https://github.com/ianalt">
-        <img src="https://unavatar.vercel.app/github/ianalt" width="70px;" alt="Avatar Ian Alt"/><br>
+        <img src="https://unavatar.vercel.app/github/ianalt" width="100px;" alt="Avatar Ian Alt"/><br>
         <sub>
-          <b>&nbsp;&nbsp;&nbsp;&nbsp;    Ian Alt    &nbsp;&nbsp;&nbsp;&nbsp;</b>
+          <b>Ian Alt</b>
         </sub>
       </a><br>
     </td>
