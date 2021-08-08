@@ -3,7 +3,7 @@
 <img height="100px" src="https://github.com/marcosbarker/serratec.residencia/blob/main/assets/logoSerratec.png" alt="logo serratec"/><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img height="100px" src="https://github.com/marcosbarker/serratec.residencia/blob/main/assets/logot2m1.png" alt="logo t2m"/>
 </p>
 <h1 align="center">T2M TREINAMENTO WEB</h1><br>
-<h3>Product Owner: Erik Frederik Gabrich Menas</h3>
+<h3 align="center">Product Owner: Erik Frederik Gabrich Menas</h3>
 </br>
 
 ## 🖊️Projeto
@@ -73,7 +73,6 @@
       </a><br>
     </td>
   </table>
-<br>
 
 ## Desenvolvedores
 <table>
@@ -98,7 +97,7 @@
       <a href="https://github.com/ianalt">
         <img src="https://unavatar.vercel.app/github/ianalt" width="70px;" alt="Avatar Ian Alt"/><br>
         <sub>
-          <b>Ian Alt</b>
+          <b>&nbsp;&nbsp;Ian Alt&nbsp;&nbsp;</b>
         </sub>
       </a><br>
     </td>
@@ -144,4 +143,5 @@
     </td>
 </table>
 <br>
+
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;⬆️[**Back to top**](#back-to-top)⬆️
