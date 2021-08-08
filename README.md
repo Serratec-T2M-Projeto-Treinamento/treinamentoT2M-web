@@ -5,7 +5,24 @@
 <h1 align="center">T2M TREINAMENTO WEB</h1>
 </br>
 
-## Projeto
+## 🖊️Projeto
+Desenvolvimento de aplicação Web e Mobile que cumpra os seguintes requisitos:
+- Sistema de login para administradores e líderes de projetos.
+- Líderes devem ser capazes de cadastrar novos líderes e colaboradores.
+- Administradores devem ser capazes de cadastrar, além dos citados acima, novos administradores.
+- Ambas as aplicações devem:
+  - Listar os colaboradores da empresa, com informações específicas de cada um, bem como a posição que ocupam na empresa.
+  - Disponibilizar uma série de treinamentos e pré-requisitos para ocupação de posições.
+
+## ⚡Backlog Priorizado 
+✔️ Eu como administrador desejo cadastrar colaboradores.<br> 
+✔️ Eu como administrador desejo cadastrar outros administradores e líderes e no sistema.<br>  
+✔️ Eu como líder desejo fazer o login.<br> 
+✔️ Eu como líder desejo cadastrar colaboradores.<br>  
+✔️ Eu como administrador desejo definir requisitos para ocupação de cada posição.<br>  
+✔️ Eu como administrador desejo inserir uma Lista de treinamentos para cada posição.<br>  
+✔️ Eu como líder desejo usar um mecanismo de busca de funcionários com filtros.<br>  
+<br>
 
 ## <img  height="45px" align="center" src="https://github.com/marcosbarker/serratec.residencia/blob/main/assets/stockrocketgif.gif"> Tecnologia Utilizada
 - [**Axios**](https://www.npmjs.com/package/react-axios)    [(*Documentação*)](https://www.npmjs.com/package/react-axios)
@@ -20,7 +37,7 @@
 
 <br>
 
-## Colaboradores
+## Contribuidores
 <table>
   <tr>
     <td align="center">
@@ -75,7 +92,7 @@
       <a href="https://github.com/marcosbarker">
         <img src="https://unavatar.vercel.app/github/marcosbarker" width="70px;" alt="Avatar Marcos Paulo Marques Corrêa Gomes"/><br>
         <sub>
-          <b>Marcos Paulo Marques Corrêa Gomes</b>
+        <b>Marcos Paulo Marques Corrêa</b>
         </sub>
       </a><br>
     </td>
