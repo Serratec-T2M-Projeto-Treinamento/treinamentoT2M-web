@@ -7,9 +7,9 @@
 
 ## Índice
 - [Projeto](#projeto)
-- [Backlog Priorizado](#-backlog-priorizado)
+- [Backlog Priorizado](#backlog-priorizado)
 - [Desenvolvimento](#desenvolvimento)
-- [Tecnologia Utilizada](#tecnologia-utilizada)
+- [Tecnologia Utilizada](#-tecnologia-utilizada)
 
 
 ## 🖊️Projeto
