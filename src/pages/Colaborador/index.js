@@ -27,7 +27,8 @@ const Colaborador = () => {
 
   const [refresh, setRefresh] = useState(false);
 
-  useEffect(() => {    
+  useEffect(() => {  
+    console.log(colaborador);  
     api.get(`/colaboradores/${colaborador.idColaboradores}`)
     .then((response) => setColaborador(response.data))
     .catch((err) => {
@@ -104,7 +105,7 @@ const Colaborador = () => {
     alert("Certificação removida com sucesso!");
     setRefresh(!refresh);
   };
-  const enderecos = colaborador.setColabsEndrs.map((p, i) => (
+  const enderecos = colaborador?.setColabsEndrs?.map((p, i) => (
     <CardDiv key={i}>
       <CardColaboradorDiv>
         <CardColaboradorDivInterna>
@@ -155,7 +156,7 @@ const Colaborador = () => {
       </BotoesDiv>
     </CardDiv>
   ));
-  const projetos = colaborador.setColabsProjs.map((p, i) => (
+  const projetos = colaborador?.setColabsProjs?.map((p, i) => (
     <CardDiv key={i}>
       <CardColaboradorDiv>
         <CardColaboradorDivInterna>
@@ -196,7 +197,7 @@ const Colaborador = () => {
       </BotoesDiv>
     </CardDiv>
   ));
-  const formacoes = colaborador.setColabsForms.map((p, i) => (
+  const formacoes = colaborador?.setColabsForms?.map((p, i) => (
     <CardDiv key={i}>
       <CardColaboradorDiv>
         <CardColaboradorDivInterna>
@@ -225,7 +226,7 @@ const Colaborador = () => {
       </BotoesDiv>
     </CardDiv>
   ));
-  const treinamentos = colaborador.setColabsTrns.map((p, i) => (
+  const treinamentos = colaborador?.setColabsTrns?.map((p, i) => (
     <CardDiv key={i}>
       <CardColaboradorDiv>
         <CardColaboradorDivInterna>
@@ -254,7 +255,7 @@ const Colaborador = () => {
       </BotoesDiv>
     </CardDiv>
   ));
-  const certificacoes = colaborador.setColabsCerts.map((p, i) => (
+  const certificacoes = colaborador?.setColabsCerts?.map((p, i) => (
     <CardDiv key={i}>
       <CardColaboradorDiv>
         <CardColaboradorDivInterna>

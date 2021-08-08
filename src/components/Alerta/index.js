@@ -39,7 +39,7 @@ const Alerta = (p) => {
                     }
                 }}
             >
-                <h1>Usuario ou senha incorretos</h1>
+                <h1>{p.texto}</h1>
                 <Button onClick={() => p.func(false)}>OK</Button>
             </Modal>
         </div>

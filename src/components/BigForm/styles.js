@@ -7,11 +7,10 @@ export const BigForm = styled(Form)`
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  width: 90%;
   min-height: fit-content;
-  min-width: 400px;
+  width: 70vw;
+  min-width: 320px;
   background-color: #000;
-  border-radius: 15px;
+  border-radius: 1rem;
   padding: 20px 0;
-  margin-top: 40px;
 `;
