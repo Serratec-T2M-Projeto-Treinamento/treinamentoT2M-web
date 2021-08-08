@@ -8,13 +8,16 @@
 ## Índice
 - [Projeto](#-projeto)
 - [Backlog Priorizado](#backlog-priorizado)
-- [Desenvolvimento](#desenvolvimento)
-- [Tecnologia Utilizada](#-tecnologia-utilizada)
+- [Desenvolvimento Web](#desenvolvimento-web)
+- [Versão Mobile](#versão-mobile)
+- [Back End](#back-end)
+- [Screenshots](#screenshots)
+- [Tecnologia Utilizada](#tecnologia-utilizada)
 - [Contribuidores](#contribuidores)
 <br>
 
 ## 🖊️Projeto
-**Desenvolvimento de aplicação Web e Mobile que cumpra os seguintes requisitos:**
+**Desenvolvimento de aplicação Web, Mobile e API que cumpra os seguintes requisitos:**
 - Sistema de login para administradores e líderes de projetos.
 - Líderes devem ser capazes de cadastrar novos líderes e colaboradores.
 - Administradores devem ser capazes de cadastrar, além dos citados acima, novos administradores.
@@ -33,10 +36,22 @@
 ✔️ Eu como líder desejo usar um mecanismo de busca de funcionários com filtros.<br>
 <br>
 
-## Desenvolvimento
+## ⛏️Desenvolvimento Web
 - Projeto desenvolvido em ReactJS.
+- Equipe fixa de 3 desenvolvedores.
+- Prazo em que foi desenvolvido 19/07/2021 até 06/08/2021.
+- Consumindo API T2M Treinamento.
 - Deploy feito no Vercel.
-- Prazo em que foi desenvolvido 19/07/2021 até 06/08/2021
+- Site 
+  - [T2M Treinamento](https://t2mtreinamentos.herokuapp.com/)
+
+## 📱Versão Mobile
+- [Repositório](https://github.com/serratec/20211t2mTreinamentoMobile)
+
+## 🍃Back End
+- [Repositório](https://github.com/serratec/2021.1t2mTreinamento)
+
+## 📷Screenshots
 
 ## <img  height="45px" align="center" src="https://github.com/marcosbarker/serratec.residencia/blob/main/assets/stockrocketgif.gif"> Tecnologia Utilizada
 - [**Axios**](https://www.npmjs.com/package/react-axios)    [(*Documentação*)](https://www.npmjs.com/package/react-axios)
@@ -51,9 +66,9 @@
 - [**Yarn**](https://yarnpkg.com/)    [(*Documentação*)](https://yarnpkg.com/getting-started) 
 
 <br>
-<h1 align="center">Contribuidores</h1><br>
+<h1 align="center">🤝Contribuidores</h1><br>
 
-## Desenvolvedores
+## 👩‍💻Desenvolvedores
 <table>
   <tr>
     <td align="center">
@@ -122,7 +137,7 @@
     </td>
 </table>
 
-## Monitores
+## 🧑‍🏫Monitores
 <table>
   <tr>
     <td align="center">
@@ -151,7 +166,7 @@
     </td>
   </table>
 
-## Product Owner
+## 👨‍💼Product Owner
 <table>
   <tr>
     <td align="center">
@@ -164,7 +179,7 @@
     </td>
 </table>
 
-## Tester
+## 🧪Tester
 <table>
   <tr>
     <td align="center">
