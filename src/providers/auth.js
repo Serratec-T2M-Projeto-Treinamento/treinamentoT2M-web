@@ -10,6 +10,7 @@ export const AuthProvider = (props) => {
     const [posicao, setPosicao] = useState({});
     const [competencia, setCompetencia] = useState({});
     const [conhecimento, setConhecimento] = useState({});
+    const [header, setHeader] = useState({titulo:'',caminho:''});
 
     return (
         <AuthContext.Provider
@@ -20,7 +21,8 @@ export const AuthProvider = (props) => {
                 formacao, setFormacao: (formacao) => setFormacao(formacao),
                 posicao, setPosicao: (posicao) => setPosicao(posicao),
                 competencia, setCompetencia: (competencia) => setCompetencia(competencia),
-                conhecimento, setConhecimento: (conhecimento) => setConhecimento(conhecimento)
+                conhecimento, setConhecimento: (conhecimento) => setConhecimento(conhecimento),
+                header, setHeader: (header) => setHeader(header)
             }}>
             {props.children}
         </AuthContext.Provider>

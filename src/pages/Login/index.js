@@ -5,7 +5,6 @@ import api from "../../services/api";
 import { AuthContext } from "../../providers/auth";
 import { Formik } from "formik";
 import * as yup from "yup";
-import { DivPrincipal } from "../../components/DivPrincipal/styles";
 import { BigLogo } from "../../components/BigLogo/styles";
 import { Formulario } from "../../components/Formulario/styles";
 import Input from "../../components/Input";
@@ -33,8 +32,8 @@ const Login = () => {
   })
 
   return (
-    <DivPrincipal>
-      <Alerta isOpen={senhaErrada} func={setSenhaErrada} />
+    <>
+      <Alerta isOpen={senhaErrada} func={setSenhaErrada} texto='Usuario ou senha errada' />
         <BigLogo src={Logo} alt="Logo" />
       <Formik initialValues={{ usuario: "", senha: "" }} onSubmit={async (values) => {
         try {
@@ -62,7 +61,7 @@ const Login = () => {
               {useEffect}
             </Formulario>
       </Formik>
-    </DivPrincipal>
+    </>
   );
 };
 

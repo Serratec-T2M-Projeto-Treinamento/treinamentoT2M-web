@@ -1,81 +1,53 @@
 import React, { useState, useEffect } from "react";
 import {
-  Input,
   FormurarioDiv,
   ButtonDiv,
-  Select,
   TituloEndereco,
-  Mensagem,
-  InputMask,
-  Label,
-  InputDiv,
 } from "../CadastrarColaboradores/styles";
-import { Link, useHistory } from "react-router-dom";
-import Logo from "../../components/img/logo.svg";
+import { useHistory } from "react-router-dom";
 import api from "../../services/api";
-import { AuthContext } from "../../providers/auth";
 import { Formik } from "formik";
 import * as yup from "yup";
 import { Button } from "../../components/Button/styles";
-import { DivPrincipal } from "../../components/DivPrincipal/styles";
-import { DivHeader } from "../../components/DivHeader/styles"
-import { DivTitulo } from "../../components/DivTitulo/styles";
-import { Titulos } from "../../components/Titulos/styles";
 import { BigForm } from "../../components/BigForm/styles";
+import Header from '../../components/Header'
+import Input from '../../components/Input'
+import InputMask from '../../components/InputMask'
+import Alerta from "../../components/Alerta";
 
 const CadastrarColaboradores = () => {
   const history = useHistory();
   const [posicoes, setPosicoes] = useState([]);
-  const { usuario } = React.useContext(AuthContext);
+  const [concluido, setConcluido] = useState(false);
+  const [erro, setErro] = useState(false);
 
-  useEffect(async() => {
+  useEffect(async () => {
     const responsePosicoes = await api.get("/posicoes");
     setPosicoes(responsePosicoes.data);
   }, []);
 
-  const posicoesSelect = posicoes.map((p, i) => (
-    <option key={i} value={p.idPosicoes}>
-      {p.nome}
-    </option>
-  ));
-
-  function handlePermissao(p) {
-    if (p) {
-      return <option value={2}>Administrador</option>;
-    }
-  }
-  const cpfMask = [/\d/, /\d/, /\d/, ".", /\d/, /\d/, /\d/, ".", /\d/, /\d/, /\d/, "-", /\d/, /\d/,];
-  const rgMask = [/\d/, /\d/, ".", /\d/, /\d/, /\d/, ".", /\d/, /\d/, /\d/, "-", /\d/,];
-  const cepMask = [/\d/, /\d/, /\d/, /\d/, /\d/, "-", /\d/, /\d/, /\d/];
-
   const validations = yup.object().shape({
-    nome: yup.string().min(5, ({ min }) => `Mínimo de ${min} caracteres`).max(50, ({max})=>`Maximo de ${max} caracteres`).required("Nome é obrigatório"),
+    nome: yup.string().min(5, ({ min }) => `Mínimo de ${min} caracteres`).max(50, ({ max }) => `Maximo de ${max} caracteres`).required("Nome é obrigatório"),
     dataNascimento: yup.date("Inserir uma data valida").required("Data de nascimento é obrigatória"),
     email: yup.string().email("Inserir um email valido").max(30, ({ max }) => `Maximo de ${max} caracteres`).required("Email é obrigatório"),
     pix: yup.string().max(40, ({ max }) => `Maximo de ${max} caracteres`),
-    cpf: yup.string().min(14,({min})=>`Minimo de ${min} caracteres`).required("CPF é obrigatório"),
-    rg: yup.string().min(12,({min})=>`Minimo de ${min} caracteres`).required("RG é obrigatório"),
+    cpf: yup.string().min(14, ({ min }) => `Minimo de ${min} caracteres`).required("CPF é obrigatório"),
+    rg: yup.string().min(12, ({ min }) => `Minimo de ${min} caracteres`).required("RG é obrigatório"),
     rua: yup.string().max(100, ({ max }) => `Maximo de ${max} caracteres`).required("Rua é obrigatório"),
     numero: yup.string().max(10, ({ max }) => `Maximo de ${max} caracteres`).required("Numero é obrigatório"),
     complemento: yup.string().max(15, ({ max }) => `Maximo de ${max} caracteres`),
     bairro: yup.string().max(50, ({ max }) => `Maximo de ${max} caracteres`).required("Bairro é obrigatório"),
     cidade: yup.string().max(50, ({ max }) => `Maximo de ${max} caracteres`).required("Cidade é obrigatório"),
     estado: yup.string().required("Estado é obrigatório"),
-    cep: yup.string().min(12,({min})=>`Minimo de ${min} caracteres`).required("CEP é obrigatório"),
+    cep: yup.string().min(9, ({ min }) => `Minimo de ${min} caracteres`).required("CEP é obrigatório"),
     pais: yup.string().max(15, ({ max }) => `Maximo de ${max} caracteres`).required("Pais é obrigatório"),
   });
 
   return (
-    <DivPrincipal>
-      <DivHeader>
-        <Link to="/home" style={{ width: "225px" }}>
-          <img src={Logo} alt="Logo" style={{ width: "100%" }} />
-        </Link>
-        <DivTitulo>
-          <Titulos>Cadastro de Colaboladores</Titulos>
-        </DivTitulo>
-        <div style={{ width: "225px", height: "10px" }}></div>
-      </DivHeader>
+    <>
+      <Alerta isOpen={concluido} func={setConcluido} texto='Cadastro efetuado com sucesso !!!' />
+      <Alerta isOpen={erro} func={setErro} texto='Os Campos CPF, RG, email e Pix devem ter valores únicos, algum colaborador cadastrado já deve possuir algum desses valores !!!' />
+      <Header titulo='Cadastro de Colaboradores' textoButton='Voltar' caminho='pesquisacolaborador' />
       <Formik
         initialValues={{
           nome: "",
@@ -123,198 +95,52 @@ const CadastrarColaboradores = () => {
           try {
             const responseColaborador = await api.post("/colaboradores", colaborador);
             const idColaborador = responseColaborador.data.idColaboradores;
+
             const responseEndereco = await api.post("/enderecos", endereco);
             const idEndereco = responseEndereco.data.idEnderecos;
 
-            const response = await api.put(
-              `/colabsEndrs/colaborador/${idColaborador}/enderecoAInserir/${idEndereco}`
-            );
-            alert("Cadastro realizado com sucesso!");
+            await api.put(`/colabsEndrs/colaborador/${idColaborador}/enderecoAInserir/${idEndereco}`);
+
+            setConcluido(true);
             history.push("/pesquisacolaborador");
+
           } catch {
-            alert('Os Campos CPF, RG, email e Pix devem ter valores únicos, algum colaborador cadastrado já deve possuir algum desses valores !!!')
+            setErro(true)
           }
         }}
         validationSchema={validations}
       >
         <BigForm>
           <FormurarioDiv>
-            <Mensagem component="span" name="nome" />
-            <InputDiv>
-              <Label for="nome">Nome</Label>
-              <Input name="nome" type="text" placeholder="Nome"></Input>
-            </InputDiv>
-            <Mensagem component="span" name="cnh" />
-            <InputDiv>
-              <Label for="cnh">CNH</Label>
-              <Select component="select" name="cnh">
-                <option value="">Sem CNH</option>
-                <option value="A">A</option>
-                <option value="B">B</option>
-                <option value="C">C</option>
-                <option value="D">D</option>
-                <option value="E">E</option>
-                <option value="AB">AB</option>
-              </Select>
-            </InputDiv>
-            <Mensagem component="span" name="cpf" />
-            <InputDiv>
-              <Label for="cpf">CPF</Label>
-              <Input
-                name="cpf"
-                render={({ field }) => (
-                  <InputMask
-                    {...field}
-                    type="text"
-                    placeholder="CPF"
-                    mask={cpfMask}
-                  />
-                )}
-              ></Input>
-            </InputDiv>
-            <Mensagem component="span" name="rg" />
-            <InputDiv>
-              <Label for="rg">RG</Label>
-              <Input
-                name="rg"
-                render={({ field }) => (
-                  <InputMask
-                    {...field}
-                    type="text"
-                    placeholder="RG"
-                    mask={rgMask}
-                  />
-                )}
-              ></Input>
-            </InputDiv>
-            <Mensagem component="span" name="email" />
-            <InputDiv>
-              <Label for="email">Email</Label>
-              <Input name="email" type="email" placeholder="Email"></Input>
-            </InputDiv>
-            <Mensagem component="span" name="dataNascimento" />
-            <InputDiv>
-              <Label for="dataNascimento">Data de nascimento</Label>
-              <Input
-                name="dataNascimento"
-                type="date"
-                placeholder="Data de nascimento"
-              ></Input>
-            </InputDiv>
-            <InputDiv>
-              <Label for="permissao">Permissão</Label>
-              <Select component="select" name="permissao">
-                <option value={0}>Colaborador</option>
-                <option value={1}>Lider</option>
-                {handlePermissao(usuario.isAdmin)}
-              </Select>
-            </InputDiv>
-            <InputDiv>
-              <Label for="posicoes">Posições</Label>
-              <Select component="select" name="idPosicoes">
-                {posicoesSelect}
-              </Select>
-            </InputDiv>
-            <Mensagem component="span" name="pix" />
-            <InputDiv>
-              <Label for="nome">PIX</Label>
-              <Input name="pix" type="text" placeholder="PIX"></Input>
-            </InputDiv>
+            <Input name='nome' type='text' label='Nome' placeholder='nome' />
+            <Input name='cnh' label='CNH' component='select' />
+            <InputMask name='cpf' type='text' label='CPF' placeholder='cpf' />
+            <InputMask name='rg' type='text' label='RG' placeholder='rg' />
+            <Input name='email' type='email' label='Email' placeholder='email' />
+            <Input name='dataNascimento' type='date' label='Data Nascimento' placeholder='data nascimento' />
+            <Input name='permissao' label='Permissão' component='select' />
+            <Input name='posicao' label='Posição' component='select' posicoes={posicoes} />
+            <Input name='pix' type='text' label='PIX' placeholder='pix' />
           </FormurarioDiv>
           <FormurarioDiv>
             <TituloEndereco>
               <p style={{ margin: "0" }}>Endereço:</p>
             </TituloEndereco>
-            <Mensagem component="span" name="rua" />
-            <InputDiv>
-              <Label for="rua">Rua</Label>
-              <Input name="rua" type="text" placeholder="Rua"></Input>
-            </InputDiv>
-            <Mensagem component="span" name="numero" />
-            <InputDiv>
-              <Label for="numero">Número</Label>
-              <Input name="numero" type="number" placeholder="Número"></Input>
-            </InputDiv>
-            <Mensagem component="span" name="complemento" />
-            <InputDiv>
-              <Label for="complemento">Complemento</Label>
-              <Input
-                name="complemento"
-                type="text"
-                placeholder="Complemento"
-              ></Input>
-            </InputDiv>
-            <Mensagem component="span" name="bairro" />
-            <InputDiv>
-              <Label for="bairro">Bairro</Label>
-              <Input name="bairro" type="text" placeholder="Bairro"></Input>
-            </InputDiv>
-            <Mensagem component="span" name="cidade" />
-            <InputDiv>
-              <Label for="cidade">Cidade</Label>
-              <Input name="cidade" type="text" placeholder="Cidade"></Input>
-            </InputDiv>
-            <Mensagem component="span" name="estado" />
-            <InputDiv>
-              <Label for="estado">Estado</Label>
-              <Select component="select" name="estado">
-                <option value="">Selecione um estado</option>
-                <option value="AC">Acre</option>
-                <option value="AL">Alagoas</option>
-                <option value="AP">Amapá</option>
-                <option value="AM">Amazonas</option>
-                <option value="BA">Bahia</option>
-                <option value="CE">Ceará</option>
-                <option value="DF">Distrito Federal</option>
-                <option value="ES">Espírito Santo</option>
-                <option value="GO">Goiás</option>
-                <option value="MA">Maranhão</option>
-                <option value="MT">Mato Grosso</option>
-                <option value="MS">Mato Grosso do Sul</option>
-                <option value="MG">Minas Gerais</option>
-                <option value="PA">Pará</option>
-                <option value="PB">Paraíba</option>
-                <option value="PR">Paraná</option>
-                <option value="PE">Pernambuco</option>
-                <option value="PI">Piauí</option>
-                <option value="RJ">Rio de Janeiro</option>
-                <option value="RN">Rio Grande do Norte</option>
-                <option value="RS">Rio Grande do Sul</option>
-                <option value="RO">Rondônia</option>
-                <option value="RR">Roraima</option>
-                <option value="SC">Santa Catarina</option>
-                <option value="SP">São Paulo</option>
-                <option value="SE">Sergipe</option>
-                <option value="TO">Tocantins</option>
-              </Select>
-            </InputDiv>
-            <Mensagem component="span" name="pais" />
-            <InputDiv>
-              <Label for="pais">País</Label>
-              <Input name="pais" type="text" placeholder="Pais"></Input>
-            </InputDiv>
-            <Mensagem component="span" name="cep" />
-            <InputDiv>
-              <Label for="cep">CEP</Label>
-              <Input
-                name="cep"
-                render={({ field }) => (
-                  <InputMask
-                    {...field}
-                    type="text"
-                    placeholder="CEP"
-                    mask={cepMask}
-                  />
-                )}
-              ></Input>
-            </InputDiv>
+            <Input name='rua' type='text' label='Rua' placeholder='rua' />
+            <Input name='numero' type='number' label='Numero' placeholder='numero' />
+            <Input name='complemento' type='text' label='Complemento' placeholder='complemento' />
+            <Input name='bairro' type='text' label='Bairro' placeholder='bairro' />
+            <Input name='cidade' type='text' label='Cidade' placeholder='cidade' />
+            <Input name='estado' label='Estado' component='select' />
+            <Input name='pais' type='text' label='Pais' placeholder='pais' />
+            <InputMask name='cep' type='text' label='CEP' placeholder='cep' />
           </FormurarioDiv>
           <ButtonDiv>
             <Button type="submit">Cadastrar</Button>
           </ButtonDiv>
         </BigForm>
       </Formik>
-    </DivPrincipal>
+    </>
   );
 };
 
