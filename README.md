@@ -32,7 +32,6 @@
 ✔️ Eu como administrador desejo inserir uma Lista de treinamentos para cada posição.<br>
 ✔️ Eu como líder desejo usar um mecanismo de busca de funcionários com filtros.<br>
 <br>
-<h2 align="center">Contribuidores</h2>
 
 ## Desenvolvimento
 - Projeto desenvolvido em ReactJS.
