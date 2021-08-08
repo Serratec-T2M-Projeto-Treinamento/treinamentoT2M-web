@@ -2,8 +2,7 @@
 <p align="center">
 <img height="100px" src="https://github.com/marcosbarker/serratec.residencia/blob/main/assets/logoSerratec.png" alt="logo serratec"/><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img height="100px" src="https://github.com/marcosbarker/serratec.residencia/blob/main/assets/logot2m1.png" alt="logo t2m"/>
 </p>
-<h1 align="center">T2M TREINAMENTO WEB</h1><br>
-<h3 align="center">Product Owner: Erik Frederik Gabrich Menas</h3>
+<h1>T2M TREINAMENTO WEB</h1>
 </br>
 
 ## 🖊️Projeto
@@ -44,35 +43,6 @@
 - [**Yarn**](https://yarnpkg.com/)    [(*Documentação*)](https://yarnpkg.com/getting-started) 
 
 <br>
-
-## Monitores
-<table>
-  <tr>
-    <td align="center">
-      <a href="https://github.com/AbJoia">
-        <img src="https://unavatar.vercel.app/github/AbJoia" width="70px;" alt="Avatar Abner Joia"/><br>
-        <sub>
-          <b>Abner Joia</b>
-        </sub>
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://github.com/bernardpiccoli">
-        <img src="https://unavatar.vercel.app/github/bernardpiccoli" width="70px;" alt="Avatar Bernard Piccoli"/><br>
-        <sub>
-          <b>Bernard Piccoli</b>
-        </sub>
-      </a><br>
-    </td>
-    <td align="center">
-      <a href="https://github.com/caina-machado">
-        <img src="https://unavatar.vercel.app/github/caina-machado" width="70px;" alt="Avatar Cainã Machado"/><br>
-        <sub>
-          <b>Cainã Machado</b>
-        </sub>
-      </a><br>
-    </td>
-  </table>
 
 ## Desenvolvedores
 <table>
@@ -143,5 +113,60 @@
     </td>
 </table>
 <br>
+
+## Product Owner
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://www.linkedin.com/in/erik-menas-584b541b4/">
+        <img src="https://www.linkedin.com/in/erik-menas-584b541b4/detail/photo/" width="70px;" alt="Avatar Erik Menas"/><br>
+        <sub>
+          <b>Erik Menas</b>
+        </sub>
+      </a>
+    </td>
+</table>
+
+## Tester
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://www.linkedin.com/in/victor-vieira-0081a720a/">
+        <img src="https://www.linkedin.com/in/victor-vieira-0081a720a/detail/photo/" width="70px;" alt="Avatar Erik Menas"/><br>
+        <sub>
+          <b>Victor Vieira</b>
+        </sub>
+      </a>
+    </td>
+</table>
+
+## Monitores
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/AbJoia">
+        <img src="https://unavatar.vercel.app/github/AbJoia" width="70px;" alt="Avatar Abner Joia"/><br>
+        <sub>
+          <b>Abner Joia</b>
+        </sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/bernardpiccoli">
+        <img src="https://unavatar.vercel.app/github/bernardpiccoli" width="70px;" alt="Avatar Bernard Piccoli"/><br>
+        <sub>
+          <b>Bernard Piccoli</b>
+        </sub>
+      </a><br>
+    </td>
+    <td align="center">
+      <a href="https://github.com/caina-machado">
+        <img src="https://unavatar.vercel.app/github/caina-machado" width="70px;" alt="Avatar Cainã Machado"/><br>
+        <sub>
+          <b>Cainã Machado</b>
+        </sub>
+      </a><br>
+    </td>
+  </table>
 
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;⬆️[**Back to top**](#back-to-top)⬆️
