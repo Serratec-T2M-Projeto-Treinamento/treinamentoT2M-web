@@ -7,15 +7,16 @@
 </br>
 
 ## Índice
-- [Projeto](#-projeto)
+- [Projeto](#projeto)
 - [Backlog Priorizado](#backlog-priorizado)
-- [Desenvolvimento Web](#-desenvolvimento-web)
+- [Desenvolvimento Web](#desenvolvimento-web)
 - [Versão Mobile](#versão-mobile)
 - [Back End](#back-end)
 - [Screenshots](#screenshots)
 - [Tecnologia Utilizada](#tecnologia-utilizada)
 - [Contribuidores](#contribuidores)
 <br>
+<a name="projeto">
 
 ## 🖊️Projeto
 **Desenvolvimento de aplicação Web, Mobile e API que cumpra os seguintes requisitos:**
@@ -36,6 +37,7 @@
 ✔️ Eu como administrador desejo inserir uma Lista de treinamentos para cada posição.<br>
 ✔️ Eu como líder desejo usar um mecanismo de busca de funcionários com filtros.<br>
 <br>
+<a name="desenvolvimento-web">
 
 ## ⛏️Desenvolvimento Web
 - Projeto desenvolvido em ReactJS.
