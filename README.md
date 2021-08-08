@@ -7,14 +7,14 @@
 </br>
 
 ## Índice
-- [Projeto](#-projeto)
-- [Backlog Priorizado](#-backlog-priorizado)
-- [Desenvolvimento Web](#-desenvolvimento-web)
-- [Versão Mobile](#-versão-mobile)
-- [Back End](#-back-end)
-- [Screenshots](#-screenshots)
-- [Tecnologia Utilizada](#-tecnologia-utilizada)
-- [Contribuidores](#-contribuidores)
+- [Projeto](#projeto)
+- [Backlog Priorizado](#backlog-priorizado)
+- [Desenvolvimento Web](#desenvolvimento-web)
+- [Versão Mobile](#versão-mobile)
+- [Back End](#back-end)
+- [Screenshots](#screenshots)
+- [Tecnologia Utilizada](#tecnologia-utilizada)
+- [Contribuidores](#contribuidores)
 <br>
 
 ## 🖊️Projeto
