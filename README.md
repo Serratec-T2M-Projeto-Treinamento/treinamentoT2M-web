@@ -102,7 +102,7 @@
       <a href="https://github.com/ianalt">
         <img src="https://unavatar.vercel.app/github/ianalt" width="70px;" alt="Avatar Ian Alt"/><br>
         <sub>
-          <b>.......Ian Alt.......</b>
+          <b>Ian Alt</b>
         </sub>
       </a><br>
     </td>
@@ -130,6 +130,10 @@
         </sub>
       </a><br>
     </td>
+  </tr>
+</table>
+  <table>
+  <tr>
     <td align="center">
       <a href="https://github.com/marcosbarker">
         <img src="https://unavatar.vercel.app/github/marcosbarker" width="70px;" alt="Avatar Marcos Paulo Marques Corrêa Gomes"/><br>
@@ -154,6 +158,7 @@
         </sub>
       </a><br>
     </td>
+  </tr>
 </table>
 
 ## 🧑‍🏫Monitores
@@ -183,7 +188,8 @@
         </sub>
       </a><br>
     </td>
-  </table>
+  </tr>
+</table>
 
 ## 👨‍💼Product Owner
 <table>
