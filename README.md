@@ -22,7 +22,7 @@
   - [Treinamento](#treinamento)
 - [🚀Tecnologias Utilizadas](#tecnologias-utilizadas)
 - [👩‍💻Desenvolvedores](#desenvolvedores)
-- [🧑‍🏫Monitores](#monitores)
+- [👨‍🏫Monitores](#monitores)
 - [👨‍💼Product Owner](#product-owner)
 - [🧪Tester](#tester)
 <br>
@@ -185,7 +185,7 @@
   </tr>
 </table>
 
-## 🧑‍🏫Monitores
+## 👨‍🏫Monitores
 <table>
   <tr>
     <td align="center">
