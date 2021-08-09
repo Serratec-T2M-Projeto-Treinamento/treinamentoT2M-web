@@ -61,13 +61,16 @@
 
 ## 🌐Site 
   - [T2M Treinamento](https://t2mtreinamentos.herokuapp.com/)
-
+<br>
+  
 ## 📱Versão Mobile
 - [Repositório](https://github.com/serratec/20211t2mTreinamentoMobile)
-
+<br>
+  
 ## 🍃Back End
 - [Repositório](https://github.com/serratec/2021.1t2mTreinamento)
-
+<br>
+  
 ## ⚙️Repositórios de Desenvolvimento
 - [Organização](https://github.com/Serratec-T2M-Projeto-Treinamento)
 - [API](https://github.com/Serratec-T2M-Projeto-Treinamento/treinamentoT2M-api)
@@ -248,5 +251,6 @@
       </a>
     </td>
 </table>
+<br>
 
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;⬆️[**Back to top**](#back-to-top)⬆️
