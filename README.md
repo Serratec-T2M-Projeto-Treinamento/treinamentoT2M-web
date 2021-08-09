@@ -7,14 +7,24 @@
 </br>
 
 ## Índice
-- [Projeto](#projeto)
-- [Backlog Priorizado](#backlog-priorizado)
-- [Desenvolvimento Web](#desenvolvimento-web)
-- [Versão Mobile](#versão-mobile)
-- [Back End](#back-end)
-- [Screenshots](#screenshots)
-- [Tecnologia Utilizada](#tecnologias-utilizadas)
-- [Contribuidores](#contribuidores)
+- [Índice](#índice)
+- [🖊️Projeto](#️projeto)
+- [⚡Backlog Priorizado](#backlog-priorizado)
+- [⛏️Desenvolvimento Web](#️desenvolvimento-web)
+- [📱Versão Mobile](#versão-mobile)
+- [🍃Back End](#back-end)
+- [📷Screenshots](#screenshots)
+  - [Login](#login)
+  - [Listagem Colaboradores](#listagem-colaboradores)
+  - [Filtro por Coluna](#filtro-por-coluna)
+  - [Informações Colaborador](#informações-colaborador)
+  - [Cadastro Colaborador](#cadastro-colaborador)
+  - [Treinamento](#treinamento)
+- [🚀Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [👩‍💻Desenvolvedores](#desenvolvedores)
+- [🧑‍🏫Monitores](#monitores)
+- [👨‍💼Product Owner](#product-owner)
+- [🧪Tester](#tester)
 <br>
 <a name="projeto">
 
@@ -57,6 +67,19 @@
 <br>
 
 ## 📷Screenshots
+### Login
+![login](https://user-images.githubusercontent.com/57602117/128663039-4a31c4d4-4a02-4235-89fe-3353ff96de0e.gif)
+### Listagem Colaboradores
+![listaColaboradores](https://user-images.githubusercontent.com/57602117/128663082-a7f3e7b0-0c41-4e7c-981b-a3564179d787.gif)
+### Filtro por Coluna
+![filtro](https://user-images.githubusercontent.com/57602117/128663142-f96d880b-20f7-44ac-bd43-3f195263a81b.gif)
+### Informações Colaborador
+![informacoes](https://user-images.githubusercontent.com/57602117/128663171-7a3bd3a6-0304-444f-8a04-f158c39eac53.gif)
+### Cadastro Colaborador
+![cadastro](https://user-images.githubusercontent.com/57602117/128663216-0c440160-8ab5-40f9-88e5-03cd2d6e52a2.gif)
+### Treinamento
+![treinamentoLista](https://user-images.githubusercontent.com/57602117/128663247-475d8716-c498-4571-8533-97d814cf7dc2.gif)
+
 <br>
 
 ## 🚀Tecnologias Utilizadas
