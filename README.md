@@ -13,7 +13,7 @@
 - [Versão Mobile](#versão-mobile)
 - [Back End](#back-end)
 - [Screenshots](#screenshots)
-- [Tecnologia Utilizada](#tecnologia-utilizada)
+- [Tecnologia Utilizada](#tecnologias-utilizadas)
 - [Contribuidores](#contribuidores)
 <br>
 <a name="projeto">
@@ -59,22 +59,22 @@
 ## 📷Screenshots
 <br>
 
-## 🚀Tecnologia Utilizada
+## 🚀Tecnologias Utilizadas
 - [**Axios**](https://www.npmjs.com/package/react-axios)    [(*Documentação*)](https://www.npmjs.com/package/react-axios)
 - [**JavaScript**](https://www.javascript.com/)    [(*Documentação MDN*)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 - [**Material Table**](https://material-table.com/#/)    [(*Documentação*)](https://material-table.com/#/docs/all-props)
 - [**Node**](https://nodejs.org/en/)    [(*Documentação*)](https://nodejs.org/en/docs/)
 - [**npm**](https://www.npmjs.com/)    [(*Documentação*)](https://docs.npmjs.com/)
 - [**ReactJS**](https://reactjs.org/)    [(*Documentação*)](https://reactjs.org/tutorial/tutorial.html)    [(*Documentação MDN*)](https://developer.mozilla.org/pt-BR/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/React_getting_started)
-- [**React Loading**](https://www.npmjs.com/package/react-loadingg)
-- [**React Modal**](https://www.npmjs.com/package/react-modal)
-- [**React Router Dom**](https://www.npmjs.com/package/react-router-dom)
+- [**React Loading**](https://github.com/Summer-andy/react-loading)    [(*Documentação*)](https://www.npmjs.com/package/react-loadingg)
+- [**React Modal**](https://github.com/reactjs/react-modal)    [(*Documentação*)](https://www.npmjs.com/package/react-modal)
+- [**React Router Dom**](https://github.com/ReactTraining/react-router#readme)    [(*Documentação*)](https://www.npmjs.com/package/react-router-dom)
 - [**Styled Components**](https://styled-components.com/)    [(*Documentação*)](https://styled-components.com/docs)
-- [**Vanilla Masker**](http://vanilla-masker.github.io/vanilla-masker/)
+- [**Vanilla Masker**](http://vanilla-masker.github.io/vanilla-masker/)    [(*Documentação*)](https://github.com/vanilla-masker/vanilla-masker)
 - [**Vercel**](https://vercel.com)    [(*Documentação*)](https://vercel.com/docs)
 - [**Visual Studio Code**](https://code.visualstudio.com/)    [*(Documentação)*](https://code.visualstudio.com/docs)
 - [**Yarn**](https://yarnpkg.com/)    [(*Documentação*)](https://yarnpkg.com/getting-started) 
-- [**Yup**](https://www.npmjs.com/package/yup)
+- [**Yup**](https://github.com/jquense/yup)    [(*Documentação*)](https://www.npmjs.com/package/yup)
 
 <br>
 <h1 align="center">🤝Contribuidores</h1><br>
