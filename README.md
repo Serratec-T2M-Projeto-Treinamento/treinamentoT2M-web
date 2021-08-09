@@ -11,6 +11,7 @@
 - [🖊️Projeto](#️projeto)
 - [⚡Backlog Priorizado](#backlog-priorizado)
 - [⛏️Desenvolvimento Web](#️desenvolvimento-web)
+- [🌐Site](#site)
 - [📱Versão Mobile](#versão-mobile)
 - [🍃Back End](#back-end)
 - [⚙️Repositórios de Desenvolvimento](#️repositórios-de-desenvolvimento)
@@ -56,7 +57,9 @@
 - Prazo em que foi desenvolvido 19/07/2021 até 06/08/2021.
 - Consumindo API T2M Treinamento.
 - Deploy feito no Heroku utilizando buildpack Mars.
-- Site 
+<br>
+
+## 🌐Site 
   - [T2M Treinamento](https://t2mtreinamentos.herokuapp.com/)
 <br>
 
@@ -102,7 +105,6 @@
 - [**React Router Dom**](https://github.com/ReactTraining/react-router#readme)    [(*Documentação*)](https://www.npmjs.com/package/react-router-dom)
 - [**Styled Components**](https://styled-components.com/)    [(*Documentação*)](https://styled-components.com/docs)
 - [**Vanilla Masker**](http://vanilla-masker.github.io/vanilla-masker/)    [(*Documentação*)](https://github.com/vanilla-masker/vanilla-masker)
-- [**Vercel**](https://vercel.com)    [(*Documentação*)](https://vercel.com/docs)
 - [**Visual Studio Code**](https://code.visualstudio.com/)    [*(Documentação)*](https://code.visualstudio.com/docs)
 - [**Yarn**](https://yarnpkg.com/)    [(*Documentação*)](https://yarnpkg.com/getting-started) 
 - [**Yup**](https://github.com/jquense/yup)    [(*Documentação*)](https://www.npmjs.com/package/yup)
