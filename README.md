@@ -44,7 +44,7 @@
 - Equipe fixa de 3 desenvolvedores.
 - Prazo em que foi desenvolvido 19/07/2021 até 06/08/2021.
 - Consumindo API T2M Treinamento.
-- Deploy feito no Vercel.
+- Deploy feito no Heroku utilizando buildpack Mars.
 - Site 
   - [T2M Treinamento](https://t2mtreinamentos.herokuapp.com/)
 <br>
@@ -61,6 +61,7 @@
 
 ## 🚀Tecnologias Utilizadas
 - [**Axios**](https://www.npmjs.com/package/react-axios)    [(*Documentação*)](https://www.npmjs.com/package/react-axios)
+- [**Heroku**](https://www.heroku.com/)    [(*Documentação*)](https://devcenter.heroku.com/categories/reference)
 - [**JavaScript**](https://www.javascript.com/)    [(*Documentação MDN*)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 - [**Material Table**](https://material-table.com/#/)    [(*Documentação*)](https://material-table.com/#/docs/all-props)
 - [**Node**](https://nodejs.org/en/)    [(*Documentação*)](https://nodejs.org/en/docs/)
