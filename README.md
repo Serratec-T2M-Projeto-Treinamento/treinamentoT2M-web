@@ -66,10 +66,15 @@
 - [**Node**](https://nodejs.org/en/)    [(*Documentação*)](https://nodejs.org/en/docs/)
 - [**npm**](https://www.npmjs.com/)    [(*Documentação*)](https://docs.npmjs.com/)
 - [**ReactJS**](https://reactjs.org/)    [(*Documentação*)](https://reactjs.org/tutorial/tutorial.html)    [(*Documentação MDN*)](https://developer.mozilla.org/pt-BR/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/React_getting_started)
+- [**React Loading**](https://www.npmjs.com/package/react-loadingg)
+- [**React Modal**](https://www.npmjs.com/package/react-modal)
+- [**React Router Dom**](https://www.npmjs.com/package/react-router-dom)
 - [**Styled Components**](https://styled-components.com/)    [(*Documentação*)](https://styled-components.com/docs)
+- [**Vanilla Masker**](http://vanilla-masker.github.io/vanilla-masker/)
 - [**Vercel**](https://vercel.com)    [(*Documentação*)](https://vercel.com/docs)
 - [**Visual Studio Code**](https://code.visualstudio.com/)    [*(Documentação)*](https://code.visualstudio.com/docs)
 - [**Yarn**](https://yarnpkg.com/)    [(*Documentação*)](https://yarnpkg.com/getting-started) 
+- [**Yup**](https://www.npmjs.com/package/yup)
 
 <br>
 <h1 align="center">🤝Contribuidores</h1><br>
@@ -137,7 +142,7 @@
       <a href="https://github.com/MatheusJRM">
         <img src="https://unavatar.vercel.app/github/MatheusJRM" width="70px;" alt="Avatar Matheus José"/><br>
         <sub>
-          <b>Matheus José</b>
+          <b>Matheus José Ribeiro de Moura</b>
         </sub>
       </a><br>
     </td>
