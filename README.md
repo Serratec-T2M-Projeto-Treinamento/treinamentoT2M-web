@@ -61,7 +61,6 @@
 
 ## 🌐Site 
   - [T2M Treinamento](https://t2mtreinamentos.herokuapp.com/)
-<br>
 
 ## 📱Versão Mobile
 - [Repositório](https://github.com/serratec/20211t2mTreinamentoMobile)
