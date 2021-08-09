@@ -54,8 +54,7 @@
 ## ⛏️Desenvolvimento Web
 - Projeto desenvolvido em ReactJS.
 - Equipe fixa de 3 desenvolvedores.
-- Prazo em que foi desenvolvido 19/07/2021 até 06/08/2021.
-- Consumindo API T2M Treinamento.
+- Prazo para desenvolver projeto 19/07/2021 até 06/08/2021.
 - Deploy feito no Heroku utilizando buildpack Mars.
 <br>
 
