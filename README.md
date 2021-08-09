@@ -134,6 +134,14 @@
       </a><br>
     </td>
     <td align="center">
+      <a href="https://github.com/MatheusJRM">
+        <img src="https://unavatar.vercel.app/github/MatheusJRM" width="70px;" alt="Avatar Matheus José"/><br>
+        <sub>
+          <b>Matheus José</b>
+        </sub>
+      </a><br>
+    </td>
+    <td align="center">
       <a href="https://github.com/ThiagoLino311">
         <img src="https://unavatar.vercel.app/github/ThiagoLino311" width="70px;" alt="Avatar Thiago Lino"/><br>
         <sub>
