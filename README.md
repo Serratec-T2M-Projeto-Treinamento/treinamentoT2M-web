@@ -1,7 +1,7 @@
 <a name="back-to-top">
 <h5 align="center"><b><i>Projeto dos alunos da R-TIC/Software 2021.1 com a t2m</i></b></h5>
 <p align="center">
-<img height="100px" src="https://github.com/marcosbarker/serratec.residencia/blob/main/assets/logoSerratec.png" alt="logo serratec"/><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img height="100px" src="https://github.com/marcosbarker/serratec.residencia/blob/main/assets/logot2m1.png" alt="logo t2m"/>
+<img height="100px" src="./assets/img/logoSerratec.png" alt="logo serratec"/><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img height="100px" src="./assets/img/logot2m1.png" alt="logo t2m"/>
 </p>
 <h1 align="center">T2M TREINAMENTO WEB</h1>
 </br>
