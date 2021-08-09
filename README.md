@@ -13,6 +13,7 @@
 - [⛏️Desenvolvimento Web](#️desenvolvimento-web)
 - [📱Versão Mobile](#versão-mobile)
 - [🍃Back End](#back-end)
+- [⚙️Repositórios de Desenvolvimento](#️repositórios-de-desenvolvimento)
 - [📷Screenshots](#screenshots)
   - [Login](#login)
   - [Listagem Colaboradores](#listagem-colaboradores)
@@ -64,6 +65,12 @@
 
 ## 🍃Back End
 - [Repositório](https://github.com/serratec/2021.1t2mTreinamento)
+
+## ⚙️Repositórios de Desenvolvimento
+- [Organização](https://github.com/Serratec-T2M-Projeto-Treinamento)
+- [API](https://github.com/Serratec-T2M-Projeto-Treinamento/treinamentoT2M-api)
+- [Mobile](https://github.com/Serratec-T2M-Projeto-Treinamento/treinamentoT2M-mobile)
+- [Web](https://github.com/Serratec-T2M-Projeto-Treinamento/treinamentoT2M-web)
 <br>
 
 ## 📷Screenshots
