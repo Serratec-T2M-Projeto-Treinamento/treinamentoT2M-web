@@ -18,7 +18,6 @@ import Alerta from "../../components/Alerta";
 const CadastrarColaboradores = () => {
   const history = useHistory();
   const [posicoes, setPosicoes] = useState([]);
-  const [concluido, setConcluido] = useState(false);
   const [erro, setErro] = useState(false);
 
   useEffect(async () => {
@@ -45,7 +44,6 @@ const CadastrarColaboradores = () => {
 
   return (
     <>
-      <Alerta isOpen={concluido} func={setConcluido} texto='Cadastro efetuado com sucesso !!!' />
       <Alerta isOpen={erro} func={setErro} texto='Os Campos CPF, RG, email e Pix devem ter valores únicos, algum colaborador cadastrado já deve possuir algum desses valores !!!' />
       <Header titulo='Cadastro de Colaboradores' textoButton='Voltar' caminho='pesquisacolaborador' />
       <Formik
@@ -101,11 +99,17 @@ const CadastrarColaboradores = () => {
 
             await api.put(`/colabsEndrs/colaborador/${idColaborador}/enderecoAInserir/${idEndereco}`);
 
-            setConcluido(true);
+            const responseUsuario = await api.get(`/colaboradores/${idColaborador}`)
+            alert(`
+            Cadastro efetuado com sucesso !!!
+            Usuario: ${responseUsuario.data.usuario.usuario}
+            Senha: ${responseUsuario.data.usuario.senha}
+            `)
+
             history.push("/pesquisacolaborador");
 
           } catch {
-            setErro(true)
+            setErro(true);
           }
         }}
         validationSchema={validations}
